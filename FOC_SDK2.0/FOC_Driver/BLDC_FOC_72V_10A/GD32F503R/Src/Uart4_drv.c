@@ -41,25 +41,11 @@ int uart4_read(uint8_t *out, uint16_t max)
     return (int)cnt;
 }
 
-static void uart4_set_tx_mode(void)
-{
-    gpio_bit_set(UART4_DE_PORT, UART4_DE_PIN);  
-}
-
-static void uart4_set_rx_mode(void)
-{
-    gpio_bit_reset(UART4_DE_PORT, UART4_DE_PIN);  
-}
-
 void uart4_init(uint32_t baud)
 {
     rcu_periph_clock_enable(RCU_GPIOD);
     rcu_periph_clock_enable(RCU_GPIOC);
     rcu_periph_clock_enable(RCU_UART4);
-
-    gpio_mode_set(UART4_DE_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, UART4_DE_PIN);
-    gpio_output_options_set(UART4_DE_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_LEVEL2, UART4_DE_PIN);
-//    uart4_set_rx_mode();  
 
     gpio_mode_set(UART4_RX_PORT, GPIO_MODE_AF, GPIO_PUPD_NONE, UART4_RX_PIN);
     gpio_af_set(UART4_RX_PORT, UART4_AF, UART4_RX_PIN);
@@ -84,8 +70,6 @@ void uart4_init(uint32_t baud)
 
 void uart4_send(const uint8_t *buf, uint16_t len)
 {
-//    uart4_set_tx_mode();  
-
     for (uint16_t i = 0; i < len; i++) {
         usart_data_transmit(UART4, buf[i]);
         while (RESET == usart_flag_get(UART4, USART_FLAG_TBE)) {
@@ -95,7 +79,6 @@ void uart4_send(const uint8_t *buf, uint16_t len)
     while (RESET == usart_flag_get(UART4, USART_FLAG_TC)) {
     }
 
-//    uart4_set_rx_mode();
     /* RS485 半双工：最小延时，应答由 RX 中断解析，不在此等待 */
 //    for (volatile uint32_t i = 0; i < 2; i++) { (void)i; }
 }

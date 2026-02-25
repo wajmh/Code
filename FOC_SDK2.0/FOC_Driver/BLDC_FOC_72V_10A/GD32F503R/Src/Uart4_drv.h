@@ -5,9 +5,6 @@
 #include "gd32f50x.h"
 #include <stdint.h>
 
-#define UART4_DE_PORT   GPIOC
-#define UART4_DE_PIN    GPIO_PIN_13
-
 // ????????
 typedef struct {
     uint32_t input_single_pos;     // ??????? (17?)
