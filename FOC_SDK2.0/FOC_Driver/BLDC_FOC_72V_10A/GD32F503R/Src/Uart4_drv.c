@@ -3,10 +3,12 @@
 #include "gd32f50x_gpio.h"
 #include "gd32f50x_rcu.h"
 #include "gd32f50x_misc.h"
+#include "control_para.h"
 
 /* 输入端编码器：17 位，零位与电角度对齐；电机极对数 15（与 motor_para.h 一致） */
 #define ENCODER_COUNTS_PER_REV   (131072.0f)   /* 2^17 */
 #define ENCODER_POLE_PAIRS       (15U)
+#define MOTOR_PI_F               (3.1415926f)
 #define MOTOR_PI_2_F             (6.2831853f)  /* 2*pi */
 
 #define UART4_RX_PORT   GPIOD
@@ -21,6 +23,10 @@ static volatile uint16_t rx_head = 0;
 static volatile uint16_t rx_tail = 0;
 static uint8_t rx_buf[UART4_RX_BUF_SIZE];
 static volatile float uart4_last_elec_angle_rad = 0.0f;
+static volatile float uart4_last_output_pos_rad = 0.0f;
+static volatile float uart4_last_output_speed_rad_s = 0.0f;
+static float uart4_prev_output_pos_rad = 0.0f;
+static uint8_t uart4_output_state_inited = 0U;
 
 static void rb_push(uint8_t b)
 {
@@ -124,17 +130,43 @@ void uart4_encoder_rx_process(void)
         }
         rx_tail = (uint16_t)((rx_tail + 11) % UART4_RX_BUF_SIZE);
 
-    uint32_t input_single_pos = ((uint32_t)frame[3] << 16) | ((uint32_t)frame[2] << 8) | frame[1];
-    input_single_pos &= 0x1FFFF;
-    float mech_rad = ((float)input_single_pos / ENCODER_COUNTS_PER_REV) * MOTOR_PI_2_F;
-    float elec = mech_rad * (float)ENCODER_POLE_PAIRS;
-    while (elec >= MOTOR_PI_2_F) {
-        elec -= MOTOR_PI_2_F;
-    }
-    while (elec < 0.0f) {
-        elec += MOTOR_PI_2_F;
-    }
-    uart4_last_elec_angle_rad = elec;
+        uint32_t input_single_pos = ((uint32_t)frame[3] << 16) | ((uint32_t)frame[2] << 8) | frame[1];
+        uint32_t output_single_pos = ((uint32_t)frame[6] << 16) | ((uint32_t)frame[5] << 8) | frame[4];
+        input_single_pos &= 0x1FFFFU;
+        output_single_pos &= 0x1FFFFU;
+
+        {
+            float mech_rad = ((float)input_single_pos / ENCODER_COUNTS_PER_REV) * MOTOR_PI_2_F;
+            float elec = mech_rad * (float)ENCODER_POLE_PAIRS;
+            while (elec >= MOTOR_PI_2_F) {
+                elec -= MOTOR_PI_2_F;
+            }
+            while (elec < 0.0f) {
+                elec += MOTOR_PI_2_F;
+            }
+            uart4_last_elec_angle_rad = elec;
+        }
+
+        {
+            float output_pos_rad = ((float)output_single_pos / ENCODER_COUNTS_PER_REV) * MOTOR_PI_2_F;
+            float delta_rad;
+            uart4_last_output_pos_rad = output_pos_rad;
+
+            if (uart4_output_state_inited != 0U) {
+                delta_rad = output_pos_rad - uart4_prev_output_pos_rad;
+                if (delta_rad > MOTOR_PI_F) {
+                    delta_rad -= MOTOR_PI_2_F;
+                } else if (delta_rad < -MOTOR_PI_F) {
+                    delta_rad += MOTOR_PI_2_F;
+                }
+                uart4_last_output_speed_rad_s = delta_rad * (float)PWM_FREQUENCE;
+            } else {
+                uart4_last_output_speed_rad_s = 0.0f;
+                uart4_output_state_inited = 1U;
+            }
+
+            uart4_prev_output_pos_rad = output_pos_rad;
+        }
     }
 }
 
@@ -183,6 +215,16 @@ void uart4_get_last_elec_angle_rad(float *elec_angle_rad)
 {
     if (elec_angle_rad != ((void*)0)) {
         *elec_angle_rad = uart4_last_elec_angle_rad;
+    }
+}
+
+void uart4_get_last_output_state(float *output_pos_rad, float *output_speed_rad_s)
+{
+    if (output_pos_rad != ((void*)0)) {
+        *output_pos_rad = uart4_last_output_pos_rad;
+    }
+    if (output_speed_rad_s != ((void*)0)) {
+        *output_speed_rad_s = uart4_last_output_speed_rad_s;
     }
 }
 

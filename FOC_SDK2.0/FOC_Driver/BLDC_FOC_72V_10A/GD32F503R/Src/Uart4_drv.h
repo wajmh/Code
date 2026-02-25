@@ -34,5 +34,6 @@ int uart4_get_elec_angle_rad(float *elec_angle_rad);
 
 /** 非阻塞读最近一次电角度（FOC 中断中调用）；主循环需周期性调用 uart4_get_elec_angle_rad 刷新 */
 void uart4_get_last_elec_angle_rad(float *elec_angle_rad);
+void uart4_get_last_output_state(float *output_pos_rad, float *output_speed_rad_s);
 
 #endif 

@@ -1019,8 +1019,8 @@ Section Cross References
     uart4_drv.o(.ARM.exidx.text.uart4_read) refers to uart4_drv.o(.text.uart4_read) for [Anonymous Symbol]
     uart4_drv.o(.text.uart4_init) refers to gd32f50x_rcu.o(.text.rcu_periph_clock_enable) for rcu_periph_clock_enable
     uart4_drv.o(.text.uart4_init) refers to gd32f50x_gpio.o(.text.gpio_mode_set) for gpio_mode_set
-    uart4_drv.o(.text.uart4_init) refers to gd32f50x_gpio.o(.text.gpio_output_options_set) for gpio_output_options_set
     uart4_drv.o(.text.uart4_init) refers to gd32f50x_gpio.o(.text.gpio_af_set) for gpio_af_set
+    uart4_drv.o(.text.uart4_init) refers to gd32f50x_gpio.o(.text.gpio_output_options_set) for gpio_output_options_set
     uart4_drv.o(.text.uart4_init) refers to gd32f50x_usart.o(.text.usart_deinit) for usart_deinit
     uart4_drv.o(.text.uart4_init) refers to gd32f50x_usart.o(.text.usart_baudrate_set) for usart_baudrate_set
     uart4_drv.o(.text.uart4_init) refers to gd32f50x_usart.o(.text.usart_stop_bit_set) for usart_stop_bit_set
@@ -1041,6 +1041,10 @@ Section Cross References
     uart4_drv.o(.text.uart4_encoder_rx_process) refers to uart4_drv.o(.bss.rx_tail) for rx_tail
     uart4_drv.o(.text.uart4_encoder_rx_process) refers to uart4_drv.o(.bss.rx_buf) for rx_buf
     uart4_drv.o(.text.uart4_encoder_rx_process) refers to uart4_drv.o(.bss.uart4_last_elec_angle_rad) for uart4_last_elec_angle_rad
+    uart4_drv.o(.text.uart4_encoder_rx_process) refers to uart4_drv.o(.bss.uart4_last_output_pos_rad) for uart4_last_output_pos_rad
+    uart4_drv.o(.text.uart4_encoder_rx_process) refers to uart4_drv.o(.bss.uart4_output_state_inited) for uart4_output_state_inited
+    uart4_drv.o(.text.uart4_encoder_rx_process) refers to uart4_drv.o(.bss.uart4_prev_output_pos_rad) for uart4_prev_output_pos_rad
+    uart4_drv.o(.text.uart4_encoder_rx_process) refers to uart4_drv.o(.bss.uart4_last_output_speed_rad_s) for uart4_last_output_speed_rad_s
     uart4_drv.o(.ARM.exidx.text.uart4_encoder_rx_process) refers to uart4_drv.o(.text.uart4_encoder_rx_process) for [Anonymous Symbol]
     uart4_drv.o(.text.uart4_parse_encoder_data) refers to uart4_drv.o(.text.uart4_read) for uart4_read
     uart4_drv.o(.text.uart4_parse_encoder_data) refers to uart4_drv.o(.text.crc8_calc) for crc8_calc
@@ -1048,6 +1052,9 @@ Section Cross References
     uart4_drv.o(.ARM.exidx.text.crc8_calc) refers to uart4_drv.o(.text.crc8_calc) for [Anonymous Symbol]
     uart4_drv.o(.text.uart4_get_last_elec_angle_rad) refers to uart4_drv.o(.bss.uart4_last_elec_angle_rad) for uart4_last_elec_angle_rad
     uart4_drv.o(.ARM.exidx.text.uart4_get_last_elec_angle_rad) refers to uart4_drv.o(.text.uart4_get_last_elec_angle_rad) for [Anonymous Symbol]
+    uart4_drv.o(.text.uart4_get_last_output_state) refers to uart4_drv.o(.bss.uart4_last_output_pos_rad) for uart4_last_output_pos_rad
+    uart4_drv.o(.text.uart4_get_last_output_state) refers to uart4_drv.o(.bss.uart4_last_output_speed_rad_s) for uart4_last_output_speed_rad_s
+    uart4_drv.o(.ARM.exidx.text.uart4_get_last_output_state) refers to uart4_drv.o(.text.uart4_get_last_output_state) for [Anonymous Symbol]
     uart4_drv.o(.text.UART4_IRQHandler) refers to gd32f50x_usart.o(.text.usart_interrupt_flag_get) for usart_interrupt_flag_get
     uart4_drv.o(.text.UART4_IRQHandler) refers to gd32f50x_usart.o(.text.usart_data_receive) for usart_data_receive
     uart4_drv.o(.text.UART4_IRQHandler) refers to uart4_drv.o(.text.rb_push) for rb_push
@@ -2426,6 +2433,8 @@ Removing Unused input sections from the image.
     Removing uart4_drv.o(.text.crc8_calc), (146 bytes).
     Removing uart4_drv.o(.ARM.exidx.text.crc8_calc), (8 bytes).
     Removing uart4_drv.o(.ARM.exidx.text.uart4_get_last_elec_angle_rad), (8 bytes).
+    Removing uart4_drv.o(.text.uart4_get_last_output_state), (54 bytes).
+    Removing uart4_drv.o(.ARM.exidx.text.uart4_get_last_output_state), (8 bytes).
     Removing uart4_drv.o(.ARM.exidx.text.UART4_IRQHandler), (8 bytes).
     Removing uart4_drv.o(.ARM.exidx.text.rb_push), (8 bytes).
     Removing system_gd32f50x.o(.text), (0 bytes).
@@ -3915,7 +3924,7 @@ Removing Unused input sections from the image.
     Removing aflux_observer.o(.ARM.exidx.text.flux_observer_init), (8 bytes).
     Removing aflux_observer.o(.ARM.exidx.text.flux_observer_update), (8 bytes).
 
-1756 unused section(s) (total 55673 bytes) removed from the image.
+1758 unused section(s) (total 55735 bytes) removed from the image.
 
 ==============================================================================
 
@@ -4319,223 +4328,223 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08009354   Section        0  motor_protect.o(.text.motor_protect_var_init)
     motor_protect_voltage_check              0x080093d1   Thumb Code   236  motor_protect.o(.text.motor_protect_voltage_check)
     [Anonymous Symbol]                       0x080093d0   Section        0  motor_protect.o(.text.motor_protect_voltage_check)
-    motor_running_mode_process               0x080094c5   Thumb Code   640  main.o(.text.motor_running_mode_process)
+    motor_running_mode_process               0x080094c5   Thumb Code   642  main.o(.text.motor_running_mode_process)
     [Anonymous Symbol]                       0x080094c4   Section        0  main.o(.text.motor_running_mode_process)
-    [Anonymous Symbol]                       0x08009744   Section        0  motor_ctrl.o(.text.motor_start)
-    motor_state_machine                      0x08009759   Thumb Code   470  main.o(.text.motor_state_machine)
-    [Anonymous Symbol]                       0x08009758   Section        0  main.o(.text.motor_state_machine)
-    [Anonymous Symbol]                       0x08009930   Section        0  motor_ctrl.o(.text.motor_stop)
-    [Anonymous Symbol]                       0x08009944   Section        0  motor_ctrl.o(.text.motor_udq_calc)
-    [Anonymous Symbol]                       0x080099ac   Section        0  foc_math.o(.text.moving_average_float)
-    [Anonymous Symbol]                       0x08009a2c   Section        0  gd32f50x_misc.o(.text.nvic_irq_enable)
-    [Anonymous Symbol]                       0x08009ab8   Section        0  gd32f50x_misc.o(.text.nvic_priority_group_set)
-    [Anonymous Symbol]                       0x08009ad4   Section        0  gd32f50x_misc.o(.text.nvic_vector_table_set)
-    oled_clear                               0x08009afd   Thumb Code    84  gd32_bldc_foc_eval.o(.text.oled_clear)
-    [Anonymous Symbol]                       0x08009afc   Section        0  gd32_bldc_foc_eval.o(.text.oled_clear)
-    oled_clear_all                           0x08009b51   Thumb Code    94  gd32_bldc_foc_eval.o(.text.oled_clear_all)
-    [Anonymous Symbol]                       0x08009b50   Section        0  gd32_bldc_foc_eval.o(.text.oled_clear_all)
-    oled_display_reverse                     0x08009bb1   Thumb Code    42  gd32_bldc_foc_eval.o(.text.oled_display_reverse)
-    [Anonymous Symbol]                       0x08009bb0   Section        0  gd32_bldc_foc_eval.o(.text.oled_display_reverse)
-    oled_draw_point                          0x08009bdd   Thumb Code   148  gd32_bldc_foc_eval.o(.text.oled_draw_point)
-    [Anonymous Symbol]                       0x08009bdc   Section        0  gd32_bldc_foc_eval.o(.text.oled_draw_point)
-    oled_flip_horizontal                     0x08009c71   Thumb Code    62  gd32_bldc_foc_eval.o(.text.oled_flip_horizontal)
-    [Anonymous Symbol]                       0x08009c70   Section        0  gd32_bldc_foc_eval.o(.text.oled_flip_horizontal)
-    oled_init                                0x08009cb1   Thumb Code   252  gd32_bldc_foc_eval.o(.text.oled_init)
-    [Anonymous Symbol]                       0x08009cb0   Section        0  gd32_bldc_foc_eval.o(.text.oled_init)
-    oled_page_refresh                        0x08009dad   Thumb Code   132  gd32_bldc_foc_eval.o(.text.oled_page_refresh)
-    [Anonymous Symbol]                       0x08009dac   Section        0  gd32_bldc_foc_eval.o(.text.oled_page_refresh)
-    oled_parameter_init                      0x08009e31   Thumb Code    46  gd32_bldc_foc_eval.o(.text.oled_parameter_init)
-    [Anonymous Symbol]                       0x08009e30   Section        0  gd32_bldc_foc_eval.o(.text.oled_parameter_init)
-    oled_pow                                 0x08009e61   Thumb Code    50  gd32_bldc_foc_eval.o(.text.oled_pow)
-    [Anonymous Symbol]                       0x08009e60   Section        0  gd32_bldc_foc_eval.o(.text.oled_pow)
-    oled_show_char                           0x08009e95   Thumb Code   430  gd32_bldc_foc_eval.o(.text.oled_show_char)
-    [Anonymous Symbol]                       0x08009e94   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_char)
-    oled_show_line                           0x0800a045   Thumb Code   392  gd32_bldc_foc_eval.o(.text.oled_show_line)
-    [Anonymous Symbol]                       0x0800a044   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_line)
-    oled_show_num                            0x0800a1cd   Thumb Code   240  gd32_bldc_foc_eval.o(.text.oled_show_num)
-    [Anonymous Symbol]                       0x0800a1cc   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_num)
-    oled_show_picture                        0x0800a2bd   Thumb Code   314  gd32_bldc_foc_eval.o(.text.oled_show_picture)
-    [Anonymous Symbol]                       0x0800a2bc   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_picture)
-    oled_show_qr_code                        0x0800a3f9   Thumb Code   174  gd32_bldc_foc_eval.o(.text.oled_show_qr_code)
-    [Anonymous Symbol]                       0x0800a3f8   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_qr_code)
-    oled_show_string                         0x0800a4a9   Thumb Code   130  gd32_bldc_foc_eval.o(.text.oled_show_string)
-    [Anonymous Symbol]                       0x0800a4a8   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_string)
-    oled_write_byte                          0x0800a52d   Thumb Code   702  gd32_bldc_foc_eval.o(.text.oled_write_byte)
-    [Anonymous Symbol]                       0x0800a52c   Section        0  gd32_bldc_foc_eval.o(.text.oled_write_byte)
-    oneshunt_parameter_check                 0x0800a7ed   Thumb Code    56  pwm_current_1shunt.o(.text.oneshunt_parameter_check)
-    [Anonymous Symbol]                       0x0800a7ec   Section        0  pwm_current_1shunt.o(.text.oneshunt_parameter_check)
-    [Anonymous Symbol]                       0x0800a824   Section        0  modulation.o(.text.over_modulation)
-    [Anonymous Symbol]                       0x0800a918   Section        0  foc_math.o(.text.park)
-    [Anonymous Symbol]                       0x0800a978   Section        0  foc_math.o(.text.pid_incremental_regulation)
-    [Anonymous Symbol]                       0x0800aa5c   Section        0  foc_math.o(.text.pid_init)
-    pwm_2shunt_timer_config                  0x0800aa9d   Thumb Code   426  pwm_current_2shunt.o(.text.pwm_2shunt_timer_config)
-    [Anonymous Symbol]                       0x0800aa9c   Section        0  pwm_current_2shunt.o(.text.pwm_2shunt_timer_config)
-    [Anonymous Symbol]                       0x0800ac48   Section        0  pwm_current_2shunt.o(.text.pwm_2shunt_update_duty)
-    pwm_3shunt_timer_config                  0x0800ac95   Thumb Code   424  pwm_current_3shunt.o(.text.pwm_3shunt_timer_config)
-    [Anonymous Symbol]                       0x0800ac94   Section        0  pwm_current_3shunt.o(.text.pwm_3shunt_timer_config)
-    [Anonymous Symbol]                       0x0800ae3c   Section        0  pwm_current_3shunt.o(.text.pwm_3shunt_update_duty)
-    pwm_current_1shunt_adc_config            0x0800ae89   Thumb Code   184  pwm_current_1shunt.o(.text.pwm_current_1shunt_adc_config)
-    [Anonymous Symbol]                       0x0800ae88   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_adc_config)
-    [Anonymous Symbol]                       0x0800af40   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_get_current)
-    pwm_current_1shunt_gpio_config           0x0800b155   Thumb Code   298  pwm_current_1shunt.o(.text.pwm_current_1shunt_gpio_config)
-    [Anonymous Symbol]                       0x0800b154   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_gpio_config)
-    [Anonymous Symbol]                       0x0800b280   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_peripheral_init)
-    pwm_current_1shunt_rcu_config            0x0800b2a1   Thumb Code    94  pwm_current_1shunt.o(.text.pwm_current_1shunt_rcu_config)
-    [Anonymous Symbol]                       0x0800b2a0   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_rcu_config)
-    [Anonymous Symbol]                       0x0800b300   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_sampling_point_config)
-    pwm_current_1shunt_timer_config          0x0800b51d   Thumb Code   424  pwm_current_1shunt.o(.text.pwm_current_1shunt_timer_config)
-    [Anonymous Symbol]                       0x0800b51c   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_timer_config)
-    [Anonymous Symbol]                       0x0800b6c4   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_get_current)
-    pwm_current_2shunt_gpio_config           0x0800b79d   Thumb Code   310  pwm_current_2shunt.o(.text.pwm_current_2shunt_gpio_config)
-    [Anonymous Symbol]                       0x0800b79c   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_gpio_config)
-    [Anonymous Symbol]                       0x0800b8d4   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_peripheral_init)
-    pwm_current_2shunt_rcu_config            0x0800b8f1   Thumb Code   108  pwm_current_2shunt.o(.text.pwm_current_2shunt_rcu_config)
-    [Anonymous Symbol]                       0x0800b8f0   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_rcu_config)
-    [Anonymous Symbol]                       0x0800b95c   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_sampling_point_config)
-    [Anonymous Symbol]                       0x0800b968   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_get_current)
-    pwm_current_3shunt_gpio_config           0x0800bb11   Thumb Code   324  pwm_current_3shunt.o(.text.pwm_current_3shunt_gpio_config)
-    [Anonymous Symbol]                       0x0800bb10   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_gpio_config)
-    [Anonymous Symbol]                       0x0800bc54   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_peripheral_init)
-    pwm_current_3shunt_rcu_config            0x0800bc71   Thumb Code   114  pwm_current_3shunt.o(.text.pwm_current_3shunt_rcu_config)
-    [Anonymous Symbol]                       0x0800bc70   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_rcu_config)
-    [Anonymous Symbol]                       0x0800bce4   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_sampling_point_config)
-    [Anonymous Symbol]                       0x0800bd98   Section        0  pwm_current.o(.text.pwm_current_peripheral_init)
-    [Anonymous Symbol]                       0x0800bde4   Section        0  pwm_current.o(.text.pwm_generation)
-    rb_push                                  0x0800beb5   Thumb Code    80  uart4_drv.o(.text.rb_push)
-    [Anonymous Symbol]                       0x0800beb4   Section        0  uart4_drv.o(.text.rb_push)
-    [Anonymous Symbol]                       0x0800bf04   Section        0  gd32f50x_rcu.o(.text.rcu_adc_clock_config)
-    [Anonymous Symbol]                       0x0800bfcc   Section        0  gd32f50x_rcu.o(.text.rcu_clock_freq_get)
-    [Anonymous Symbol]                       0x0800c2ac   Section        0  gd32f50x_rcu.o(.text.rcu_periph_clock_enable)
-    [Anonymous Symbol]                       0x0800c2d4   Section        0  gd32f50x_rcu.o(.text.rcu_periph_reset_disable)
-    [Anonymous Symbol]                       0x0800c2fc   Section        0  gd32f50x_rcu.o(.text.rcu_periph_reset_enable)
-    [Anonymous Symbol]                       0x0800c324   Section        0  foc_math.o(.text.rev_park)
-    [Anonymous Symbol]                       0x0800c384   Section        0  foc_math.o(.text.sin_cos_float)
-    smo_atan_update                          0x0800c6c5   Thumb Code   436  smo_observer.o(.text.smo_atan_update)
-    [Anonymous Symbol]                       0x0800c6c4   Section        0  smo_observer.o(.text.smo_atan_update)
-    [Anonymous Symbol]                       0x0800c878   Section        0  smo_observer.o(.text.smo_observer_update)
-    smo_pll_update                           0x0800caad   Thumb Code   304  smo_observer.o(.text.smo_pll_update)
-    [Anonymous Symbol]                       0x0800caac   Section        0  smo_observer.o(.text.smo_pll_update)
-    [Anonymous Symbol]                       0x0800cbdc   Section        0  foc_soft_delay.o(.text.soft_delay_1us)
-    [Anonymous Symbol]                       0x0800cc20   Section        0  foc_soft_delay.o(.text.soft_delay_ms)
-    [Anonymous Symbol]                       0x0800cc58   Section        0  angle.o(.text.speed_get)
-    [Anonymous Symbol]                       0x0800cd2c   Section        0  foc_math.o(.text.sqrt_float)
-    [Anonymous Symbol]                       0x0800cdcc   Section        0  motor_ctrl_driver.o(.text.start_ctrl)
-    [Anonymous Symbol]                       0x0800ce54   Section        0  motor_ctrl_driver.o(.text.stop_ctrl)
-    [Anonymous Symbol]                       0x0800cf18   Section        0  gd32f50x_syscfg.o(.text.syscfg_sram_ecc_flag_get)
-    system_clock_252m_hxtal                  0x0800cf49   Thumb Code   486  system_gd32f50x.o(.text.system_clock_252m_hxtal)
-    [Anonymous Symbol]                       0x0800cf48   Section        0  system_gd32f50x.o(.text.system_clock_252m_hxtal)
-    system_clock_config                      0x0800d131   Thumb Code     8  system_gd32f50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x0800d130   Section        0  system_gd32f50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x0800d138   Section        0  systick.o(.text.systick_config)
-    timer0_dma_config                        0x0800d16d   Thumb Code   276  pwm_current_1shunt.o(.text.timer0_dma_config)
-    [Anonymous Symbol]                       0x0800d16c   Section        0  pwm_current_1shunt.o(.text.timer0_dma_config)
-    [Anonymous Symbol]                       0x0800d280   Section        0  gd32f50x_timer.o(.text.timer_auto_reload_shadow_enable)
-    [Anonymous Symbol]                       0x0800d294   Section        0  gd32f50x_timer.o(.text.timer_break_config)
-    [Anonymous Symbol]                       0x0800d33c   Section        0  gd32f50x_timer.o(.text.timer_break_struct_para_init)
-    [Anonymous Symbol]                       0x0800d380   Section        0  gd32f50x_timer.o(.text.timer_channel_capture_value_register_read)
-    [Anonymous Symbol]                       0x0800d3e0   Section        0  gd32f50x_timer.o(.text.timer_channel_complementary_output_state_config)
-    [Anonymous Symbol]                       0x0800d480   Section        0  gd32f50x_timer.o(.text.timer_channel_input_capture_prescaler_config)
-    [Anonymous Symbol]                       0x0800d548   Section        0  gd32f50x_timer.o(.text.timer_channel_input_struct_para_init)
-    [Anonymous Symbol]                       0x0800d57c   Section        0  gd32f50x_timer.o(.text.timer_channel_output_config)
-    [Anonymous Symbol]                       0x0800dcac   Section        0  gd32f50x_timer.o(.text.timer_channel_output_mode_config)
-    [Anonymous Symbol]                       0x0800dda4   Section        0  gd32f50x_timer.o(.text.timer_channel_output_pulse_value_config)
-    [Anonymous Symbol]                       0x0800de00   Section        0  gd32f50x_timer.o(.text.timer_channel_output_shadow_config)
-    [Anonymous Symbol]                       0x0800dec8   Section        0  gd32f50x_timer.o(.text.timer_channel_output_state_config)
-    [Anonymous Symbol]                       0x0800df84   Section        0  gd32f50x_timer.o(.text.timer_channel_output_struct_para_init)
-    [Anonymous Symbol]                       0x0800dfbc   Section        0  gd32f50x_timer.o(.text.timer_channel_primary_output_config)
-    [Anonymous Symbol]                       0x0800e068   Section        0  gd32f50x_timer.o(.text.timer_deinit)
-    [Anonymous Symbol]                       0x0800e1c4   Section        0  gd32f50x_timer.o(.text.timer_disable)
-    [Anonymous Symbol]                       0x0800e1d8   Section        0  gd32f50x_timer.o(.text.timer_dma_enable)
-    [Anonymous Symbol]                       0x0800e1f8   Section        0  gd32f50x_timer.o(.text.timer_dma_transfer_config)
-    [Anonymous Symbol]                       0x0800e230   Section        0  gd32f50x_timer.o(.text.timer_enable)
-    [Anonymous Symbol]                       0x0800e244   Section        0  gd32f50x_timer.o(.text.timer_event_software_generate)
-    [Anonymous Symbol]                       0x0800e258   Section        0  gd32f50x_timer.o(.text.timer_hall_mode_config)
-    [Anonymous Symbol]                       0x0800e28c   Section        0  gd32f50x_timer.o(.text.timer_init)
-    [Anonymous Symbol]                       0x0800e3f4   Section        0  gd32f50x_timer.o(.text.timer_input_capture_config)
-    [Anonymous Symbol]                       0x0800e6a8   Section        0  gd32f50x_timer.o(.text.timer_input_trigger_source_select)
-    [Anonymous Symbol]                       0x0800e864   Section        0  gd32f50x_timer.o(.text.timer_interrupt_disable)
-    [Anonymous Symbol]                       0x0800e888   Section        0  gd32f50x_timer.o(.text.timer_interrupt_enable)
-    [Anonymous Symbol]                       0x0800e8ac   Section        0  gd32f50x_timer.o(.text.timer_interrupt_flag_clear)
-    [Anonymous Symbol]                       0x0800e8cc   Section        0  gd32f50x_timer.o(.text.timer_interrupt_flag_get)
-    [Anonymous Symbol]                       0x0800e930   Section        0  gd32f50x_timer.o(.text.timer_master_output_trigger_source_select)
-    [Anonymous Symbol]                       0x0800e964   Section        0  gd32f50x_timer.o(.text.timer_master_slave_mode_config)
-    [Anonymous Symbol]                       0x0800e998   Section        0  gd32f50x_timer.o(.text.timer_primary_output_config)
-    [Anonymous Symbol]                       0x0800e9c8   Section        0  gd32f50x_timer.o(.text.timer_quadrature_decoder_mode_config)
-    [Anonymous Symbol]                       0x0800ea90   Section        0  gd32f50x_timer.o(.text.timer_slave_mode_select)
-    [Anonymous Symbol]                       0x0800ec60   Section        0  gd32f50x_timer.o(.text.timer_struct_para_init)
-    [Anonymous Symbol]                       0x0800ec9c   Section        0  gd32f50x_timer.o(.text.timer_update_event_disable)
-    [Anonymous Symbol]                       0x0800ecb0   Section        0  gd32f50x_timer.o(.text.timer_update_event_enable)
-    [Anonymous Symbol]                       0x0800ecc4   Section        0  gd32f50x_trigsel.o(.text.trigsel_init)
-    [Anonymous Symbol]                       0x0800ed20   Section        0  gd32f50x_trigsel.o(.text.trigsel_register_lock_get)
-    [Anonymous Symbol]                       0x0800ed58   Section        0  uart4_drv.o(.text.uart4_encoder_rx_process)
-    [Anonymous Symbol]                       0x0800eec0   Section        0  uart4_drv.o(.text.uart4_get_last_elec_angle_rad)
-    [Anonymous Symbol]                       0x0800eee0   Section        0  uart4_drv.o(.text.uart4_init)
-    [Anonymous Symbol]                       0x0800efcc   Section        0  uart4_drv.o(.text.uart4_request_encoder_data)
-    [Anonymous Symbol]                       0x0800efe4   Section        0  uart4_drv.o(.text.uart4_send)
-    [Anonymous Symbol]                       0x0800f058   Section        0  gd32f50x_usart.o(.text.usart_baudrate_set)
-    usart_config                             0x0800f181   Thumb Code   128  communication.o(.text.usart_config)
-    [Anonymous Symbol]                       0x0800f180   Section        0  communication.o(.text.usart_config)
-    [Anonymous Symbol]                       0x0800f200   Section        0  gd32f50x_usart.o(.text.usart_data_receive)
-    [Anonymous Symbol]                       0x0800f210   Section        0  gd32f50x_usart.o(.text.usart_data_transmit)
-    [Anonymous Symbol]                       0x0800f224   Section        0  gd32f50x_usart.o(.text.usart_deinit)
-    [Anonymous Symbol]                       0x0800f2dc   Section        0  gd32f50x_usart.o(.text.usart_dma_receive_config)
-    [Anonymous Symbol]                       0x0800f300   Section        0  gd32f50x_usart.o(.text.usart_dma_transmit_config)
-    [Anonymous Symbol]                       0x0800f324   Section        0  gd32f50x_usart.o(.text.usart_enable)
-    [Anonymous Symbol]                       0x0800f338   Section        0  gd32f50x_usart.o(.text.usart_flag_clear)
-    [Anonymous Symbol]                       0x0800f384   Section        0  gd32f50x_usart.o(.text.usart_flag_get)
-    usart_gpio_config                        0x0800f3c5   Thumb Code    86  communication.o(.text.usart_gpio_config)
-    [Anonymous Symbol]                       0x0800f3c4   Section        0  communication.o(.text.usart_gpio_config)
-    [Anonymous Symbol]                       0x0800f41c   Section        0  gd32f50x_usart.o(.text.usart_hardware_flow_cts_config)
-    [Anonymous Symbol]                       0x0800f440   Section        0  gd32f50x_usart.o(.text.usart_hardware_flow_rts_config)
-    [Anonymous Symbol]                       0x0800f464   Section        0  gd32f50x_usart.o(.text.usart_interrupt_enable)
-    [Anonymous Symbol]                       0x0800f488   Section        0  gd32f50x_usart.o(.text.usart_interrupt_flag_get)
-    [Anonymous Symbol]                       0x0800f4ec   Section        0  gd32f50x_usart.o(.text.usart_parity_config)
-    usart_rcu_config                         0x0800f511   Thumb Code    56  communication.o(.text.usart_rcu_config)
-    [Anonymous Symbol]                       0x0800f510   Section        0  communication.o(.text.usart_rcu_config)
-    [Anonymous Symbol]                       0x0800f548   Section        0  gd32f50x_usart.o(.text.usart_receive_config)
-    [Anonymous Symbol]                       0x0800f56c   Section        0  gd32f50x_usart.o(.text.usart_stop_bit_set)
-    [Anonymous Symbol]                       0x0800f590   Section        0  gd32f50x_usart.o(.text.usart_transmit_config)
-    [Anonymous Symbol]                       0x0800f5b4   Section        0  gd32f50x_usart.o(.text.usart_word_length_set)
-    [Anonymous Symbol]                       0x0800f5d8   Section        0  vf_if_startup.o(.text.vf_start_up)
-    [Anonymous Symbol]                       0x0800f6a8   Section        0  vf_if_startup.o(.text.vf_start_up_init)
-    i.__0printf                              0x0800f788   Section        0  printfa.o(i.__0printf)
-    i.__scatterload_copy                     0x0800f7a8   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800f7b6   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800f7b8   Section       14  handlers.o(i.__scatterload_zeroinit)
-    _fp_digits                               0x0800f7c9   Thumb Code   366  printfa.o(i._fp_digits)
-    i._fp_digits                             0x0800f7c8   Section        0  printfa.o(i._fp_digits)
-    _printf_core                             0x0800f94d   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_core                           0x0800f94c   Section        0  printfa.o(i._printf_core)
-    _printf_post_padding                     0x08010029   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_post_padding                   0x08010028   Section        0  printfa.o(i._printf_post_padding)
-    _printf_pre_padding                      0x0801004d   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i._printf_pre_padding                    0x0801004c   Section        0  printfa.o(i._printf_pre_padding)
-    atan_table                               0x08011860   Data         408  foc_math.o(.rodata.atan_table)
-    [Anonymous Symbol]                       0x08011860   Section        0  foc_math.o(.rodata.atan_table)
-    sin_table                                0x08011ca8   Data         524  foc_math.o(.rodata.sin_table)
-    [Anonymous Symbol]                       0x08011ca8   Section        0  foc_math.o(.rodata.sin_table)
-    .L.str                                   0x08011eb4   Data           7  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08011eb4   Section        0  main.o(.rodata.str1.1)
-    .L.str.11                                0x08011ebb   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08011ebb   Section        0  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.9                                 0x08011ec2   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.8                                 0x08011ec9   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.10                                0x08011ed0   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.19                                0x08011ed7   Data          20  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.16                                0x08011eeb   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.7                                 0x08011ef7   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.1                                 0x08011f03   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str                                   0x08011f0a   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.3                                 0x08011f11   Data          11  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.5                                 0x08011f1c   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.4                                 0x08011f23   Data           8  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.14                                0x08011f2b   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.15                                0x08011f37   Data          11  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.18                                0x08011f42   Data          19  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.13                                0x08011f55   Data          11  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.12                                0x08011f60   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.17                                0x08011f6c   Data          14  gd32_bldc_foc_eval.o(.rodata.str1.1)
-    .L.str.2                                 0x08011f7a   Data           4  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08009748   Section        0  motor_ctrl.o(.text.motor_start)
+    motor_state_machine                      0x0800975d   Thumb Code   470  main.o(.text.motor_state_machine)
+    [Anonymous Symbol]                       0x0800975c   Section        0  main.o(.text.motor_state_machine)
+    [Anonymous Symbol]                       0x08009934   Section        0  motor_ctrl.o(.text.motor_stop)
+    [Anonymous Symbol]                       0x08009948   Section        0  motor_ctrl.o(.text.motor_udq_calc)
+    [Anonymous Symbol]                       0x080099b0   Section        0  foc_math.o(.text.moving_average_float)
+    [Anonymous Symbol]                       0x08009a30   Section        0  gd32f50x_misc.o(.text.nvic_irq_enable)
+    [Anonymous Symbol]                       0x08009abc   Section        0  gd32f50x_misc.o(.text.nvic_priority_group_set)
+    [Anonymous Symbol]                       0x08009ad8   Section        0  gd32f50x_misc.o(.text.nvic_vector_table_set)
+    oled_clear                               0x08009b01   Thumb Code    84  gd32_bldc_foc_eval.o(.text.oled_clear)
+    [Anonymous Symbol]                       0x08009b00   Section        0  gd32_bldc_foc_eval.o(.text.oled_clear)
+    oled_clear_all                           0x08009b55   Thumb Code    94  gd32_bldc_foc_eval.o(.text.oled_clear_all)
+    [Anonymous Symbol]                       0x08009b54   Section        0  gd32_bldc_foc_eval.o(.text.oled_clear_all)
+    oled_display_reverse                     0x08009bb5   Thumb Code    42  gd32_bldc_foc_eval.o(.text.oled_display_reverse)
+    [Anonymous Symbol]                       0x08009bb4   Section        0  gd32_bldc_foc_eval.o(.text.oled_display_reverse)
+    oled_draw_point                          0x08009be1   Thumb Code   148  gd32_bldc_foc_eval.o(.text.oled_draw_point)
+    [Anonymous Symbol]                       0x08009be0   Section        0  gd32_bldc_foc_eval.o(.text.oled_draw_point)
+    oled_flip_horizontal                     0x08009c75   Thumb Code    62  gd32_bldc_foc_eval.o(.text.oled_flip_horizontal)
+    [Anonymous Symbol]                       0x08009c74   Section        0  gd32_bldc_foc_eval.o(.text.oled_flip_horizontal)
+    oled_init                                0x08009cb5   Thumb Code   252  gd32_bldc_foc_eval.o(.text.oled_init)
+    [Anonymous Symbol]                       0x08009cb4   Section        0  gd32_bldc_foc_eval.o(.text.oled_init)
+    oled_page_refresh                        0x08009db1   Thumb Code   132  gd32_bldc_foc_eval.o(.text.oled_page_refresh)
+    [Anonymous Symbol]                       0x08009db0   Section        0  gd32_bldc_foc_eval.o(.text.oled_page_refresh)
+    oled_parameter_init                      0x08009e35   Thumb Code    46  gd32_bldc_foc_eval.o(.text.oled_parameter_init)
+    [Anonymous Symbol]                       0x08009e34   Section        0  gd32_bldc_foc_eval.o(.text.oled_parameter_init)
+    oled_pow                                 0x08009e65   Thumb Code    50  gd32_bldc_foc_eval.o(.text.oled_pow)
+    [Anonymous Symbol]                       0x08009e64   Section        0  gd32_bldc_foc_eval.o(.text.oled_pow)
+    oled_show_char                           0x08009e99   Thumb Code   430  gd32_bldc_foc_eval.o(.text.oled_show_char)
+    [Anonymous Symbol]                       0x08009e98   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_char)
+    oled_show_line                           0x0800a049   Thumb Code   392  gd32_bldc_foc_eval.o(.text.oled_show_line)
+    [Anonymous Symbol]                       0x0800a048   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_line)
+    oled_show_num                            0x0800a1d1   Thumb Code   240  gd32_bldc_foc_eval.o(.text.oled_show_num)
+    [Anonymous Symbol]                       0x0800a1d0   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_num)
+    oled_show_picture                        0x0800a2c1   Thumb Code   314  gd32_bldc_foc_eval.o(.text.oled_show_picture)
+    [Anonymous Symbol]                       0x0800a2c0   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_picture)
+    oled_show_qr_code                        0x0800a3fd   Thumb Code   174  gd32_bldc_foc_eval.o(.text.oled_show_qr_code)
+    [Anonymous Symbol]                       0x0800a3fc   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_qr_code)
+    oled_show_string                         0x0800a4ad   Thumb Code   130  gd32_bldc_foc_eval.o(.text.oled_show_string)
+    [Anonymous Symbol]                       0x0800a4ac   Section        0  gd32_bldc_foc_eval.o(.text.oled_show_string)
+    oled_write_byte                          0x0800a531   Thumb Code   702  gd32_bldc_foc_eval.o(.text.oled_write_byte)
+    [Anonymous Symbol]                       0x0800a530   Section        0  gd32_bldc_foc_eval.o(.text.oled_write_byte)
+    oneshunt_parameter_check                 0x0800a7f1   Thumb Code    56  pwm_current_1shunt.o(.text.oneshunt_parameter_check)
+    [Anonymous Symbol]                       0x0800a7f0   Section        0  pwm_current_1shunt.o(.text.oneshunt_parameter_check)
+    [Anonymous Symbol]                       0x0800a828   Section        0  modulation.o(.text.over_modulation)
+    [Anonymous Symbol]                       0x0800a91c   Section        0  foc_math.o(.text.park)
+    [Anonymous Symbol]                       0x0800a97c   Section        0  foc_math.o(.text.pid_incremental_regulation)
+    [Anonymous Symbol]                       0x0800aa60   Section        0  foc_math.o(.text.pid_init)
+    pwm_2shunt_timer_config                  0x0800aaa1   Thumb Code   426  pwm_current_2shunt.o(.text.pwm_2shunt_timer_config)
+    [Anonymous Symbol]                       0x0800aaa0   Section        0  pwm_current_2shunt.o(.text.pwm_2shunt_timer_config)
+    [Anonymous Symbol]                       0x0800ac4c   Section        0  pwm_current_2shunt.o(.text.pwm_2shunt_update_duty)
+    pwm_3shunt_timer_config                  0x0800ac99   Thumb Code   424  pwm_current_3shunt.o(.text.pwm_3shunt_timer_config)
+    [Anonymous Symbol]                       0x0800ac98   Section        0  pwm_current_3shunt.o(.text.pwm_3shunt_timer_config)
+    [Anonymous Symbol]                       0x0800ae40   Section        0  pwm_current_3shunt.o(.text.pwm_3shunt_update_duty)
+    pwm_current_1shunt_adc_config            0x0800ae8d   Thumb Code   184  pwm_current_1shunt.o(.text.pwm_current_1shunt_adc_config)
+    [Anonymous Symbol]                       0x0800ae8c   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_adc_config)
+    [Anonymous Symbol]                       0x0800af44   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_get_current)
+    pwm_current_1shunt_gpio_config           0x0800b159   Thumb Code   298  pwm_current_1shunt.o(.text.pwm_current_1shunt_gpio_config)
+    [Anonymous Symbol]                       0x0800b158   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_gpio_config)
+    [Anonymous Symbol]                       0x0800b284   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_peripheral_init)
+    pwm_current_1shunt_rcu_config            0x0800b2a5   Thumb Code    94  pwm_current_1shunt.o(.text.pwm_current_1shunt_rcu_config)
+    [Anonymous Symbol]                       0x0800b2a4   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_rcu_config)
+    [Anonymous Symbol]                       0x0800b304   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_sampling_point_config)
+    pwm_current_1shunt_timer_config          0x0800b521   Thumb Code   424  pwm_current_1shunt.o(.text.pwm_current_1shunt_timer_config)
+    [Anonymous Symbol]                       0x0800b520   Section        0  pwm_current_1shunt.o(.text.pwm_current_1shunt_timer_config)
+    [Anonymous Symbol]                       0x0800b6c8   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_get_current)
+    pwm_current_2shunt_gpio_config           0x0800b7a1   Thumb Code   310  pwm_current_2shunt.o(.text.pwm_current_2shunt_gpio_config)
+    [Anonymous Symbol]                       0x0800b7a0   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_gpio_config)
+    [Anonymous Symbol]                       0x0800b8d8   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_peripheral_init)
+    pwm_current_2shunt_rcu_config            0x0800b8f5   Thumb Code   108  pwm_current_2shunt.o(.text.pwm_current_2shunt_rcu_config)
+    [Anonymous Symbol]                       0x0800b8f4   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_rcu_config)
+    [Anonymous Symbol]                       0x0800b960   Section        0  pwm_current_2shunt.o(.text.pwm_current_2shunt_sampling_point_config)
+    [Anonymous Symbol]                       0x0800b96c   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_get_current)
+    pwm_current_3shunt_gpio_config           0x0800bb15   Thumb Code   324  pwm_current_3shunt.o(.text.pwm_current_3shunt_gpio_config)
+    [Anonymous Symbol]                       0x0800bb14   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_gpio_config)
+    [Anonymous Symbol]                       0x0800bc58   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_peripheral_init)
+    pwm_current_3shunt_rcu_config            0x0800bc75   Thumb Code   114  pwm_current_3shunt.o(.text.pwm_current_3shunt_rcu_config)
+    [Anonymous Symbol]                       0x0800bc74   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_rcu_config)
+    [Anonymous Symbol]                       0x0800bce8   Section        0  pwm_current_3shunt.o(.text.pwm_current_3shunt_sampling_point_config)
+    [Anonymous Symbol]                       0x0800bd9c   Section        0  pwm_current.o(.text.pwm_current_peripheral_init)
+    [Anonymous Symbol]                       0x0800bde8   Section        0  pwm_current.o(.text.pwm_generation)
+    rb_push                                  0x0800beb9   Thumb Code    80  uart4_drv.o(.text.rb_push)
+    [Anonymous Symbol]                       0x0800beb8   Section        0  uart4_drv.o(.text.rb_push)
+    [Anonymous Symbol]                       0x0800bf08   Section        0  gd32f50x_rcu.o(.text.rcu_adc_clock_config)
+    [Anonymous Symbol]                       0x0800bfd0   Section        0  gd32f50x_rcu.o(.text.rcu_clock_freq_get)
+    [Anonymous Symbol]                       0x0800c2b0   Section        0  gd32f50x_rcu.o(.text.rcu_periph_clock_enable)
+    [Anonymous Symbol]                       0x0800c2d8   Section        0  gd32f50x_rcu.o(.text.rcu_periph_reset_disable)
+    [Anonymous Symbol]                       0x0800c300   Section        0  gd32f50x_rcu.o(.text.rcu_periph_reset_enable)
+    [Anonymous Symbol]                       0x0800c328   Section        0  foc_math.o(.text.rev_park)
+    [Anonymous Symbol]                       0x0800c388   Section        0  foc_math.o(.text.sin_cos_float)
+    smo_atan_update                          0x0800c6c9   Thumb Code   436  smo_observer.o(.text.smo_atan_update)
+    [Anonymous Symbol]                       0x0800c6c8   Section        0  smo_observer.o(.text.smo_atan_update)
+    [Anonymous Symbol]                       0x0800c87c   Section        0  smo_observer.o(.text.smo_observer_update)
+    smo_pll_update                           0x0800cab1   Thumb Code   304  smo_observer.o(.text.smo_pll_update)
+    [Anonymous Symbol]                       0x0800cab0   Section        0  smo_observer.o(.text.smo_pll_update)
+    [Anonymous Symbol]                       0x0800cbe0   Section        0  foc_soft_delay.o(.text.soft_delay_1us)
+    [Anonymous Symbol]                       0x0800cc24   Section        0  foc_soft_delay.o(.text.soft_delay_ms)
+    [Anonymous Symbol]                       0x0800cc5c   Section        0  angle.o(.text.speed_get)
+    [Anonymous Symbol]                       0x0800cd30   Section        0  foc_math.o(.text.sqrt_float)
+    [Anonymous Symbol]                       0x0800cdd0   Section        0  motor_ctrl_driver.o(.text.start_ctrl)
+    [Anonymous Symbol]                       0x0800ce58   Section        0  motor_ctrl_driver.o(.text.stop_ctrl)
+    [Anonymous Symbol]                       0x0800cf1c   Section        0  gd32f50x_syscfg.o(.text.syscfg_sram_ecc_flag_get)
+    system_clock_252m_hxtal                  0x0800cf4d   Thumb Code   486  system_gd32f50x.o(.text.system_clock_252m_hxtal)
+    [Anonymous Symbol]                       0x0800cf4c   Section        0  system_gd32f50x.o(.text.system_clock_252m_hxtal)
+    system_clock_config                      0x0800d135   Thumb Code     8  system_gd32f50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x0800d134   Section        0  system_gd32f50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x0800d13c   Section        0  systick.o(.text.systick_config)
+    timer0_dma_config                        0x0800d171   Thumb Code   276  pwm_current_1shunt.o(.text.timer0_dma_config)
+    [Anonymous Symbol]                       0x0800d170   Section        0  pwm_current_1shunt.o(.text.timer0_dma_config)
+    [Anonymous Symbol]                       0x0800d284   Section        0  gd32f50x_timer.o(.text.timer_auto_reload_shadow_enable)
+    [Anonymous Symbol]                       0x0800d298   Section        0  gd32f50x_timer.o(.text.timer_break_config)
+    [Anonymous Symbol]                       0x0800d340   Section        0  gd32f50x_timer.o(.text.timer_break_struct_para_init)
+    [Anonymous Symbol]                       0x0800d384   Section        0  gd32f50x_timer.o(.text.timer_channel_capture_value_register_read)
+    [Anonymous Symbol]                       0x0800d3e4   Section        0  gd32f50x_timer.o(.text.timer_channel_complementary_output_state_config)
+    [Anonymous Symbol]                       0x0800d484   Section        0  gd32f50x_timer.o(.text.timer_channel_input_capture_prescaler_config)
+    [Anonymous Symbol]                       0x0800d54c   Section        0  gd32f50x_timer.o(.text.timer_channel_input_struct_para_init)
+    [Anonymous Symbol]                       0x0800d580   Section        0  gd32f50x_timer.o(.text.timer_channel_output_config)
+    [Anonymous Symbol]                       0x0800dcb0   Section        0  gd32f50x_timer.o(.text.timer_channel_output_mode_config)
+    [Anonymous Symbol]                       0x0800dda8   Section        0  gd32f50x_timer.o(.text.timer_channel_output_pulse_value_config)
+    [Anonymous Symbol]                       0x0800de04   Section        0  gd32f50x_timer.o(.text.timer_channel_output_shadow_config)
+    [Anonymous Symbol]                       0x0800decc   Section        0  gd32f50x_timer.o(.text.timer_channel_output_state_config)
+    [Anonymous Symbol]                       0x0800df88   Section        0  gd32f50x_timer.o(.text.timer_channel_output_struct_para_init)
+    [Anonymous Symbol]                       0x0800dfc0   Section        0  gd32f50x_timer.o(.text.timer_channel_primary_output_config)
+    [Anonymous Symbol]                       0x0800e06c   Section        0  gd32f50x_timer.o(.text.timer_deinit)
+    [Anonymous Symbol]                       0x0800e1c8   Section        0  gd32f50x_timer.o(.text.timer_disable)
+    [Anonymous Symbol]                       0x0800e1dc   Section        0  gd32f50x_timer.o(.text.timer_dma_enable)
+    [Anonymous Symbol]                       0x0800e1fc   Section        0  gd32f50x_timer.o(.text.timer_dma_transfer_config)
+    [Anonymous Symbol]                       0x0800e234   Section        0  gd32f50x_timer.o(.text.timer_enable)
+    [Anonymous Symbol]                       0x0800e248   Section        0  gd32f50x_timer.o(.text.timer_event_software_generate)
+    [Anonymous Symbol]                       0x0800e25c   Section        0  gd32f50x_timer.o(.text.timer_hall_mode_config)
+    [Anonymous Symbol]                       0x0800e290   Section        0  gd32f50x_timer.o(.text.timer_init)
+    [Anonymous Symbol]                       0x0800e3f8   Section        0  gd32f50x_timer.o(.text.timer_input_capture_config)
+    [Anonymous Symbol]                       0x0800e6ac   Section        0  gd32f50x_timer.o(.text.timer_input_trigger_source_select)
+    [Anonymous Symbol]                       0x0800e868   Section        0  gd32f50x_timer.o(.text.timer_interrupt_disable)
+    [Anonymous Symbol]                       0x0800e88c   Section        0  gd32f50x_timer.o(.text.timer_interrupt_enable)
+    [Anonymous Symbol]                       0x0800e8b0   Section        0  gd32f50x_timer.o(.text.timer_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x0800e8d0   Section        0  gd32f50x_timer.o(.text.timer_interrupt_flag_get)
+    [Anonymous Symbol]                       0x0800e934   Section        0  gd32f50x_timer.o(.text.timer_master_output_trigger_source_select)
+    [Anonymous Symbol]                       0x0800e968   Section        0  gd32f50x_timer.o(.text.timer_master_slave_mode_config)
+    [Anonymous Symbol]                       0x0800e99c   Section        0  gd32f50x_timer.o(.text.timer_primary_output_config)
+    [Anonymous Symbol]                       0x0800e9cc   Section        0  gd32f50x_timer.o(.text.timer_quadrature_decoder_mode_config)
+    [Anonymous Symbol]                       0x0800ea94   Section        0  gd32f50x_timer.o(.text.timer_slave_mode_select)
+    [Anonymous Symbol]                       0x0800ec64   Section        0  gd32f50x_timer.o(.text.timer_struct_para_init)
+    [Anonymous Symbol]                       0x0800eca0   Section        0  gd32f50x_timer.o(.text.timer_update_event_disable)
+    [Anonymous Symbol]                       0x0800ecb4   Section        0  gd32f50x_timer.o(.text.timer_update_event_enable)
+    [Anonymous Symbol]                       0x0800ecc8   Section        0  gd32f50x_trigsel.o(.text.trigsel_init)
+    [Anonymous Symbol]                       0x0800ed24   Section        0  gd32f50x_trigsel.o(.text.trigsel_register_lock_get)
+    [Anonymous Symbol]                       0x0800ed5c   Section        0  uart4_drv.o(.text.uart4_encoder_rx_process)
+    [Anonymous Symbol]                       0x0800efcc   Section        0  uart4_drv.o(.text.uart4_get_last_elec_angle_rad)
+    [Anonymous Symbol]                       0x0800efec   Section        0  uart4_drv.o(.text.uart4_init)
+    [Anonymous Symbol]                       0x0800f0bc   Section        0  uart4_drv.o(.text.uart4_request_encoder_data)
+    [Anonymous Symbol]                       0x0800f0d4   Section        0  uart4_drv.o(.text.uart4_send)
+    [Anonymous Symbol]                       0x0800f148   Section        0  gd32f50x_usart.o(.text.usart_baudrate_set)
+    usart_config                             0x0800f271   Thumb Code   128  communication.o(.text.usart_config)
+    [Anonymous Symbol]                       0x0800f270   Section        0  communication.o(.text.usart_config)
+    [Anonymous Symbol]                       0x0800f2f0   Section        0  gd32f50x_usart.o(.text.usart_data_receive)
+    [Anonymous Symbol]                       0x0800f300   Section        0  gd32f50x_usart.o(.text.usart_data_transmit)
+    [Anonymous Symbol]                       0x0800f314   Section        0  gd32f50x_usart.o(.text.usart_deinit)
+    [Anonymous Symbol]                       0x0800f3cc   Section        0  gd32f50x_usart.o(.text.usart_dma_receive_config)
+    [Anonymous Symbol]                       0x0800f3f0   Section        0  gd32f50x_usart.o(.text.usart_dma_transmit_config)
+    [Anonymous Symbol]                       0x0800f414   Section        0  gd32f50x_usart.o(.text.usart_enable)
+    [Anonymous Symbol]                       0x0800f428   Section        0  gd32f50x_usart.o(.text.usart_flag_clear)
+    [Anonymous Symbol]                       0x0800f474   Section        0  gd32f50x_usart.o(.text.usart_flag_get)
+    usart_gpio_config                        0x0800f4b5   Thumb Code    86  communication.o(.text.usart_gpio_config)
+    [Anonymous Symbol]                       0x0800f4b4   Section        0  communication.o(.text.usart_gpio_config)
+    [Anonymous Symbol]                       0x0800f50c   Section        0  gd32f50x_usart.o(.text.usart_hardware_flow_cts_config)
+    [Anonymous Symbol]                       0x0800f530   Section        0  gd32f50x_usart.o(.text.usart_hardware_flow_rts_config)
+    [Anonymous Symbol]                       0x0800f554   Section        0  gd32f50x_usart.o(.text.usart_interrupt_enable)
+    [Anonymous Symbol]                       0x0800f578   Section        0  gd32f50x_usart.o(.text.usart_interrupt_flag_get)
+    [Anonymous Symbol]                       0x0800f5dc   Section        0  gd32f50x_usart.o(.text.usart_parity_config)
+    usart_rcu_config                         0x0800f601   Thumb Code    56  communication.o(.text.usart_rcu_config)
+    [Anonymous Symbol]                       0x0800f600   Section        0  communication.o(.text.usart_rcu_config)
+    [Anonymous Symbol]                       0x0800f638   Section        0  gd32f50x_usart.o(.text.usart_receive_config)
+    [Anonymous Symbol]                       0x0800f65c   Section        0  gd32f50x_usart.o(.text.usart_stop_bit_set)
+    [Anonymous Symbol]                       0x0800f680   Section        0  gd32f50x_usart.o(.text.usart_transmit_config)
+    [Anonymous Symbol]                       0x0800f6a4   Section        0  gd32f50x_usart.o(.text.usart_word_length_set)
+    [Anonymous Symbol]                       0x0800f6c8   Section        0  vf_if_startup.o(.text.vf_start_up)
+    [Anonymous Symbol]                       0x0800f798   Section        0  vf_if_startup.o(.text.vf_start_up_init)
+    i.__0printf                              0x0800f878   Section        0  printfa.o(i.__0printf)
+    i.__scatterload_copy                     0x0800f898   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800f8a6   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0800f8a8   Section       14  handlers.o(i.__scatterload_zeroinit)
+    _fp_digits                               0x0800f8b9   Thumb Code   366  printfa.o(i._fp_digits)
+    i._fp_digits                             0x0800f8b8   Section        0  printfa.o(i._fp_digits)
+    _printf_core                             0x0800fa3d   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_core                           0x0800fa3c   Section        0  printfa.o(i._printf_core)
+    _printf_post_padding                     0x08010119   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_post_padding                   0x08010118   Section        0  printfa.o(i._printf_post_padding)
+    _printf_pre_padding                      0x0801013d   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i._printf_pre_padding                    0x0801013c   Section        0  printfa.o(i._printf_pre_padding)
+    atan_table                               0x08011950   Data         408  foc_math.o(.rodata.atan_table)
+    [Anonymous Symbol]                       0x08011950   Section        0  foc_math.o(.rodata.atan_table)
+    sin_table                                0x08011d98   Data         524  foc_math.o(.rodata.sin_table)
+    [Anonymous Symbol]                       0x08011d98   Section        0  foc_math.o(.rodata.sin_table)
+    .L.str                                   0x08011fa4   Data           7  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08011fa4   Section        0  main.o(.rodata.str1.1)
+    .L.str.11                                0x08011fab   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08011fab   Section        0  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.9                                 0x08011fb2   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.8                                 0x08011fb9   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.10                                0x08011fc0   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.19                                0x08011fc7   Data          20  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.16                                0x08011fdb   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.7                                 0x08011fe7   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.1                                 0x08011ff3   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str                                   0x08011ffa   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.3                                 0x08012001   Data          11  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.5                                 0x0801200c   Data           7  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.4                                 0x08012013   Data           8  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.14                                0x0801201b   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.15                                0x08012027   Data          11  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.18                                0x08012032   Data          19  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.13                                0x08012045   Data          11  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.12                                0x08012050   Data          12  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.17                                0x0801205c   Data          14  gd32_bldc_foc_eval.o(.rodata.str1.1)
+    .L.str.2                                 0x0801206a   Data           4  gd32_bldc_foc_eval.o(.rodata.str1.1)
     .data                                    0x20000000   Section        4  stdout.o(.data)
     led_sacn_state.j                         0x20000540   Data           4  gd32_bldc_foc_eval.o(.data.led_sacn_state.j)
     [Anonymous Symbol]                       0x20000540   Section        0  gd32_bldc_foc_eval.o(.data.led_sacn_state.j)
@@ -4591,7 +4600,15 @@ Image Symbol Table
     [Anonymous Symbol]                       0x20001562   Section        0  communication.o(.bss.transmit_dma_busy)
     uart4_last_elec_angle_rad                0x20001564   Data           4  uart4_drv.o(.bss.uart4_last_elec_angle_rad)
     [Anonymous Symbol]                       0x20001564   Section        0  uart4_drv.o(.bss.uart4_last_elec_angle_rad)
-    STACK                                    0x200015f8   Section     1024  startup_gd32f50x.o(STACK)
+    uart4_last_output_pos_rad                0x20001568   Data           4  uart4_drv.o(.bss.uart4_last_output_pos_rad)
+    [Anonymous Symbol]                       0x20001568   Section        0  uart4_drv.o(.bss.uart4_last_output_pos_rad)
+    uart4_last_output_speed_rad_s            0x2000156c   Data           4  uart4_drv.o(.bss.uart4_last_output_speed_rad_s)
+    [Anonymous Symbol]                       0x2000156c   Section        0  uart4_drv.o(.bss.uart4_last_output_speed_rad_s)
+    uart4_output_state_inited                0x20001570   Data           1  uart4_drv.o(.bss.uart4_output_state_inited)
+    [Anonymous Symbol]                       0x20001570   Section        0  uart4_drv.o(.bss.uart4_output_state_inited)
+    uart4_prev_output_pos_rad                0x20001574   Data           4  uart4_drv.o(.bss.uart4_prev_output_pos_rad)
+    [Anonymous Symbol]                       0x20001574   Section        0  uart4_drv.o(.bss.uart4_prev_output_pos_rad)
+    STACK                                    0x20001608   Section     1024  startup_gd32f50x.o(STACK)
 
     Global Symbols
 
@@ -4849,124 +4866,124 @@ Image Symbol Table
     motor_protect_peripheral_init            0x08009159   Thumb Code    20  motor_protect.o(.text.motor_protect_peripheral_init)
     motor_protect_phase_loss_check           0x0800916d   Thumb Code   428  motor_protect.o(.text.motor_protect_phase_loss_check)
     motor_protect_var_init                   0x08009355   Thumb Code   122  motor_protect.o(.text.motor_protect_var_init)
-    motor_start                              0x08009745   Thumb Code    18  motor_ctrl.o(.text.motor_start)
-    motor_stop                               0x08009931   Thumb Code    18  motor_ctrl.o(.text.motor_stop)
-    motor_udq_calc                           0x08009945   Thumb Code   104  motor_ctrl.o(.text.motor_udq_calc)
-    moving_average_float                     0x080099ad   Thumb Code   128  foc_math.o(.text.moving_average_float)
-    nvic_irq_enable                          0x08009a2d   Thumb Code   138  gd32f50x_misc.o(.text.nvic_irq_enable)
-    nvic_priority_group_set                  0x08009ab9   Thumb Code    28  gd32f50x_misc.o(.text.nvic_priority_group_set)
-    nvic_vector_table_set                    0x08009ad5   Thumb Code    40  gd32f50x_misc.o(.text.nvic_vector_table_set)
-    over_modulation                          0x0800a825   Thumb Code   242  modulation.o(.text.over_modulation)
-    park                                     0x0800a919   Thumb Code    94  foc_math.o(.text.park)
-    pid_incremental_regulation               0x0800a979   Thumb Code   226  foc_math.o(.text.pid_incremental_regulation)
-    pid_init                                 0x0800aa5d   Thumb Code    64  foc_math.o(.text.pid_init)
-    pwm_2shunt_update_duty                   0x0800ac49   Thumb Code    74  pwm_current_2shunt.o(.text.pwm_2shunt_update_duty)
-    pwm_3shunt_update_duty                   0x0800ae3d   Thumb Code    74  pwm_current_3shunt.o(.text.pwm_3shunt_update_duty)
-    pwm_current_1shunt_get_current           0x0800af41   Thumb Code   524  pwm_current_1shunt.o(.text.pwm_current_1shunt_get_current)
-    pwm_current_1shunt_peripheral_init       0x0800b281   Thumb Code    32  pwm_current_1shunt.o(.text.pwm_current_1shunt_peripheral_init)
-    pwm_current_1shunt_sampling_point_config 0x0800b301   Thumb Code   540  pwm_current_1shunt.o(.text.pwm_current_1shunt_sampling_point_config)
-    pwm_current_2shunt_get_current           0x0800b6c5   Thumb Code   204  pwm_current_2shunt.o(.text.pwm_current_2shunt_get_current)
-    pwm_current_2shunt_peripheral_init       0x0800b8d5   Thumb Code    28  pwm_current_2shunt.o(.text.pwm_current_2shunt_peripheral_init)
-    pwm_current_2shunt_sampling_point_config 0x0800b95d   Thumb Code    10  pwm_current_2shunt.o(.text.pwm_current_2shunt_sampling_point_config)
-    pwm_current_3shunt_get_current           0x0800b969   Thumb Code   412  pwm_current_3shunt.o(.text.pwm_current_3shunt_get_current)
-    pwm_current_3shunt_peripheral_init       0x0800bc55   Thumb Code    28  pwm_current_3shunt.o(.text.pwm_current_3shunt_peripheral_init)
-    pwm_current_3shunt_sampling_point_config 0x0800bce5   Thumb Code   178  pwm_current_3shunt.o(.text.pwm_current_3shunt_sampling_point_config)
-    pwm_current_peripheral_init              0x0800bd99   Thumb Code    76  pwm_current.o(.text.pwm_current_peripheral_init)
-    pwm_generation                           0x0800bde5   Thumb Code   206  pwm_current.o(.text.pwm_generation)
-    rcu_adc_clock_config                     0x0800bf05   Thumb Code   200  gd32f50x_rcu.o(.text.rcu_adc_clock_config)
-    rcu_clock_freq_get                       0x0800bfcd   Thumb Code   734  gd32f50x_rcu.o(.text.rcu_clock_freq_get)
-    rcu_periph_clock_enable                  0x0800c2ad   Thumb Code    40  gd32f50x_rcu.o(.text.rcu_periph_clock_enable)
-    rcu_periph_reset_disable                 0x0800c2d5   Thumb Code    40  gd32f50x_rcu.o(.text.rcu_periph_reset_disable)
-    rcu_periph_reset_enable                  0x0800c2fd   Thumb Code    40  gd32f50x_rcu.o(.text.rcu_periph_reset_enable)
-    rev_park                                 0x0800c325   Thumb Code    94  foc_math.o(.text.rev_park)
-    sin_cos_float                            0x0800c385   Thumb Code   804  foc_math.o(.text.sin_cos_float)
-    smo_observer_update                      0x0800c879   Thumb Code   562  smo_observer.o(.text.smo_observer_update)
-    soft_delay_1us                           0x0800cbdd   Thumb Code    68  foc_soft_delay.o(.text.soft_delay_1us)
-    soft_delay_ms                            0x0800cc21   Thumb Code    56  foc_soft_delay.o(.text.soft_delay_ms)
-    speed_get                                0x0800cc59   Thumb Code   212  angle.o(.text.speed_get)
-    sqrt_float                               0x0800cd2d   Thumb Code   160  foc_math.o(.text.sqrt_float)
-    start_ctrl                               0x0800cdcd   Thumb Code   134  motor_ctrl_driver.o(.text.start_ctrl)
-    stop_ctrl                                0x0800ce55   Thumb Code   194  motor_ctrl_driver.o(.text.stop_ctrl)
-    syscfg_sram_ecc_flag_get                 0x0800cf19   Thumb Code    46  gd32f50x_syscfg.o(.text.syscfg_sram_ecc_flag_get)
-    systick_config                           0x0800d139   Thumb Code    50  systick.o(.text.systick_config)
-    timer_auto_reload_shadow_enable          0x0800d281   Thumb Code    18  gd32f50x_timer.o(.text.timer_auto_reload_shadow_enable)
-    timer_break_config                       0x0800d295   Thumb Code   168  gd32f50x_timer.o(.text.timer_break_config)
-    timer_break_struct_para_init             0x0800d33d   Thumb Code    66  gd32f50x_timer.o(.text.timer_break_struct_para_init)
-    timer_channel_capture_value_register_read 0x0800d381   Thumb Code    96  gd32f50x_timer.o(.text.timer_channel_capture_value_register_read)
-    timer_channel_complementary_output_state_config 0x0800d3e1   Thumb Code   158  gd32f50x_timer.o(.text.timer_channel_complementary_output_state_config)
-    timer_channel_input_capture_prescaler_config 0x0800d481   Thumb Code   198  gd32f50x_timer.o(.text.timer_channel_input_capture_prescaler_config)
-    timer_channel_input_struct_para_init     0x0800d549   Thumb Code    50  gd32f50x_timer.o(.text.timer_channel_input_struct_para_init)
-    timer_channel_output_config              0x0800d57d   Thumb Code  1838  gd32f50x_timer.o(.text.timer_channel_output_config)
-    timer_channel_output_mode_config         0x0800dcad   Thumb Code   248  gd32f50x_timer.o(.text.timer_channel_output_mode_config)
-    timer_channel_output_pulse_value_config  0x0800dda5   Thumb Code    92  gd32f50x_timer.o(.text.timer_channel_output_pulse_value_config)
-    timer_channel_output_shadow_config       0x0800de01   Thumb Code   198  gd32f50x_timer.o(.text.timer_channel_output_shadow_config)
-    timer_channel_output_state_config        0x0800dec9   Thumb Code   188  gd32f50x_timer.o(.text.timer_channel_output_state_config)
-    timer_channel_output_struct_para_init    0x0800df85   Thumb Code    56  gd32f50x_timer.o(.text.timer_channel_output_struct_para_init)
-    timer_channel_primary_output_config      0x0800dfbd   Thumb Code   172  gd32f50x_timer.o(.text.timer_channel_primary_output_config)
-    timer_deinit                             0x0800e069   Thumb Code   348  gd32f50x_timer.o(.text.timer_deinit)
-    timer_disable                            0x0800e1c5   Thumb Code    18  gd32f50x_timer.o(.text.timer_disable)
-    timer_dma_enable                         0x0800e1d9   Thumb Code    32  gd32f50x_timer.o(.text.timer_dma_enable)
-    timer_dma_transfer_config                0x0800e1f9   Thumb Code    54  gd32f50x_timer.o(.text.timer_dma_transfer_config)
-    timer_enable                             0x0800e231   Thumb Code    18  gd32f50x_timer.o(.text.timer_enable)
-    timer_event_software_generate            0x0800e245   Thumb Code    20  gd32f50x_timer.o(.text.timer_event_software_generate)
-    timer_hall_mode_config                   0x0800e259   Thumb Code    52  gd32f50x_timer.o(.text.timer_hall_mode_config)
-    timer_init                               0x0800e28d   Thumb Code   358  gd32f50x_timer.o(.text.timer_init)
-    timer_input_capture_config               0x0800e3f5   Thumb Code   692  gd32f50x_timer.o(.text.timer_input_capture_config)
-    timer_input_trigger_source_select        0x0800e6a9   Thumb Code   444  gd32f50x_timer.o(.text.timer_input_trigger_source_select)
-    timer_interrupt_disable                  0x0800e865   Thumb Code    34  gd32f50x_timer.o(.text.timer_interrupt_disable)
-    timer_interrupt_enable                   0x0800e889   Thumb Code    34  gd32f50x_timer.o(.text.timer_interrupt_enable)
-    timer_interrupt_flag_clear               0x0800e8ad   Thumb Code    32  gd32f50x_timer.o(.text.timer_interrupt_flag_clear)
-    timer_interrupt_flag_get                 0x0800e8cd   Thumb Code    98  gd32f50x_timer.o(.text.timer_interrupt_flag_get)
-    timer_master_output_trigger_source_select 0x0800e931   Thumb Code    52  gd32f50x_timer.o(.text.timer_master_output_trigger_source_select)
-    timer_master_slave_mode_config           0x0800e965   Thumb Code    52  gd32f50x_timer.o(.text.timer_master_slave_mode_config)
-    timer_primary_output_config              0x0800e999   Thumb Code    46  gd32f50x_timer.o(.text.timer_primary_output_config)
-    timer_quadrature_decoder_mode_config     0x0800e9c9   Thumb Code   198  gd32f50x_timer.o(.text.timer_quadrature_decoder_mode_config)
-    timer_slave_mode_select                  0x0800ea91   Thumb Code   464  gd32f50x_timer.o(.text.timer_slave_mode_select)
-    timer_struct_para_init                   0x0800ec61   Thumb Code    60  gd32f50x_timer.o(.text.timer_struct_para_init)
-    timer_update_event_disable               0x0800ec9d   Thumb Code    18  gd32f50x_timer.o(.text.timer_update_event_disable)
-    timer_update_event_enable                0x0800ecb1   Thumb Code    18  gd32f50x_timer.o(.text.timer_update_event_enable)
-    trigsel_init                             0x0800ecc5   Thumb Code    92  gd32f50x_trigsel.o(.text.trigsel_init)
-    trigsel_register_lock_get                0x0800ed21   Thumb Code    54  gd32f50x_trigsel.o(.text.trigsel_register_lock_get)
-    uart4_encoder_rx_process                 0x0800ed59   Thumb Code   348  uart4_drv.o(.text.uart4_encoder_rx_process)
-    uart4_get_last_elec_angle_rad            0x0800eec1   Thumb Code    30  uart4_drv.o(.text.uart4_get_last_elec_angle_rad)
-    uart4_init                               0x0800eee1   Thumb Code   234  uart4_drv.o(.text.uart4_init)
-    uart4_request_encoder_data               0x0800efcd   Thumb Code    24  uart4_drv.o(.text.uart4_request_encoder_data)
-    uart4_send                               0x0800efe5   Thumb Code   114  uart4_drv.o(.text.uart4_send)
-    usart_baudrate_set                       0x0800f059   Thumb Code   294  gd32f50x_usart.o(.text.usart_baudrate_set)
-    usart_data_receive                       0x0800f201   Thumb Code    16  gd32f50x_usart.o(.text.usart_data_receive)
-    usart_data_transmit                      0x0800f211   Thumb Code    20  gd32f50x_usart.o(.text.usart_data_transmit)
-    usart_deinit                             0x0800f225   Thumb Code   184  gd32f50x_usart.o(.text.usart_deinit)
-    usart_dma_receive_config                 0x0800f2dd   Thumb Code    34  gd32f50x_usart.o(.text.usart_dma_receive_config)
-    usart_dma_transmit_config                0x0800f301   Thumb Code    34  gd32f50x_usart.o(.text.usart_dma_transmit_config)
-    usart_enable                             0x0800f325   Thumb Code    18  gd32f50x_usart.o(.text.usart_enable)
-    usart_flag_clear                         0x0800f339   Thumb Code    74  gd32f50x_usart.o(.text.usart_flag_clear)
-    usart_flag_get                           0x0800f385   Thumb Code    64  gd32f50x_usart.o(.text.usart_flag_get)
-    usart_hardware_flow_cts_config           0x0800f41d   Thumb Code    34  gd32f50x_usart.o(.text.usart_hardware_flow_cts_config)
-    usart_hardware_flow_rts_config           0x0800f441   Thumb Code    34  gd32f50x_usart.o(.text.usart_hardware_flow_rts_config)
-    usart_interrupt_enable                   0x0800f465   Thumb Code    36  gd32f50x_usart.o(.text.usart_interrupt_enable)
-    usart_interrupt_flag_get                 0x0800f489   Thumb Code    98  gd32f50x_usart.o(.text.usart_interrupt_flag_get)
-    usart_parity_config                      0x0800f4ed   Thumb Code    34  gd32f50x_usart.o(.text.usart_parity_config)
-    usart_receive_config                     0x0800f549   Thumb Code    34  gd32f50x_usart.o(.text.usart_receive_config)
-    usart_stop_bit_set                       0x0800f56d   Thumb Code    34  gd32f50x_usart.o(.text.usart_stop_bit_set)
-    usart_transmit_config                    0x0800f591   Thumb Code    34  gd32f50x_usart.o(.text.usart_transmit_config)
-    usart_word_length_set                    0x0800f5b5   Thumb Code    34  gd32f50x_usart.o(.text.usart_word_length_set)
-    vf_start_up                              0x0800f5d9   Thumb Code   206  vf_if_startup.o(.text.vf_start_up)
-    vf_start_up_init                         0x0800f6a9   Thumb Code   224  vf_if_startup.o(.text.vf_start_up_init)
-    __0printf                                0x0800f789   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x0800f789   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x0800f789   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x0800f789   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x0800f789   Thumb Code     0  printfa.o(i.__0printf)
-    __scatterload_copy                       0x0800f7a9   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800f7b7   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800f7b9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    GDQR_logo                                0x0801007a   Data         625  gd32_bldc_foc_eval.o(.rodata.GDQR_logo)
-    asc2_0806                                0x080102eb   Data         552  gd32_bldc_foc_eval.o(.rodata.asc2_0806)
-    asc2_1608                                0x08010513   Data        1520  gd32_bldc_foc_eval.o(.rodata.asc2_1608)
-    asc2_2412                                0x08010b03   Data        3420  gd32_bldc_foc_eval.o(.rodata.asc2_2412)
-    gImage_logo                              0x080119f8   Data         688  gd32_bldc_foc_eval.o(.rodata.gImage_logo)
-    Region$$Table$$Base                      0x08011f80   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08011fa0   Number         0  anon$$obj.o(Region$$Table)
+    motor_start                              0x08009749   Thumb Code    18  motor_ctrl.o(.text.motor_start)
+    motor_stop                               0x08009935   Thumb Code    18  motor_ctrl.o(.text.motor_stop)
+    motor_udq_calc                           0x08009949   Thumb Code   104  motor_ctrl.o(.text.motor_udq_calc)
+    moving_average_float                     0x080099b1   Thumb Code   128  foc_math.o(.text.moving_average_float)
+    nvic_irq_enable                          0x08009a31   Thumb Code   138  gd32f50x_misc.o(.text.nvic_irq_enable)
+    nvic_priority_group_set                  0x08009abd   Thumb Code    28  gd32f50x_misc.o(.text.nvic_priority_group_set)
+    nvic_vector_table_set                    0x08009ad9   Thumb Code    40  gd32f50x_misc.o(.text.nvic_vector_table_set)
+    over_modulation                          0x0800a829   Thumb Code   242  modulation.o(.text.over_modulation)
+    park                                     0x0800a91d   Thumb Code    94  foc_math.o(.text.park)
+    pid_incremental_regulation               0x0800a97d   Thumb Code   226  foc_math.o(.text.pid_incremental_regulation)
+    pid_init                                 0x0800aa61   Thumb Code    64  foc_math.o(.text.pid_init)
+    pwm_2shunt_update_duty                   0x0800ac4d   Thumb Code    74  pwm_current_2shunt.o(.text.pwm_2shunt_update_duty)
+    pwm_3shunt_update_duty                   0x0800ae41   Thumb Code    74  pwm_current_3shunt.o(.text.pwm_3shunt_update_duty)
+    pwm_current_1shunt_get_current           0x0800af45   Thumb Code   524  pwm_current_1shunt.o(.text.pwm_current_1shunt_get_current)
+    pwm_current_1shunt_peripheral_init       0x0800b285   Thumb Code    32  pwm_current_1shunt.o(.text.pwm_current_1shunt_peripheral_init)
+    pwm_current_1shunt_sampling_point_config 0x0800b305   Thumb Code   540  pwm_current_1shunt.o(.text.pwm_current_1shunt_sampling_point_config)
+    pwm_current_2shunt_get_current           0x0800b6c9   Thumb Code   204  pwm_current_2shunt.o(.text.pwm_current_2shunt_get_current)
+    pwm_current_2shunt_peripheral_init       0x0800b8d9   Thumb Code    28  pwm_current_2shunt.o(.text.pwm_current_2shunt_peripheral_init)
+    pwm_current_2shunt_sampling_point_config 0x0800b961   Thumb Code    10  pwm_current_2shunt.o(.text.pwm_current_2shunt_sampling_point_config)
+    pwm_current_3shunt_get_current           0x0800b96d   Thumb Code   412  pwm_current_3shunt.o(.text.pwm_current_3shunt_get_current)
+    pwm_current_3shunt_peripheral_init       0x0800bc59   Thumb Code    28  pwm_current_3shunt.o(.text.pwm_current_3shunt_peripheral_init)
+    pwm_current_3shunt_sampling_point_config 0x0800bce9   Thumb Code   178  pwm_current_3shunt.o(.text.pwm_current_3shunt_sampling_point_config)
+    pwm_current_peripheral_init              0x0800bd9d   Thumb Code    76  pwm_current.o(.text.pwm_current_peripheral_init)
+    pwm_generation                           0x0800bde9   Thumb Code   206  pwm_current.o(.text.pwm_generation)
+    rcu_adc_clock_config                     0x0800bf09   Thumb Code   200  gd32f50x_rcu.o(.text.rcu_adc_clock_config)
+    rcu_clock_freq_get                       0x0800bfd1   Thumb Code   734  gd32f50x_rcu.o(.text.rcu_clock_freq_get)
+    rcu_periph_clock_enable                  0x0800c2b1   Thumb Code    40  gd32f50x_rcu.o(.text.rcu_periph_clock_enable)
+    rcu_periph_reset_disable                 0x0800c2d9   Thumb Code    40  gd32f50x_rcu.o(.text.rcu_periph_reset_disable)
+    rcu_periph_reset_enable                  0x0800c301   Thumb Code    40  gd32f50x_rcu.o(.text.rcu_periph_reset_enable)
+    rev_park                                 0x0800c329   Thumb Code    94  foc_math.o(.text.rev_park)
+    sin_cos_float                            0x0800c389   Thumb Code   804  foc_math.o(.text.sin_cos_float)
+    smo_observer_update                      0x0800c87d   Thumb Code   562  smo_observer.o(.text.smo_observer_update)
+    soft_delay_1us                           0x0800cbe1   Thumb Code    68  foc_soft_delay.o(.text.soft_delay_1us)
+    soft_delay_ms                            0x0800cc25   Thumb Code    56  foc_soft_delay.o(.text.soft_delay_ms)
+    speed_get                                0x0800cc5d   Thumb Code   212  angle.o(.text.speed_get)
+    sqrt_float                               0x0800cd31   Thumb Code   160  foc_math.o(.text.sqrt_float)
+    start_ctrl                               0x0800cdd1   Thumb Code   134  motor_ctrl_driver.o(.text.start_ctrl)
+    stop_ctrl                                0x0800ce59   Thumb Code   194  motor_ctrl_driver.o(.text.stop_ctrl)
+    syscfg_sram_ecc_flag_get                 0x0800cf1d   Thumb Code    46  gd32f50x_syscfg.o(.text.syscfg_sram_ecc_flag_get)
+    systick_config                           0x0800d13d   Thumb Code    50  systick.o(.text.systick_config)
+    timer_auto_reload_shadow_enable          0x0800d285   Thumb Code    18  gd32f50x_timer.o(.text.timer_auto_reload_shadow_enable)
+    timer_break_config                       0x0800d299   Thumb Code   168  gd32f50x_timer.o(.text.timer_break_config)
+    timer_break_struct_para_init             0x0800d341   Thumb Code    66  gd32f50x_timer.o(.text.timer_break_struct_para_init)
+    timer_channel_capture_value_register_read 0x0800d385   Thumb Code    96  gd32f50x_timer.o(.text.timer_channel_capture_value_register_read)
+    timer_channel_complementary_output_state_config 0x0800d3e5   Thumb Code   158  gd32f50x_timer.o(.text.timer_channel_complementary_output_state_config)
+    timer_channel_input_capture_prescaler_config 0x0800d485   Thumb Code   198  gd32f50x_timer.o(.text.timer_channel_input_capture_prescaler_config)
+    timer_channel_input_struct_para_init     0x0800d54d   Thumb Code    50  gd32f50x_timer.o(.text.timer_channel_input_struct_para_init)
+    timer_channel_output_config              0x0800d581   Thumb Code  1838  gd32f50x_timer.o(.text.timer_channel_output_config)
+    timer_channel_output_mode_config         0x0800dcb1   Thumb Code   248  gd32f50x_timer.o(.text.timer_channel_output_mode_config)
+    timer_channel_output_pulse_value_config  0x0800dda9   Thumb Code    92  gd32f50x_timer.o(.text.timer_channel_output_pulse_value_config)
+    timer_channel_output_shadow_config       0x0800de05   Thumb Code   198  gd32f50x_timer.o(.text.timer_channel_output_shadow_config)
+    timer_channel_output_state_config        0x0800decd   Thumb Code   188  gd32f50x_timer.o(.text.timer_channel_output_state_config)
+    timer_channel_output_struct_para_init    0x0800df89   Thumb Code    56  gd32f50x_timer.o(.text.timer_channel_output_struct_para_init)
+    timer_channel_primary_output_config      0x0800dfc1   Thumb Code   172  gd32f50x_timer.o(.text.timer_channel_primary_output_config)
+    timer_deinit                             0x0800e06d   Thumb Code   348  gd32f50x_timer.o(.text.timer_deinit)
+    timer_disable                            0x0800e1c9   Thumb Code    18  gd32f50x_timer.o(.text.timer_disable)
+    timer_dma_enable                         0x0800e1dd   Thumb Code    32  gd32f50x_timer.o(.text.timer_dma_enable)
+    timer_dma_transfer_config                0x0800e1fd   Thumb Code    54  gd32f50x_timer.o(.text.timer_dma_transfer_config)
+    timer_enable                             0x0800e235   Thumb Code    18  gd32f50x_timer.o(.text.timer_enable)
+    timer_event_software_generate            0x0800e249   Thumb Code    20  gd32f50x_timer.o(.text.timer_event_software_generate)
+    timer_hall_mode_config                   0x0800e25d   Thumb Code    52  gd32f50x_timer.o(.text.timer_hall_mode_config)
+    timer_init                               0x0800e291   Thumb Code   358  gd32f50x_timer.o(.text.timer_init)
+    timer_input_capture_config               0x0800e3f9   Thumb Code   692  gd32f50x_timer.o(.text.timer_input_capture_config)
+    timer_input_trigger_source_select        0x0800e6ad   Thumb Code   444  gd32f50x_timer.o(.text.timer_input_trigger_source_select)
+    timer_interrupt_disable                  0x0800e869   Thumb Code    34  gd32f50x_timer.o(.text.timer_interrupt_disable)
+    timer_interrupt_enable                   0x0800e88d   Thumb Code    34  gd32f50x_timer.o(.text.timer_interrupt_enable)
+    timer_interrupt_flag_clear               0x0800e8b1   Thumb Code    32  gd32f50x_timer.o(.text.timer_interrupt_flag_clear)
+    timer_interrupt_flag_get                 0x0800e8d1   Thumb Code    98  gd32f50x_timer.o(.text.timer_interrupt_flag_get)
+    timer_master_output_trigger_source_select 0x0800e935   Thumb Code    52  gd32f50x_timer.o(.text.timer_master_output_trigger_source_select)
+    timer_master_slave_mode_config           0x0800e969   Thumb Code    52  gd32f50x_timer.o(.text.timer_master_slave_mode_config)
+    timer_primary_output_config              0x0800e99d   Thumb Code    46  gd32f50x_timer.o(.text.timer_primary_output_config)
+    timer_quadrature_decoder_mode_config     0x0800e9cd   Thumb Code   198  gd32f50x_timer.o(.text.timer_quadrature_decoder_mode_config)
+    timer_slave_mode_select                  0x0800ea95   Thumb Code   464  gd32f50x_timer.o(.text.timer_slave_mode_select)
+    timer_struct_para_init                   0x0800ec65   Thumb Code    60  gd32f50x_timer.o(.text.timer_struct_para_init)
+    timer_update_event_disable               0x0800eca1   Thumb Code    18  gd32f50x_timer.o(.text.timer_update_event_disable)
+    timer_update_event_enable                0x0800ecb5   Thumb Code    18  gd32f50x_timer.o(.text.timer_update_event_enable)
+    trigsel_init                             0x0800ecc9   Thumb Code    92  gd32f50x_trigsel.o(.text.trigsel_init)
+    trigsel_register_lock_get                0x0800ed25   Thumb Code    54  gd32f50x_trigsel.o(.text.trigsel_register_lock_get)
+    uart4_encoder_rx_process                 0x0800ed5d   Thumb Code   600  uart4_drv.o(.text.uart4_encoder_rx_process)
+    uart4_get_last_elec_angle_rad            0x0800efcd   Thumb Code    30  uart4_drv.o(.text.uart4_get_last_elec_angle_rad)
+    uart4_init                               0x0800efed   Thumb Code   206  uart4_drv.o(.text.uart4_init)
+    uart4_request_encoder_data               0x0800f0bd   Thumb Code    24  uart4_drv.o(.text.uart4_request_encoder_data)
+    uart4_send                               0x0800f0d5   Thumb Code   114  uart4_drv.o(.text.uart4_send)
+    usart_baudrate_set                       0x0800f149   Thumb Code   294  gd32f50x_usart.o(.text.usart_baudrate_set)
+    usart_data_receive                       0x0800f2f1   Thumb Code    16  gd32f50x_usart.o(.text.usart_data_receive)
+    usart_data_transmit                      0x0800f301   Thumb Code    20  gd32f50x_usart.o(.text.usart_data_transmit)
+    usart_deinit                             0x0800f315   Thumb Code   184  gd32f50x_usart.o(.text.usart_deinit)
+    usart_dma_receive_config                 0x0800f3cd   Thumb Code    34  gd32f50x_usart.o(.text.usart_dma_receive_config)
+    usart_dma_transmit_config                0x0800f3f1   Thumb Code    34  gd32f50x_usart.o(.text.usart_dma_transmit_config)
+    usart_enable                             0x0800f415   Thumb Code    18  gd32f50x_usart.o(.text.usart_enable)
+    usart_flag_clear                         0x0800f429   Thumb Code    74  gd32f50x_usart.o(.text.usart_flag_clear)
+    usart_flag_get                           0x0800f475   Thumb Code    64  gd32f50x_usart.o(.text.usart_flag_get)
+    usart_hardware_flow_cts_config           0x0800f50d   Thumb Code    34  gd32f50x_usart.o(.text.usart_hardware_flow_cts_config)
+    usart_hardware_flow_rts_config           0x0800f531   Thumb Code    34  gd32f50x_usart.o(.text.usart_hardware_flow_rts_config)
+    usart_interrupt_enable                   0x0800f555   Thumb Code    36  gd32f50x_usart.o(.text.usart_interrupt_enable)
+    usart_interrupt_flag_get                 0x0800f579   Thumb Code    98  gd32f50x_usart.o(.text.usart_interrupt_flag_get)
+    usart_parity_config                      0x0800f5dd   Thumb Code    34  gd32f50x_usart.o(.text.usart_parity_config)
+    usart_receive_config                     0x0800f639   Thumb Code    34  gd32f50x_usart.o(.text.usart_receive_config)
+    usart_stop_bit_set                       0x0800f65d   Thumb Code    34  gd32f50x_usart.o(.text.usart_stop_bit_set)
+    usart_transmit_config                    0x0800f681   Thumb Code    34  gd32f50x_usart.o(.text.usart_transmit_config)
+    usart_word_length_set                    0x0800f6a5   Thumb Code    34  gd32f50x_usart.o(.text.usart_word_length_set)
+    vf_start_up                              0x0800f6c9   Thumb Code   206  vf_if_startup.o(.text.vf_start_up)
+    vf_start_up_init                         0x0800f799   Thumb Code   224  vf_if_startup.o(.text.vf_start_up_init)
+    __0printf                                0x0800f879   Thumb Code    22  printfa.o(i.__0printf)
+    __1printf                                0x0800f879   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x0800f879   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x0800f879   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x0800f879   Thumb Code     0  printfa.o(i.__0printf)
+    __scatterload_copy                       0x0800f899   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800f8a7   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0800f8a9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    GDQR_logo                                0x0801016a   Data         625  gd32_bldc_foc_eval.o(.rodata.GDQR_logo)
+    asc2_0806                                0x080103db   Data         552  gd32_bldc_foc_eval.o(.rodata.asc2_0806)
+    asc2_1608                                0x08010603   Data        1520  gd32_bldc_foc_eval.o(.rodata.asc2_1608)
+    asc2_2412                                0x08010bf3   Data        3420  gd32_bldc_foc_eval.o(.rodata.asc2_2412)
+    gImage_logo                              0x08011ae8   Data         688  gd32_bldc_foc_eval.o(.rodata.gImage_logo)
+    Region$$Table$$Base                      0x08012070   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08012090   Number         0  anon$$obj.o(Region$$Table)
     __stdout                                 0x20000000   Data           4  stdout.o(.data)
     SystemCoreClock                          0x20000004   Data           4  system_gd32f50x.o(.data.SystemCoreClock)
     aflux                                    0x20000008   Data         112  gdfoc_config.o(.data.aflux)
@@ -5007,9 +5024,9 @@ Image Symbol Table
     hall_detect                              0x20001284   Data          68  angle_hall.o(.bss.hall_detect)
     hall_speed                               0x200012c8   Data          48  angle_hall.o(.bss.hall_speed)
     motor_protect                            0x20001300   Data          48  motor_protect.o(.bss.motor_protect)
-    usart_receive                            0x20001568   Data         132  communication.o(.bss.usart_receive)
-    usart_transmit                           0x200015ec   Data          12  communication.o(.bss.usart_transmit)
-    __initial_sp                             0x200019f8   Data           0  startup_gd32f50x.o(STACK)
+    usart_receive                            0x20001578   Data         132  communication.o(.bss.usart_receive)
+    usart_transmit                           0x200015fc   Data          12  communication.o(.bss.usart_transmit)
+    __initial_sp                             0x20001a08   Data           0  startup_gd32f50x.o(STACK)
 
 
 
@@ -5019,39 +5036,39 @@ Memory Map of the image
 
   Image Entry point : 0x08000181
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000131f8, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00012580])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000132e8, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00012670])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00011fa0, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00012090, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x00000180   Data   RO         2453    RESET               startup_gd32f50x.o
-    0x08000180   0x08000180   0x00000000   Code   RO         2506  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000180   0x08000180   0x00000004   Code   RO         2545    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x08000184   0x08000184   0x00000004   Code   RO         2548    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08000188   0x08000188   0x00000000   Code   RO         2550    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08000188   0x08000188   0x00000000   Code   RO         2552    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08000188   0x08000188   0x00000008   Code   RO         2553    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08000190   0x08000190   0x00000000   Code   RO         2555    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x08000190   0x08000190   0x00000000   Code   RO         2557    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x08000190   0x08000190   0x00000004   Code   RO         2546    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x08000194   0x08000194   0x0000004c   Code   RO         2454    .text               startup_gd32f50x.o
-    0x080001e0   0x080001e0   0x00000024   Code   RO         2509    .text               mc_w.l(memcpya.o)
-    0x08000204   0x08000204   0x00000026   Code   RO         2543    .text               mf_w.l(f2d.o)
-    0x0800022a   0x0800022a   0x0000002c   Code   RO         2569    .text               mc_w.l(uidiv.o)
-    0x08000256   0x08000256   0x00000062   Code   RO         2571    .text               mc_w.l(uldiv.o)
-    0x080002b8   0x080002b8   0x00000000   Code   RO         2573    .text               mc_w.l(iusefp.o)
-    0x080002b8   0x080002b8   0x0000014e   Code   RO         2574    .text               mf_w.l(dadd.o)
-    0x08000406   0x08000406   0x000000e4   Code   RO         2576    .text               mf_w.l(dmul.o)
-    0x080004ea   0x080004ea   0x000000de   Code   RO         2578    .text               mf_w.l(ddiv.o)
-    0x080005c8   0x080005c8   0x00000030   Code   RO         2580    .text               mf_w.l(dfixul.o)
-    0x080005f8   0x080005f8   0x00000030   Code   RO         2582    .text               mf_w.l(cdrcmple.o)
-    0x08000628   0x08000628   0x00000030   Code   RO         2584    .text               mc_w.l(init.o)
-    0x08000658   0x08000658   0x0000001e   Code   RO         2586    .text               mc_w.l(llshl.o)
-    0x08000676   0x08000676   0x00000020   Code   RO         2588    .text               mc_w.l(llushr.o)
-    0x08000696   0x08000696   0x00000024   Code   RO         2590    .text               mc_w.l(llsshr.o)
-    0x080006ba   0x080006ba   0x000000ba   Code   RO         2592    .text               mf_w.l(depilogue.o)
-    0x08000774   0x08000774   0x00000056   Code   RO         2602    .text               mc_w.l(__dczerorl2.o)
+    0x08000000   0x08000000   0x00000180   Data   RO         2459    RESET               startup_gd32f50x.o
+    0x08000180   0x08000180   0x00000000   Code   RO         2512  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000180   0x08000180   0x00000004   Code   RO         2551    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x08000184   0x08000184   0x00000004   Code   RO         2554    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000188   0x08000188   0x00000000   Code   RO         2556    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000188   0x08000188   0x00000000   Code   RO         2558    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000188   0x08000188   0x00000008   Code   RO         2559    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08000190   0x08000190   0x00000000   Code   RO         2561    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08000190   0x08000190   0x00000000   Code   RO         2563    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08000190   0x08000190   0x00000004   Code   RO         2552    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000194   0x08000194   0x0000004c   Code   RO         2460    .text               startup_gd32f50x.o
+    0x080001e0   0x080001e0   0x00000024   Code   RO         2515    .text               mc_w.l(memcpya.o)
+    0x08000204   0x08000204   0x00000026   Code   RO         2549    .text               mf_w.l(f2d.o)
+    0x0800022a   0x0800022a   0x0000002c   Code   RO         2575    .text               mc_w.l(uidiv.o)
+    0x08000256   0x08000256   0x00000062   Code   RO         2577    .text               mc_w.l(uldiv.o)
+    0x080002b8   0x080002b8   0x00000000   Code   RO         2579    .text               mc_w.l(iusefp.o)
+    0x080002b8   0x080002b8   0x0000014e   Code   RO         2580    .text               mf_w.l(dadd.o)
+    0x08000406   0x08000406   0x000000e4   Code   RO         2582    .text               mf_w.l(dmul.o)
+    0x080004ea   0x080004ea   0x000000de   Code   RO         2584    .text               mf_w.l(ddiv.o)
+    0x080005c8   0x080005c8   0x00000030   Code   RO         2586    .text               mf_w.l(dfixul.o)
+    0x080005f8   0x080005f8   0x00000030   Code   RO         2588    .text               mf_w.l(cdrcmple.o)
+    0x08000628   0x08000628   0x00000030   Code   RO         2590    .text               mc_w.l(init.o)
+    0x08000658   0x08000658   0x0000001e   Code   RO         2592    .text               mc_w.l(llshl.o)
+    0x08000676   0x08000676   0x00000020   Code   RO         2594    .text               mc_w.l(llushr.o)
+    0x08000696   0x08000696   0x00000024   Code   RO         2596    .text               mc_w.l(llsshr.o)
+    0x080006ba   0x080006ba   0x000000ba   Code   RO         2598    .text               mf_w.l(depilogue.o)
+    0x08000774   0x08000774   0x00000056   Code   RO         2608    .text               mc_w.l(__dczerorl2.o)
     0x080007ca   0x080007ca   0x00000002   PAD
     0x080007cc   0x080007cc   0x000000dc   Code   RO           22    .text.ADC0_1_IRQHandler  gd32_foc_it.o
     0x080008a8   0x080008a8   0x00000004   Code   RO            8    .text.BusFault_Handler  gd32_foc_it.o
@@ -5062,49 +5079,49 @@ Memory Map of the image
     0x08000ac8   0x08000ac8   0x00000004   Code   RO            6    .text.MemManage_Handler  gd32_foc_it.o
     0x08000acc   0x08000acc   0x0000003e   Code   RO            2    .text.NMI_Handler   gd32_foc_it.o
     0x08000b0a   0x08000b0a   0x00000002   PAD
-    0x08000b0c   0x08000b0c   0x0000006c   Code   RO         1667    .text.NVIC_EncodePriority  gd32f50x_misc.o
+    0x08000b0c   0x08000b0c   0x0000006c   Code   RO         1673    .text.NVIC_EncodePriority  gd32f50x_misc.o
     0x08000b78   0x08000b78   0x00000004   Code   RO           16    .text.PendSV_Handler  gd32_foc_it.o
     0x08000b7c   0x08000b7c   0x00000004   Code   RO           12    .text.SVC_Handler   gd32_foc_it.o
     0x08000b80   0x08000b80   0x00000052   Code   RO          304    .text.SysTick_Config  systick.o
     0x08000bd2   0x08000bd2   0x00000002   PAD
     0x08000bd4   0x08000bd4   0x00000030   Code   RO           18    .text.SysTick_Handler  gd32_foc_it.o
-    0x08000c04   0x08000c04   0x000001b4   Code   RO          659    .text.SystemInit    system_gd32f50x.o
+    0x08000c04   0x08000c04   0x000001b4   Code   RO          665    .text.SystemInit    system_gd32f50x.o
     0x08000db8   0x08000db8   0x00000018   Code   RO           20    .text.TIMER2_IRQHandler  gd32_foc_it.o
-    0x08000dd0   0x08000dd0   0x0000003e   Code   RO          644    .text.UART4_IRQHandler  uart4_drv.o
+    0x08000dd0   0x08000dd0   0x0000003e   Code   RO          646    .text.UART4_IRQHandler  uart4_drv.o
     0x08000e0e   0x08000e0e   0x00000002   PAD
     0x08000e10   0x08000e10   0x00000004   Code   RO           10    .text.UsageFault_Handler  gd32_foc_it.o
-    0x08000e14   0x08000e14   0x00000030   Code   RO         1671    .text.__NVIC_EnableIRQ  gd32f50x_misc.o
-    0x08000e44   0x08000e44   0x00000010   Code   RO         1665    .text.__NVIC_GetPriorityGrouping  gd32f50x_misc.o
+    0x08000e14   0x08000e14   0x00000030   Code   RO         1677    .text.__NVIC_EnableIRQ  gd32f50x_misc.o
+    0x08000e44   0x08000e44   0x00000010   Code   RO         1671    .text.__NVIC_GetPriorityGrouping  gd32f50x_misc.o
     0x08000e54   0x08000e54   0x00000042   Code   RO          306    .text.__NVIC_SetPriority  systick.o
     0x08000e96   0x08000e96   0x00000002   PAD
-    0x08000e98   0x08000e98   0x00000042   Code   RO         1669    .text.__NVIC_SetPriority  gd32f50x_misc.o
+    0x08000e98   0x08000e98   0x00000042   Code   RO         1675    .text.__NVIC_SetPriority  gd32f50x_misc.o
     0x08000eda   0x08000eda   0x00000002   PAD
-    0x08000edc   0x08000edc   0x00000028   Code   RO          661    .text._soft_delay_  system_gd32f50x.o
-    0x08000f04   0x08000f04   0x0000008e   Code   RO          715    .text.adc_channel_length_config  gd32f50x_adc.o
+    0x08000edc   0x08000edc   0x00000028   Code   RO          667    .text._soft_delay_  system_gd32f50x.o
+    0x08000f04   0x08000f04   0x0000008e   Code   RO          721    .text.adc_channel_length_config  gd32f50x_adc.o
     0x08000f92   0x08000f92   0x00000002   PAD
-    0x08000f94   0x08000f94   0x00000022   Code   RO          713    .text.adc_data_alignment_config  gd32f50x_adc.o
+    0x08000f94   0x08000f94   0x00000022   Code   RO          719    .text.adc_data_alignment_config  gd32f50x_adc.o
     0x08000fb6   0x08000fb6   0x00000002   PAD
-    0x08000fb8   0x08000fb8   0x00000074   Code   RO          693    .text.adc_deinit    gd32f50x_adc.o
-    0x0800102c   0x0800102c   0x0000008c   Code   RO          703    .text.adc_discontinuous_mode_config  gd32f50x_adc.o
-    0x080010b8   0x080010b8   0x0000003c   Code   RO          699    .text.adc_dma_mode_enable  gd32f50x_adc.o
-    0x080010f4   0x080010f4   0x0000001e   Code   RO          695    .text.adc_enable    gd32f50x_adc.o
+    0x08000fb8   0x08000fb8   0x00000074   Code   RO          699    .text.adc_deinit    gd32f50x_adc.o
+    0x0800102c   0x0800102c   0x0000008c   Code   RO          709    .text.adc_discontinuous_mode_config  gd32f50x_adc.o
+    0x080010b8   0x080010b8   0x0000003c   Code   RO          705    .text.adc_dma_mode_enable  gd32f50x_adc.o
+    0x080010f4   0x080010f4   0x0000001e   Code   RO          701    .text.adc_enable    gd32f50x_adc.o
     0x08001112   0x08001112   0x00000002   PAD
-    0x08001114   0x08001114   0x00000082   Code   RO          723    .text.adc_external_trigger_config  gd32f50x_adc.o
+    0x08001114   0x08001114   0x00000082   Code   RO          729    .text.adc_external_trigger_config  gd32f50x_adc.o
     0x08001196   0x08001196   0x00000002   PAD
-    0x08001198   0x08001198   0x00000018   Code   RO          753    .text.adc_flag_clear  gd32f50x_adc.o
-    0x080011b0   0x080011b0   0x00000028   Code   RO          751    .text.adc_flag_get  gd32f50x_adc.o
-    0x080011d8   0x080011d8   0x000000fc   Code   RO          719    .text.adc_inserted_channel_config  gd32f50x_adc.o
-    0x080012d4   0x080012d4   0x0000001c   Code   RO          757    .text.adc_interrupt_disable  gd32f50x_adc.o
-    0x080012f0   0x080012f0   0x00000018   Code   RO          755    .text.adc_interrupt_enable  gd32f50x_adc.o
-    0x08001308   0x08001308   0x00000018   Code   RO          761    .text.adc_interrupt_flag_clear  gd32f50x_adc.o
-    0x08001320   0x08001320   0x0000004c   Code   RO          731    .text.adc_latch_data_read  gd32f50x_adc.o
-    0x0800136c   0x0800136c   0x0000016c   Code   RO          717    .text.adc_routine_channel_config  gd32f50x_adc.o
-    0x080014d8   0x080014d8   0x0000000e   Code   RO          727    .text.adc_routine_data_read  gd32f50x_adc.o
+    0x08001198   0x08001198   0x00000018   Code   RO          759    .text.adc_flag_clear  gd32f50x_adc.o
+    0x080011b0   0x080011b0   0x00000028   Code   RO          757    .text.adc_flag_get  gd32f50x_adc.o
+    0x080011d8   0x080011d8   0x000000fc   Code   RO          725    .text.adc_inserted_channel_config  gd32f50x_adc.o
+    0x080012d4   0x080012d4   0x0000001c   Code   RO          763    .text.adc_interrupt_disable  gd32f50x_adc.o
+    0x080012f0   0x080012f0   0x00000018   Code   RO          761    .text.adc_interrupt_enable  gd32f50x_adc.o
+    0x08001308   0x08001308   0x00000018   Code   RO          767    .text.adc_interrupt_flag_clear  gd32f50x_adc.o
+    0x08001320   0x08001320   0x0000004c   Code   RO          737    .text.adc_latch_data_read  gd32f50x_adc.o
+    0x0800136c   0x0800136c   0x0000016c   Code   RO          723    .text.adc_routine_channel_config  gd32f50x_adc.o
+    0x080014d8   0x080014d8   0x0000000e   Code   RO          733    .text.adc_routine_data_read  gd32f50x_adc.o
     0x080014e6   0x080014e6   0x00000002   PAD
-    0x080014e8   0x080014e8   0x0000003a   Code   RO          725    .text.adc_software_trigger_enable  gd32f50x_adc.o
+    0x080014e8   0x080014e8   0x0000003a   Code   RO          731    .text.adc_software_trigger_enable  gd32f50x_adc.o
     0x08001522   0x08001522   0x00000002   PAD
-    0x08001524   0x08001524   0x000000a8   Code   RO          705    .text.adc_special_function_config  gd32f50x_adc.o
-    0x080015cc   0x080015cc   0x00000024   Code   RO          709    .text.adc_sync_mode_config  gd32f50x_adc.o
+    0x08001524   0x08001524   0x000000a8   Code   RO          711    .text.adc_special_function_config  gd32f50x_adc.o
+    0x080015cc   0x080015cc   0x00000024   Code   RO          715    .text.adc_sync_mode_config  gd32f50x_adc.o
     0x080015f0   0x080015f0   0x000002c8   Code   RO          324    .text.angle_get     angle.o
     0x080018b8   0x080018b8   0x0000015e   Code   RO          322    .text.angle_init    angle.o
     0x08001a16   0x08001a16   0x00000002   PAD
@@ -5133,29 +5150,29 @@ Memory Map of the image
     0x0800346e   0x0800346e   0x00000002   PAD
     0x08003470   0x08003470   0x000001d2   Code   RO          581    .text.current_sample_region_divide  pwm_current_1shunt.o
     0x08003642   0x08003642   0x00000002   PAD
-    0x08003644   0x08003644   0x00000028   Code   RO         1130    .text.dbg_periph_enable  gd32f50x_dbg.o
+    0x08003644   0x08003644   0x00000028   Code   RO         1136    .text.dbg_periph_enable  gd32f50x_dbg.o
     0x0800366c   0x0800366c   0x00000026   Code   RO          308    .text.delay_1ms     systick.o
     0x08003692   0x08003692   0x00000002   PAD
     0x08003694   0x08003694   0x00000020   Code   RO          310    .text.delay_decrement  systick.o
-    0x080036b4   0x080036b4   0x00000022   Code   RO         1163    .text.dma_channel_disable  gd32f50x_dma.o
+    0x080036b4   0x080036b4   0x00000022   Code   RO         1169    .text.dma_channel_disable  gd32f50x_dma.o
     0x080036d6   0x080036d6   0x00000002   PAD
-    0x080036d8   0x080036d8   0x00000022   Code   RO         1161    .text.dma_channel_enable  gd32f50x_dma.o
+    0x080036d8   0x080036d8   0x00000022   Code   RO         1167    .text.dma_channel_enable  gd32f50x_dma.o
     0x080036fa   0x080036fa   0x00000002   PAD
-    0x080036fc   0x080036fc   0x00000022   Code   RO         1153    .text.dma_circulation_enable  gd32f50x_dma.o
+    0x080036fc   0x080036fc   0x00000022   Code   RO         1159    .text.dma_circulation_enable  gd32f50x_dma.o
     0x0800371e   0x0800371e   0x00000002   PAD
-    0x08003720   0x08003720   0x00000078   Code   RO         1147    .text.dma_deinit    gd32f50x_dma.o
-    0x08003798   0x08003798   0x00000022   Code   RO         1191    .text.dma_flag_clear  gd32f50x_dma.o
+    0x08003720   0x08003720   0x00000078   Code   RO         1153    .text.dma_deinit    gd32f50x_dma.o
+    0x08003798   0x08003798   0x00000022   Code   RO         1197    .text.dma_flag_clear  gd32f50x_dma.o
     0x080037ba   0x080037ba   0x00000002   PAD
-    0x080037bc   0x080037bc   0x00000036   Code   RO         1189    .text.dma_flag_get  gd32f50x_dma.o
+    0x080037bc   0x080037bc   0x00000036   Code   RO         1195    .text.dma_flag_get  gd32f50x_dma.o
     0x080037f2   0x080037f2   0x00000002   PAD
-    0x080037f4   0x080037f4   0x000001ea   Code   RO         1151    .text.dma_init      gd32f50x_dma.o
+    0x080037f4   0x080037f4   0x000001ea   Code   RO         1157    .text.dma_init      gd32f50x_dma.o
     0x080039de   0x080039de   0x00000002   PAD
-    0x080039e0   0x080039e0   0x00000022   Code   RO         1195    .text.dma_interrupt_flag_clear  gd32f50x_dma.o
+    0x080039e0   0x080039e0   0x00000022   Code   RO         1201    .text.dma_interrupt_flag_clear  gd32f50x_dma.o
     0x08003a02   0x08003a02   0x00000002   PAD
-    0x08003a04   0x08003a04   0x000000d0   Code   RO         1193    .text.dma_interrupt_flag_get  gd32f50x_dma.o
-    0x08003ad4   0x08003ad4   0x00000022   Code   RO         1159    .text.dma_memory_to_memory_disable  gd32f50x_dma.o
+    0x08003a04   0x08003a04   0x000000d0   Code   RO         1199    .text.dma_interrupt_flag_get  gd32f50x_dma.o
+    0x08003ad4   0x08003ad4   0x00000022   Code   RO         1165    .text.dma_memory_to_memory_disable  gd32f50x_dma.o
     0x08003af6   0x08003af6   0x00000002   PAD
-    0x08003af8   0x08003af8   0x0000004e   Code   RO         1149    .text.dma_struct_para_init  gd32f50x_dma.o
+    0x08003af8   0x08003af8   0x0000004e   Code   RO         1155    .text.dma_struct_para_init  gd32f50x_dma.o
     0x08003b46   0x08003b46   0x00000002   PAD
     0x08003b48   0x08003b48   0x000003d8   Code   RO          436    .text.dsvpwm        modulation.o
     0x08003f20   0x08003f20   0x00000180   Code   RO          101    .text.ec11_handle   gd32_bldc_foc_eval.o
@@ -5176,32 +5193,32 @@ Memory Map of the image
     0x080045d0   0x080045d0   0x00000012   Code   RO          609    .text.encoder_sensor_var_init  angle_encoder.o
     0x080045e2   0x080045e2   0x00000002   PAD
     0x080045e4   0x080045e4   0x00000014   Code   RO           89    .text.eval_board_init  gd32_bldc_foc_eval.o
-    0x080045f8   0x080045f8   0x0000010a   Code   RO         1293    .text.exti_init     gd32f50x_exti.o
+    0x080045f8   0x080045f8   0x0000010a   Code   RO         1299    .text.exti_init     gd32f50x_exti.o
     0x08004702   0x08004702   0x00000002   PAD
-    0x08004704   0x08004704   0x00000014   Code   RO         1313    .text.exti_interrupt_flag_clear  gd32f50x_exti.o
-    0x08004718   0x08004718   0x0000002e   Code   RO         1311    .text.exti_interrupt_flag_get  gd32f50x_exti.o
+    0x08004704   0x08004704   0x00000014   Code   RO         1319    .text.exti_interrupt_flag_clear  gd32f50x_exti.o
+    0x08004718   0x08004718   0x0000002e   Code   RO         1317    .text.exti_interrupt_flag_get  gd32f50x_exti.o
     0x08004746   0x08004746   0x00000002   PAD
-    0x08004748   0x08004748   0x00000070   Code   RO         2495    .text.flux_observer_init  aflux_observer.lib(aflux_observer.o)
-    0x080047b8   0x080047b8   0x0000032c   Code   RO         2497    .text.flux_observer_update  aflux_observer.lib(aflux_observer.o)
-    0x08004ae4   0x08004ae4   0x00000012   Code   RO         1330    .text.fmc_bank0_lock  gd32f50x_fmc.o
+    0x08004748   0x08004748   0x00000070   Code   RO         2501    .text.flux_observer_init  aflux_observer.lib(aflux_observer.o)
+    0x080047b8   0x080047b8   0x0000032c   Code   RO         2503    .text.flux_observer_update  aflux_observer.lib(aflux_observer.o)
+    0x08004ae4   0x08004ae4   0x00000012   Code   RO         1336    .text.fmc_bank0_lock  gd32f50x_fmc.o
     0x08004af6   0x08004af6   0x00000002   PAD
-    0x08004af8   0x08004af8   0x0000005c   Code   RO         1336    .text.fmc_bank0_ready_wait  gd32f50x_fmc.o
-    0x08004b54   0x08004b54   0x00000060   Code   RO         1416    .text.fmc_bank0_state_get  gd32f50x_fmc.o
-    0x08004bb4   0x08004bb4   0x00000032   Code   RO         1324    .text.fmc_bank0_unlock  gd32f50x_fmc.o
+    0x08004af8   0x08004af8   0x0000005c   Code   RO         1342    .text.fmc_bank0_ready_wait  gd32f50x_fmc.o
+    0x08004b54   0x08004b54   0x00000060   Code   RO         1422    .text.fmc_bank0_state_get  gd32f50x_fmc.o
+    0x08004bb4   0x08004bb4   0x00000032   Code   RO         1330    .text.fmc_bank0_unlock  gd32f50x_fmc.o
     0x08004be6   0x08004be6   0x00000002   PAD
-    0x08004be8   0x08004be8   0x0000005c   Code   RO         1338    .text.fmc_bank1_ready_wait  gd32f50x_fmc.o
-    0x08004c44   0x08004c44   0x00000060   Code   RO         1418    .text.fmc_bank1_state_get  gd32f50x_fmc.o
-    0x08004ca4   0x08004ca4   0x00000028   Code   RO         1406    .text.fmc_flag_clear  gd32f50x_fmc.o
-    0x08004ccc   0x08004ccc   0x0000015a   Code   RO         1348    .text.fmc_halfword_program  gd32f50x_fmc.o
+    0x08004be8   0x08004be8   0x0000005c   Code   RO         1344    .text.fmc_bank1_ready_wait  gd32f50x_fmc.o
+    0x08004c44   0x08004c44   0x00000060   Code   RO         1424    .text.fmc_bank1_state_get  gd32f50x_fmc.o
+    0x08004ca4   0x08004ca4   0x00000028   Code   RO         1412    .text.fmc_flag_clear  gd32f50x_fmc.o
+    0x08004ccc   0x08004ccc   0x0000015a   Code   RO         1354    .text.fmc_halfword_program  gd32f50x_fmc.o
     0x08004e26   0x08004e26   0x00000002   PAD
-    0x08004e28   0x08004e28   0x00000036   Code   RO         1328    .text.fmc_lock      gd32f50x_fmc.o
+    0x08004e28   0x08004e28   0x00000036   Code   RO         1334    .text.fmc_lock      gd32f50x_fmc.o
     0x08004e5e   0x08004e5e   0x00000002   PAD
-    0x08004e60   0x08004e60   0x00000012   Code   RO         1356    .text.fmc_nwa_enable  gd32f50x_fmc.o
+    0x08004e60   0x08004e60   0x00000012   Code   RO         1362    .text.fmc_nwa_enable  gd32f50x_fmc.o
     0x08004e72   0x08004e72   0x00000002   PAD
-    0x08004e74   0x08004e74   0x00000178   Code   RO         1334    .text.fmc_page_erase  gd32f50x_fmc.o
-    0x08004fec   0x08004fec   0x00000076   Code   RO         1322    .text.fmc_unlock    gd32f50x_fmc.o
+    0x08004e74   0x08004e74   0x00000178   Code   RO         1340    .text.fmc_page_erase  gd32f50x_fmc.o
+    0x08004fec   0x08004fec   0x00000076   Code   RO         1328    .text.fmc_unlock    gd32f50x_fmc.o
     0x08005062   0x08005062   0x00000002   PAD
-    0x08005064   0x08005064   0x00000152   Code   RO         1346    .text.fmc_word_program  gd32f50x_fmc.o
+    0x08005064   0x08005064   0x00000152   Code   RO         1352    .text.fmc_word_program  gd32f50x_fmc.o
     0x080051b6   0x080051b6   0x00000002   PAD
     0x080051b8   0x080051b8   0x00000034   Code   RO           41    .text.fputc         main.o
     0x080051ec   0x080051ec   0x000002e6   Code   RO          125    .text.fun_index1_0  gd32_bldc_foc_eval.o
@@ -5252,20 +5269,20 @@ Memory Map of the image
     0x080063bc   0x080063bc   0x000000ce   Code   RO          173    .text.fun_index_hint  gd32_bldc_foc_eval.o
     0x0800648a   0x0800648a   0x00000002   PAD
     0x0800648c   0x0800648c   0x000000bc   Code   RO          123    .text.fun_index_start  gd32_bldc_foc_eval.o
-    0x08006548   0x08006548   0x00000064   Code   RO          680    .text.fw_debug_report_err  gd32f50x_err_report.o
-    0x080065ac   0x080065ac   0x0000000e   Code   RO          682    .text.fw_error_notification  gd32f50x_err_report.o
+    0x08006548   0x08006548   0x00000064   Code   RO          686    .text.fw_debug_report_err  gd32f50x_err_report.o
+    0x080065ac   0x080065ac   0x0000000e   Code   RO          688    .text.fw_error_notification  gd32f50x_err_report.o
     0x080065ba   0x080065ba   0x00000002   PAD
     0x080065bc   0x080065bc   0x0000004c   Code   RO          362    .text.get_iab       pwm_current.o
-    0x08006608   0x08006608   0x000000dc   Code   RO         1474    .text.gpio_af_set   gd32f50x_gpio.o
-    0x080066e4   0x080066e4   0x00000012   Code   RO         1460    .text.gpio_bit_reset  gd32f50x_gpio.o
+    0x08006608   0x08006608   0x000000dc   Code   RO         1480    .text.gpio_af_set   gd32f50x_gpio.o
+    0x080066e4   0x080066e4   0x00000012   Code   RO         1466    .text.gpio_bit_reset  gd32f50x_gpio.o
     0x080066f6   0x080066f6   0x00000002   PAD
-    0x080066f8   0x080066f8   0x00000012   Code   RO         1458    .text.gpio_bit_set  gd32f50x_gpio.o
+    0x080066f8   0x080066f8   0x00000012   Code   RO         1464    .text.gpio_bit_set  gd32f50x_gpio.o
     0x0800670a   0x0800670a   0x00000002   PAD
-    0x0800670c   0x0800670c   0x000000e4   Code   RO         1476    .text.gpio_exti_source_select  gd32f50x_gpio.o
-    0x080067f0   0x080067f0   0x0000002a   Code   RO         1466    .text.gpio_input_bit_get  gd32f50x_gpio.o
+    0x0800670c   0x0800670c   0x000000e4   Code   RO         1482    .text.gpio_exti_source_select  gd32f50x_gpio.o
+    0x080067f0   0x080067f0   0x0000002a   Code   RO         1472    .text.gpio_input_bit_get  gd32f50x_gpio.o
     0x0800681a   0x0800681a   0x00000002   PAD
-    0x0800681c   0x0800681c   0x000000a4   Code   RO         1454    .text.gpio_mode_set  gd32f50x_gpio.o
-    0x080068c0   0x080068c0   0x000000a2   Code   RO         1456    .text.gpio_output_options_set  gd32f50x_gpio.o
+    0x0800681c   0x0800681c   0x000000a4   Code   RO         1460    .text.gpio_mode_set  gd32f50x_gpio.o
+    0x080068c0   0x080068c0   0x000000a2   Code   RO         1462    .text.gpio_output_options_set  gd32f50x_gpio.o
     0x08006962   0x08006962   0x00000002   PAD
     0x08006964   0x08006964   0x0000012c   Code   RO          489    .text.hall_angle_calc  angle_hall.o
     0x08006a90   0x08006a90   0x00000360   Code   RO          493    .text.hall_angle_detect  angle_hall.o
@@ -5287,31 +5304,31 @@ Memory Map of the image
     0x080077bc   0x080077bc   0x00000188   Code   RO          501    .text.hall_speed_update  angle_hall.o
     0x08007944   0x08007944   0x000000f6   Code   RO          477    .text.hall_timer_config  angle_hall.o
     0x08007a3a   0x08007a3a   0x00000002   PAD
-    0x08007a3c   0x08007a3c   0x00000030   Code   RO         1570    .text.i2c_address_config  gd32f50x_i2c.o
-    0x08007a6c   0x08007a6c   0x00000012   Code   RO         1558    .text.i2c_automatic_end_enable  gd32f50x_i2c.o
+    0x08007a3c   0x08007a3c   0x00000030   Code   RO         1576    .text.i2c_address_config  gd32f50x_i2c.o
+    0x08007a6c   0x08007a6c   0x00000012   Code   RO         1564    .text.i2c_automatic_end_enable  gd32f50x_i2c.o
     0x08007a7e   0x08007a7e   0x00000002   PAD
     0x08007a80   0x08007a80   0x00000094   Code   RO          121    .text.i2c_bus_reset  gd32_bldc_foc_eval.o
     0x08007b14   0x08007b14   0x000000c4   Code   RO          195    .text.i2c_config    gd32_bldc_foc_eval.o
-    0x08007bd8   0x08007bd8   0x00000014   Code   RO         1594    .text.i2c_data_transmit  gd32f50x_i2c.o
-    0x08007bec   0x08007bec   0x00000012   Code   RO         1588    .text.i2c_enable    gd32f50x_i2c.o
+    0x08007bd8   0x08007bd8   0x00000014   Code   RO         1600    .text.i2c_data_transmit  gd32f50x_i2c.o
+    0x08007bec   0x08007bec   0x00000012   Code   RO         1594    .text.i2c_enable    gd32f50x_i2c.o
     0x08007bfe   0x08007bfe   0x00000002   PAD
-    0x08007c00   0x08007c00   0x0000001c   Code   RO         1644    .text.i2c_flag_clear  gd32f50x_i2c.o
-    0x08007c1c   0x08007c1c   0x00000030   Code   RO         1642    .text.i2c_flag_get  gd32f50x_i2c.o
+    0x08007c00   0x08007c00   0x0000001c   Code   RO         1650    .text.i2c_flag_clear  gd32f50x_i2c.o
+    0x08007c1c   0x08007c1c   0x00000030   Code   RO         1648    .text.i2c_flag_get  gd32f50x_i2c.o
     0x08007c4c   0x08007c4c   0x0000004e   Code   RO          119    .text.i2c_gpio_reset  gd32_bldc_foc_eval.o
     0x08007c9a   0x08007c9a   0x00000002   PAD
-    0x08007c9c   0x08007c9c   0x0000003e   Code   RO         1548    .text.i2c_master_addressing  gd32f50x_i2c.o
+    0x08007c9c   0x08007c9c   0x0000003e   Code   RO         1554    .text.i2c_master_addressing  gd32f50x_i2c.o
     0x08007cda   0x08007cda   0x00000002   PAD
-    0x08007cdc   0x08007cdc   0x0000003e   Code   RO         1546    .text.i2c_master_clock_config  gd32f50x_i2c.o
+    0x08007cdc   0x08007cdc   0x0000003e   Code   RO         1552    .text.i2c_master_clock_config  gd32f50x_i2c.o
     0x08007d1a   0x08007d1a   0x00000002   PAD
-    0x08007d1c   0x08007d1c   0x00000012   Code   RO         1590    .text.i2c_start_on_bus  gd32f50x_i2c.o
+    0x08007d1c   0x08007d1c   0x00000012   Code   RO         1596    .text.i2c_start_on_bus  gd32f50x_i2c.o
     0x08007d2e   0x08007d2e   0x00000002   PAD
-    0x08007d30   0x08007d30   0x0000005e   Code   RO         1538    .text.i2c_timing_config  gd32f50x_i2c.o
+    0x08007d30   0x08007d30   0x0000005e   Code   RO         1544    .text.i2c_timing_config  gd32f50x_i2c.o
     0x08007d8e   0x08007d8e   0x00000002   PAD
-    0x08007d90   0x08007d90   0x00000024   Code   RO         1602    .text.i2c_transfer_byte_number_config  gd32f50x_i2c.o
-    0x08007db4   0x08007db4   0x000002e0   Code   RO         2481    .text.if_start_up   vf_if_startup.lib(vf_if_startup.o)
-    0x08008094   0x08008094   0x00000116   Code   RO         2479    .text.if_start_up_init  vf_if_startup.lib(vf_if_startup.o)
+    0x08007d90   0x08007d90   0x00000024   Code   RO         1608    .text.i2c_transfer_byte_number_config  gd32f50x_i2c.o
+    0x08007db4   0x08007db4   0x000002e0   Code   RO         2487    .text.if_start_up   vf_if_startup.lib(vf_if_startup.o)
+    0x08008094   0x08008094   0x00000116   Code   RO         2485    .text.if_start_up_init  vf_if_startup.lib(vf_if_startup.o)
     0x080081aa   0x080081aa   0x00000002   PAD
-    0x080081ac   0x080081ac   0x000000c8   Code   RO         2483    .text.if_startup_phase_error_nomalize  vf_if_startup.lib(vf_if_startup.o)
+    0x080081ac   0x080081ac   0x000000c8   Code   RO         2489    .text.if_startup_phase_error_nomalize  vf_if_startup.lib(vf_if_startup.o)
     0x08008274   0x08008274   0x00000048   Code   RO           91    .text.key_init      gd32_bldc_foc_eval.o
     0x080082bc   0x080082bc   0x00000560   Code   RO          103    .text.key_process   gd32_bldc_foc_eval.o
     0x0800881c   0x0800881c   0x00000074   Code   RO          193    .text.key_read      gd32_bldc_foc_eval.o
@@ -5351,248 +5368,249 @@ Memory Map of the image
     0x08009354   0x08009354   0x0000007a   Code   RO          280    .text.motor_protect_var_init  motor_protect.o
     0x080093ce   0x080093ce   0x00000002   PAD
     0x080093d0   0x080093d0   0x000000f4   Code   RO          284    .text.motor_protect_voltage_check  motor_protect.o
-    0x080094c4   0x080094c4   0x00000280   Code   RO           37    .text.motor_running_mode_process  main.o
-    0x08009744   0x08009744   0x00000012   Code   RO          341    .text.motor_start   motor_ctrl.o
-    0x08009756   0x08009756   0x00000002   PAD
-    0x08009758   0x08009758   0x000001d6   Code   RO           39    .text.motor_state_machine  main.o
-    0x0800992e   0x0800992e   0x00000002   PAD
-    0x08009930   0x08009930   0x00000012   Code   RO          343    .text.motor_stop    motor_ctrl.o
-    0x08009942   0x08009942   0x00000002   PAD
-    0x08009944   0x08009944   0x00000068   Code   RO          347    .text.motor_udq_calc  motor_ctrl.o
-    0x080099ac   0x080099ac   0x00000080   Code   RO          397    .text.moving_average_float  foc_math.o
-    0x08009a2c   0x08009a2c   0x0000008a   Code   RO         1663    .text.nvic_irq_enable  gd32f50x_misc.o
-    0x08009ab6   0x08009ab6   0x00000002   PAD
-    0x08009ab8   0x08009ab8   0x0000001c   Code   RO         1661    .text.nvic_priority_group_set  gd32f50x_misc.o
-    0x08009ad4   0x08009ad4   0x00000028   Code   RO         1681    .text.nvic_vector_table_set  gd32f50x_misc.o
-    0x08009afc   0x08009afc   0x00000054   Code   RO          201    .text.oled_clear    gd32_bldc_foc_eval.o
-    0x08009b50   0x08009b50   0x0000005e   Code   RO          109    .text.oled_clear_all  gd32_bldc_foc_eval.o
-    0x08009bae   0x08009bae   0x00000002   PAD
-    0x08009bb0   0x08009bb0   0x0000002a   Code   RO          197    .text.oled_display_reverse  gd32_bldc_foc_eval.o
-    0x08009bda   0x08009bda   0x00000002   PAD
-    0x08009bdc   0x08009bdc   0x00000094   Code   RO          185    .text.oled_draw_point  gd32_bldc_foc_eval.o
-    0x08009c70   0x08009c70   0x0000003e   Code   RO          199    .text.oled_flip_horizontal  gd32_bldc_foc_eval.o
-    0x08009cae   0x08009cae   0x00000002   PAD
-    0x08009cb0   0x08009cb0   0x000000fc   Code   RO           97    .text.oled_init     gd32_bldc_foc_eval.o
-    0x08009dac   0x08009dac   0x00000084   Code   RO          111    .text.oled_page_refresh  gd32_bldc_foc_eval.o
-    0x08009e30   0x08009e30   0x0000002e   Code   RO          203    .text.oled_parameter_init  gd32_bldc_foc_eval.o
-    0x08009e5e   0x08009e5e   0x00000002   PAD
-    0x08009e60   0x08009e60   0x00000032   Code   RO          187    .text.oled_pow      gd32_bldc_foc_eval.o
-    0x08009e92   0x08009e92   0x00000002   PAD
-    0x08009e94   0x08009e94   0x000001ae   Code   RO          183    .text.oled_show_char  gd32_bldc_foc_eval.o
-    0x0800a042   0x0800a042   0x00000002   PAD
-    0x0800a044   0x0800a044   0x00000188   Code   RO          181    .text.oled_show_line  gd32_bldc_foc_eval.o
-    0x0800a1cc   0x0800a1cc   0x000000f0   Code   RO          179    .text.oled_show_num  gd32_bldc_foc_eval.o
-    0x0800a2bc   0x0800a2bc   0x0000013a   Code   RO          189    .text.oled_show_picture  gd32_bldc_foc_eval.o
-    0x0800a3f6   0x0800a3f6   0x00000002   PAD
-    0x0800a3f8   0x0800a3f8   0x000000ae   Code   RO          191    .text.oled_show_qr_code  gd32_bldc_foc_eval.o
-    0x0800a4a6   0x0800a4a6   0x00000002   PAD
-    0x0800a4a8   0x0800a4a8   0x00000082   Code   RO          177    .text.oled_show_string  gd32_bldc_foc_eval.o
-    0x0800a52a   0x0800a52a   0x00000002   PAD
-    0x0800a52c   0x0800a52c   0x000002be   Code   RO          175    .text.oled_write_byte  gd32_bldc_foc_eval.o
-    0x0800a7ea   0x0800a7ea   0x00000002   PAD
-    0x0800a7ec   0x0800a7ec   0x00000038   Code   RO          589    .text.oneshunt_parameter_check  pwm_current_1shunt.o
-    0x0800a824   0x0800a824   0x000000f2   Code   RO          432    .text.over_modulation  modulation.o
-    0x0800a916   0x0800a916   0x00000002   PAD
-    0x0800a918   0x0800a918   0x0000005e   Code   RO          387    .text.park          foc_math.o
-    0x0800a976   0x0800a976   0x00000002   PAD
-    0x0800a978   0x0800a978   0x000000e2   Code   RO          377    .text.pid_incremental_regulation  foc_math.o
-    0x0800aa5a   0x0800aa5a   0x00000002   PAD
-    0x0800aa5c   0x0800aa5c   0x00000040   Code   RO          375    .text.pid_init      foc_math.o
-    0x0800aa9c   0x0800aa9c   0x000001aa   Code   RO          521    .text.pwm_2shunt_timer_config  pwm_current_2shunt.o
-    0x0800ac46   0x0800ac46   0x00000002   PAD
-    0x0800ac48   0x0800ac48   0x0000004a   Code   RO          525    .text.pwm_2shunt_update_duty  pwm_current_2shunt.o
-    0x0800ac92   0x0800ac92   0x00000002   PAD
-    0x0800ac94   0x0800ac94   0x000001a8   Code   RO          546    .text.pwm_3shunt_timer_config  pwm_current_3shunt.o
-    0x0800ae3c   0x0800ae3c   0x0000004a   Code   RO          550    .text.pwm_3shunt_update_duty  pwm_current_3shunt.o
-    0x0800ae86   0x0800ae86   0x00000002   PAD
-    0x0800ae88   0x0800ae88   0x000000b8   Code   RO          573    .text.pwm_current_1shunt_adc_config  pwm_current_1shunt.o
-    0x0800af40   0x0800af40   0x00000214   Code   RO          577    .text.pwm_current_1shunt_get_current  pwm_current_1shunt.o
-    0x0800b154   0x0800b154   0x0000012a   Code   RO          569    .text.pwm_current_1shunt_gpio_config  pwm_current_1shunt.o
-    0x0800b27e   0x0800b27e   0x00000002   PAD
-    0x0800b280   0x0800b280   0x00000020   Code   RO          565    .text.pwm_current_1shunt_peripheral_init  pwm_current_1shunt.o
-    0x0800b2a0   0x0800b2a0   0x0000005e   Code   RO          567    .text.pwm_current_1shunt_rcu_config  pwm_current_1shunt.o
-    0x0800b2fe   0x0800b2fe   0x00000002   PAD
-    0x0800b300   0x0800b300   0x0000021c   Code   RO          579    .text.pwm_current_1shunt_sampling_point_config  pwm_current_1shunt.o
-    0x0800b51c   0x0800b51c   0x000001a8   Code   RO          571    .text.pwm_current_1shunt_timer_config  pwm_current_1shunt.o
-    0x0800b6c4   0x0800b6c4   0x000000d8   Code   RO          527    .text.pwm_current_2shunt_get_current  pwm_current_2shunt.o
-    0x0800b79c   0x0800b79c   0x00000136   Code   RO          519    .text.pwm_current_2shunt_gpio_config  pwm_current_2shunt.o
-    0x0800b8d2   0x0800b8d2   0x00000002   PAD
-    0x0800b8d4   0x0800b8d4   0x0000001c   Code   RO          515    .text.pwm_current_2shunt_peripheral_init  pwm_current_2shunt.o
-    0x0800b8f0   0x0800b8f0   0x0000006c   Code   RO          517    .text.pwm_current_2shunt_rcu_config  pwm_current_2shunt.o
-    0x0800b95c   0x0800b95c   0x0000000a   Code   RO          529    .text.pwm_current_2shunt_sampling_point_config  pwm_current_2shunt.o
-    0x0800b966   0x0800b966   0x00000002   PAD
-    0x0800b968   0x0800b968   0x000001a8   Code   RO          552    .text.pwm_current_3shunt_get_current  pwm_current_3shunt.o
-    0x0800bb10   0x0800bb10   0x00000144   Code   RO          544    .text.pwm_current_3shunt_gpio_config  pwm_current_3shunt.o
-    0x0800bc54   0x0800bc54   0x0000001c   Code   RO          540    .text.pwm_current_3shunt_peripheral_init  pwm_current_3shunt.o
-    0x0800bc70   0x0800bc70   0x00000072   Code   RO          542    .text.pwm_current_3shunt_rcu_config  pwm_current_3shunt.o
-    0x0800bce2   0x0800bce2   0x00000002   PAD
-    0x0800bce4   0x0800bce4   0x000000b2   Code   RO          554    .text.pwm_current_3shunt_sampling_point_config  pwm_current_3shunt.o
-    0x0800bd96   0x0800bd96   0x00000002   PAD
-    0x0800bd98   0x0800bd98   0x0000004c   Code   RO          358    .text.pwm_current_peripheral_init  pwm_current.o
-    0x0800bde4   0x0800bde4   0x000000ce   Code   RO          360    .text.pwm_generation  pwm_current.o
-    0x0800beb2   0x0800beb2   0x00000002   PAD
-    0x0800beb4   0x0800beb4   0x00000050   Code   RO          646    .text.rb_push       uart4_drv.o
-    0x0800bf04   0x0800bf04   0x000000c8   Code   RO         1807    .text.rcu_adc_clock_config  gd32f50x_rcu.o
-    0x0800bfcc   0x0800bfcc   0x000002de   Code   RO         1865    .text.rcu_clock_freq_get  gd32f50x_rcu.o
-    0x0800c2aa   0x0800c2aa   0x00000002   PAD
-    0x0800c2ac   0x0800c2ac   0x00000028   Code   RO         1771    .text.rcu_periph_clock_enable  gd32f50x_rcu.o
-    0x0800c2d4   0x0800c2d4   0x00000028   Code   RO         1781    .text.rcu_periph_reset_disable  gd32f50x_rcu.o
-    0x0800c2fc   0x0800c2fc   0x00000028   Code   RO         1779    .text.rcu_periph_reset_enable  gd32f50x_rcu.o
-    0x0800c324   0x0800c324   0x0000005e   Code   RO          389    .text.rev_park      foc_math.o
-    0x0800c382   0x0800c382   0x00000002   PAD
-    0x0800c384   0x0800c384   0x00000340   Code   RO          417    .text.sin_cos_float  foc_math.o
-    0x0800c6c4   0x0800c6c4   0x000001b4   Code   RO         2465    .text.smo_atan_update  smo_observer.lib(smo_observer.o)
-    0x0800c878   0x0800c878   0x00000232   Code   RO         2461    .text.smo_observer_update  smo_observer.lib(smo_observer.o)
-    0x0800caaa   0x0800caaa   0x00000002   PAD
-    0x0800caac   0x0800caac   0x00000130   Code   RO         2463    .text.smo_pll_update  smo_observer.lib(smo_observer.o)
-    0x0800cbdc   0x0800cbdc   0x00000044   Code   RO          445    .text.soft_delay_1us  foc_soft_delay.o
-    0x0800cc20   0x0800cc20   0x00000038   Code   RO          447    .text.soft_delay_ms  foc_soft_delay.o
-    0x0800cc58   0x0800cc58   0x000000d4   Code   RO          326    .text.speed_get     angle.o
-    0x0800cd2c   0x0800cd2c   0x000000a0   Code   RO          411    .text.sqrt_float    foc_math.o
-    0x0800cdcc   0x0800cdcc   0x00000086   Code   RO          456    .text.start_ctrl    motor_ctrl_driver.o
-    0x0800ce52   0x0800ce52   0x00000002   PAD
-    0x0800ce54   0x0800ce54   0x000000c2   Code   RO          458    .text.stop_ctrl     motor_ctrl_driver.o
-    0x0800cf16   0x0800cf16   0x00000002   PAD
-    0x0800cf18   0x0800cf18   0x0000002e   Code   RO         2040    .text.syscfg_sram_ecc_flag_get  gd32f50x_syscfg.o
-    0x0800cf46   0x0800cf46   0x00000002   PAD
-    0x0800cf48   0x0800cf48   0x000001e6   Code   RO          669    .text.system_clock_252m_hxtal  system_gd32f50x.o
-    0x0800d12e   0x0800d12e   0x00000002   PAD
-    0x0800d130   0x0800d130   0x00000008   Code   RO          663    .text.system_clock_config  system_gd32f50x.o
-    0x0800d138   0x0800d138   0x00000032   Code   RO          302    .text.systick_config  systick.o
-    0x0800d16a   0x0800d16a   0x00000002   PAD
-    0x0800d16c   0x0800d16c   0x00000114   Code   RO          575    .text.timer0_dma_config  pwm_current_1shunt.o
-    0x0800d280   0x0800d280   0x00000012   Code   RO         2061    .text.timer_auto_reload_shadow_enable  gd32f50x_timer.o
-    0x0800d292   0x0800d292   0x00000002   PAD
-    0x0800d294   0x0800d294   0x000000a8   Code   RO         2107    .text.timer_break_config  gd32f50x_timer.o
-    0x0800d33c   0x0800d33c   0x00000042   Code   RO         2105    .text.timer_break_struct_para_init  gd32f50x_timer.o
-    0x0800d37e   0x0800d37e   0x00000002   PAD
-    0x0800d380   0x0800d380   0x00000060   Code   RO         2155    .text.timer_channel_capture_value_register_read  gd32f50x_timer.o
-    0x0800d3e0   0x0800d3e0   0x0000009e   Code   RO         2143    .text.timer_channel_complementary_output_state_config  gd32f50x_timer.o
-    0x0800d47e   0x0800d47e   0x00000002   PAD
-    0x0800d480   0x0800d480   0x000000c6   Code   RO         2153    .text.timer_channel_input_capture_prescaler_config  gd32f50x_timer.o
-    0x0800d546   0x0800d546   0x00000002   PAD
-    0x0800d548   0x0800d548   0x00000032   Code   RO         2149    .text.timer_channel_input_struct_para_init  gd32f50x_timer.o
-    0x0800d57a   0x0800d57a   0x00000002   PAD
-    0x0800d57c   0x0800d57c   0x0000072e   Code   RO         2125    .text.timer_channel_output_config  gd32f50x_timer.o
-    0x0800dcaa   0x0800dcaa   0x00000002   PAD
-    0x0800dcac   0x0800dcac   0x000000f8   Code   RO         2127    .text.timer_channel_output_mode_config  gd32f50x_timer.o
-    0x0800dda4   0x0800dda4   0x0000005c   Code   RO         2129    .text.timer_channel_output_pulse_value_config  gd32f50x_timer.o
-    0x0800de00   0x0800de00   0x000000c6   Code   RO         2131    .text.timer_channel_output_shadow_config  gd32f50x_timer.o
-    0x0800dec6   0x0800dec6   0x00000002   PAD
-    0x0800dec8   0x0800dec8   0x000000bc   Code   RO         2141    .text.timer_channel_output_state_config  gd32f50x_timer.o
-    0x0800df84   0x0800df84   0x00000038   Code   RO         2123    .text.timer_channel_output_struct_para_init  gd32f50x_timer.o
-    0x0800dfbc   0x0800dfbc   0x000000ac   Code   RO         2233    .text.timer_channel_primary_output_config  gd32f50x_timer.o
-    0x0800e068   0x0800e068   0x0000015c   Code   RO         2051    .text.timer_deinit  gd32f50x_timer.o
-    0x0800e1c4   0x0800e1c4   0x00000012   Code   RO         2059    .text.timer_disable  gd32f50x_timer.o
-    0x0800e1d6   0x0800e1d6   0x00000002   PAD
-    0x0800e1d8   0x0800e1d8   0x00000020   Code   RO         2095    .text.timer_dma_enable  gd32f50x_timer.o
-    0x0800e1f8   0x0800e1f8   0x00000036   Code   RO         2101    .text.timer_dma_transfer_config  gd32f50x_timer.o
-    0x0800e22e   0x0800e22e   0x00000002   PAD
-    0x0800e230   0x0800e230   0x00000012   Code   RO         2057    .text.timer_enable  gd32f50x_timer.o
-    0x0800e242   0x0800e242   0x00000002   PAD
-    0x0800e244   0x0800e244   0x00000014   Code   RO         2103    .text.timer_event_software_generate  gd32f50x_timer.o
-    0x0800e258   0x0800e258   0x00000034   Code   RO         2159    .text.timer_hall_mode_config  gd32f50x_timer.o
-    0x0800e28c   0x0800e28c   0x00000166   Code   RO         2055    .text.timer_init    gd32f50x_timer.o
-    0x0800e3f2   0x0800e3f2   0x00000002   PAD
-    0x0800e3f4   0x0800e3f4   0x000002b4   Code   RO         2151    .text.timer_input_capture_config  gd32f50x_timer.o
-    0x0800e6a8   0x0800e6a8   0x000001bc   Code   RO         2167    .text.timer_input_trigger_source_select  gd32f50x_timer.o
-    0x0800e864   0x0800e864   0x00000022   Code   RO         2257    .text.timer_interrupt_disable  gd32f50x_timer.o
-    0x0800e886   0x0800e886   0x00000002   PAD
-    0x0800e888   0x0800e888   0x00000022   Code   RO         2255    .text.timer_interrupt_enable  gd32f50x_timer.o
-    0x0800e8aa   0x0800e8aa   0x00000002   PAD
-    0x0800e8ac   0x0800e8ac   0x00000020   Code   RO         2261    .text.timer_interrupt_flag_clear  gd32f50x_timer.o
-    0x0800e8cc   0x0800e8cc   0x00000062   Code   RO         2259    .text.timer_interrupt_flag_get  gd32f50x_timer.o
-    0x0800e92e   0x0800e92e   0x00000002   PAD
-    0x0800e930   0x0800e930   0x00000034   Code   RO         2169    .text.timer_master_output_trigger_source_select  gd32f50x_timer.o
-    0x0800e964   0x0800e964   0x00000034   Code   RO         2173    .text.timer_master_slave_mode_config  gd32f50x_timer.o
-    0x0800e998   0x0800e998   0x0000002e   Code   RO         2117    .text.timer_primary_output_config  gd32f50x_timer.o
-    0x0800e9c6   0x0800e9c6   0x00000002   PAD
-    0x0800e9c8   0x0800e9c8   0x000000c6   Code   RO         2177    .text.timer_quadrature_decoder_mode_config  gd32f50x_timer.o
-    0x0800ea8e   0x0800ea8e   0x00000002   PAD
-    0x0800ea90   0x0800ea90   0x000001d0   Code   RO         2171    .text.timer_slave_mode_select  gd32f50x_timer.o
-    0x0800ec60   0x0800ec60   0x0000003c   Code   RO         2053    .text.timer_struct_para_init  gd32f50x_timer.o
-    0x0800ec9c   0x0800ec9c   0x00000012   Code   RO         2067    .text.timer_update_event_disable  gd32f50x_timer.o
-    0x0800ecae   0x0800ecae   0x00000002   PAD
-    0x0800ecb0   0x0800ecb0   0x00000012   Code   RO         2065    .text.timer_update_event_enable  gd32f50x_timer.o
-    0x0800ecc2   0x0800ecc2   0x00000002   PAD
-    0x0800ecc4   0x0800ecc4   0x0000005c   Code   RO         2272    .text.trigsel_init  gd32f50x_trigsel.o
-    0x0800ed20   0x0800ed20   0x00000036   Code   RO         2274    .text.trigsel_register_lock_get  gd32f50x_trigsel.o
-    0x0800ed56   0x0800ed56   0x00000002   PAD
-    0x0800ed58   0x0800ed58   0x00000168   Code   RO          636    .text.uart4_encoder_rx_process  uart4_drv.o
-    0x0800eec0   0x0800eec0   0x0000001e   Code   RO          642    .text.uart4_get_last_elec_angle_rad  uart4_drv.o
-    0x0800eede   0x0800eede   0x00000002   PAD
-    0x0800eee0   0x0800eee0   0x000000ea   Code   RO          630    .text.uart4_init    uart4_drv.o
-    0x0800efca   0x0800efca   0x00000002   PAD
-    0x0800efcc   0x0800efcc   0x00000018   Code   RO          634    .text.uart4_request_encoder_data  uart4_drv.o
-    0x0800efe4   0x0800efe4   0x00000072   Code   RO          632    .text.uart4_send    uart4_drv.o
-    0x0800f056   0x0800f056   0x00000002   PAD
-    0x0800f058   0x0800f058   0x00000126   Code   RO         2316    .text.usart_baudrate_set  gd32f50x_usart.o
-    0x0800f17e   0x0800f17e   0x00000002   PAD
-    0x0800f180   0x0800f180   0x00000080   Code   RO           60    .text.usart_config  communication.o
-    0x0800f200   0x0800f200   0x00000010   Code   RO         2348    .text.usart_data_receive  gd32f50x_usart.o
-    0x0800f210   0x0800f210   0x00000014   Code   RO         2346    .text.usart_data_transmit  gd32f50x_usart.o
-    0x0800f224   0x0800f224   0x000000b8   Code   RO         2314    .text.usart_deinit  gd32f50x_usart.o
-    0x0800f2dc   0x0800f2dc   0x00000022   Code   RO         2408    .text.usart_dma_receive_config  gd32f50x_usart.o
-    0x0800f2fe   0x0800f2fe   0x00000002   PAD
-    0x0800f300   0x0800f300   0x00000022   Code   RO         2410    .text.usart_dma_transmit_config  gd32f50x_usart.o
-    0x0800f322   0x0800f322   0x00000002   PAD
-    0x0800f324   0x0800f324   0x00000012   Code   RO         2324    .text.usart_enable  gd32f50x_usart.o
-    0x0800f336   0x0800f336   0x00000002   PAD
-    0x0800f338   0x0800f338   0x0000004a   Code   RO         2414    .text.usart_flag_clear  gd32f50x_usart.o
-    0x0800f382   0x0800f382   0x00000002   PAD
-    0x0800f384   0x0800f384   0x00000040   Code   RO         2412    .text.usart_flag_get  gd32f50x_usart.o
-    0x0800f3c4   0x0800f3c4   0x00000056   Code   RO           58    .text.usart_gpio_config  communication.o
-    0x0800f41a   0x0800f41a   0x00000002   PAD
-    0x0800f41c   0x0800f41c   0x00000022   Code   RO         2400    .text.usart_hardware_flow_cts_config  gd32f50x_usart.o
-    0x0800f43e   0x0800f43e   0x00000002   PAD
-    0x0800f440   0x0800f440   0x00000022   Code   RO         2398    .text.usart_hardware_flow_rts_config  gd32f50x_usart.o
-    0x0800f462   0x0800f462   0x00000002   PAD
-    0x0800f464   0x0800f464   0x00000024   Code   RO         2416    .text.usart_interrupt_enable  gd32f50x_usart.o
-    0x0800f488   0x0800f488   0x00000062   Code   RO         2420    .text.usart_interrupt_flag_get  gd32f50x_usart.o
-    0x0800f4ea   0x0800f4ea   0x00000002   PAD
-    0x0800f4ec   0x0800f4ec   0x00000022   Code   RO         2318    .text.usart_parity_config  gd32f50x_usart.o
-    0x0800f50e   0x0800f50e   0x00000002   PAD
-    0x0800f510   0x0800f510   0x00000038   Code   RO           56    .text.usart_rcu_config  communication.o
-    0x0800f548   0x0800f548   0x00000022   Code   RO         2330    .text.usart_receive_config  gd32f50x_usart.o
-    0x0800f56a   0x0800f56a   0x00000002   PAD
-    0x0800f56c   0x0800f56c   0x00000022   Code   RO         2322    .text.usart_stop_bit_set  gd32f50x_usart.o
-    0x0800f58e   0x0800f58e   0x00000002   PAD
-    0x0800f590   0x0800f590   0x00000022   Code   RO         2328    .text.usart_transmit_config  gd32f50x_usart.o
-    0x0800f5b2   0x0800f5b2   0x00000002   PAD
-    0x0800f5b4   0x0800f5b4   0x00000022   Code   RO         2320    .text.usart_word_length_set  gd32f50x_usart.o
-    0x0800f5d6   0x0800f5d6   0x00000002   PAD
-    0x0800f5d8   0x0800f5d8   0x000000ce   Code   RO         2477    .text.vf_start_up   vf_if_startup.lib(vf_if_startup.o)
-    0x0800f6a6   0x0800f6a6   0x00000002   PAD
-    0x0800f6a8   0x0800f6a8   0x000000e0   Code   RO         2475    .text.vf_start_up_init  vf_if_startup.lib(vf_if_startup.o)
-    0x0800f788   0x0800f788   0x00000020   Code   RO         2516    i.__0printf         mc_w.l(printfa.o)
-    0x0800f7a8   0x0800f7a8   0x0000000e   Code   RO         2596    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800f7b6   0x0800f7b6   0x00000002   Code   RO         2597    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800f7b8   0x0800f7b8   0x0000000e   Code   RO         2598    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800f7c6   0x0800f7c6   0x00000002   PAD
-    0x0800f7c8   0x0800f7c8   0x00000184   Code   RO         2523    i._fp_digits        mc_w.l(printfa.o)
-    0x0800f94c   0x0800f94c   0x000006dc   Code   RO         2524    i._printf_core      mc_w.l(printfa.o)
-    0x08010028   0x08010028   0x00000024   Code   RO         2525    i._printf_post_padding  mc_w.l(printfa.o)
-    0x0801004c   0x0801004c   0x0000002e   Code   RO         2526    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x0801007a   0x0801007a   0x00000271   Data   RO          227    .rodata.GDQR_logo   gd32_bldc_foc_eval.o
-    0x080102eb   0x080102eb   0x00000228   Data   RO          205    .rodata.asc2_0806   gd32_bldc_foc_eval.o
-    0x08010513   0x08010513   0x000005f0   Data   RO          207    .rodata.asc2_1608   gd32_bldc_foc_eval.o
-    0x08010b03   0x08010b03   0x00000d5c   Data   RO          208    .rodata.asc2_2412   gd32_bldc_foc_eval.o
-    0x0801185f   0x0801185f   0x00000001   PAD
-    0x08011860   0x08011860   0x00000198   Data   RO          424    .rodata.atan_table  foc_math.o
-    0x080119f8   0x080119f8   0x000002b0   Data   RO          226    .rodata.gImage_logo  gd32_bldc_foc_eval.o
-    0x08011ca8   0x08011ca8   0x0000020c   Data   RO          423    .rodata.sin_table   foc_math.o
-    0x08011eb4   0x08011eb4   0x00000007   Data   RO           43    .rodata.str1.1      main.o
-    0x08011ebb   0x08011ebb   0x000000c3   Data   RO          240    .rodata.str1.1      gd32_bldc_foc_eval.o
-    0x08011f7e   0x08011f7e   0x00000002   PAD
-    0x08011f80   0x08011f80   0x00000020   Data   RO         2595    Region$$Table       anon$$obj.o
+    0x080094c4   0x080094c4   0x00000282   Code   RO           37    .text.motor_running_mode_process  main.o
+    0x08009746   0x08009746   0x00000002   PAD
+    0x08009748   0x08009748   0x00000012   Code   RO          341    .text.motor_start   motor_ctrl.o
+    0x0800975a   0x0800975a   0x00000002   PAD
+    0x0800975c   0x0800975c   0x000001d6   Code   RO           39    .text.motor_state_machine  main.o
+    0x08009932   0x08009932   0x00000002   PAD
+    0x08009934   0x08009934   0x00000012   Code   RO          343    .text.motor_stop    motor_ctrl.o
+    0x08009946   0x08009946   0x00000002   PAD
+    0x08009948   0x08009948   0x00000068   Code   RO          347    .text.motor_udq_calc  motor_ctrl.o
+    0x080099b0   0x080099b0   0x00000080   Code   RO          397    .text.moving_average_float  foc_math.o
+    0x08009a30   0x08009a30   0x0000008a   Code   RO         1669    .text.nvic_irq_enable  gd32f50x_misc.o
+    0x08009aba   0x08009aba   0x00000002   PAD
+    0x08009abc   0x08009abc   0x0000001c   Code   RO         1667    .text.nvic_priority_group_set  gd32f50x_misc.o
+    0x08009ad8   0x08009ad8   0x00000028   Code   RO         1687    .text.nvic_vector_table_set  gd32f50x_misc.o
+    0x08009b00   0x08009b00   0x00000054   Code   RO          201    .text.oled_clear    gd32_bldc_foc_eval.o
+    0x08009b54   0x08009b54   0x0000005e   Code   RO          109    .text.oled_clear_all  gd32_bldc_foc_eval.o
+    0x08009bb2   0x08009bb2   0x00000002   PAD
+    0x08009bb4   0x08009bb4   0x0000002a   Code   RO          197    .text.oled_display_reverse  gd32_bldc_foc_eval.o
+    0x08009bde   0x08009bde   0x00000002   PAD
+    0x08009be0   0x08009be0   0x00000094   Code   RO          185    .text.oled_draw_point  gd32_bldc_foc_eval.o
+    0x08009c74   0x08009c74   0x0000003e   Code   RO          199    .text.oled_flip_horizontal  gd32_bldc_foc_eval.o
+    0x08009cb2   0x08009cb2   0x00000002   PAD
+    0x08009cb4   0x08009cb4   0x000000fc   Code   RO           97    .text.oled_init     gd32_bldc_foc_eval.o
+    0x08009db0   0x08009db0   0x00000084   Code   RO          111    .text.oled_page_refresh  gd32_bldc_foc_eval.o
+    0x08009e34   0x08009e34   0x0000002e   Code   RO          203    .text.oled_parameter_init  gd32_bldc_foc_eval.o
+    0x08009e62   0x08009e62   0x00000002   PAD
+    0x08009e64   0x08009e64   0x00000032   Code   RO          187    .text.oled_pow      gd32_bldc_foc_eval.o
+    0x08009e96   0x08009e96   0x00000002   PAD
+    0x08009e98   0x08009e98   0x000001ae   Code   RO          183    .text.oled_show_char  gd32_bldc_foc_eval.o
+    0x0800a046   0x0800a046   0x00000002   PAD
+    0x0800a048   0x0800a048   0x00000188   Code   RO          181    .text.oled_show_line  gd32_bldc_foc_eval.o
+    0x0800a1d0   0x0800a1d0   0x000000f0   Code   RO          179    .text.oled_show_num  gd32_bldc_foc_eval.o
+    0x0800a2c0   0x0800a2c0   0x0000013a   Code   RO          189    .text.oled_show_picture  gd32_bldc_foc_eval.o
+    0x0800a3fa   0x0800a3fa   0x00000002   PAD
+    0x0800a3fc   0x0800a3fc   0x000000ae   Code   RO          191    .text.oled_show_qr_code  gd32_bldc_foc_eval.o
+    0x0800a4aa   0x0800a4aa   0x00000002   PAD
+    0x0800a4ac   0x0800a4ac   0x00000082   Code   RO          177    .text.oled_show_string  gd32_bldc_foc_eval.o
+    0x0800a52e   0x0800a52e   0x00000002   PAD
+    0x0800a530   0x0800a530   0x000002be   Code   RO          175    .text.oled_write_byte  gd32_bldc_foc_eval.o
+    0x0800a7ee   0x0800a7ee   0x00000002   PAD
+    0x0800a7f0   0x0800a7f0   0x00000038   Code   RO          589    .text.oneshunt_parameter_check  pwm_current_1shunt.o
+    0x0800a828   0x0800a828   0x000000f2   Code   RO          432    .text.over_modulation  modulation.o
+    0x0800a91a   0x0800a91a   0x00000002   PAD
+    0x0800a91c   0x0800a91c   0x0000005e   Code   RO          387    .text.park          foc_math.o
+    0x0800a97a   0x0800a97a   0x00000002   PAD
+    0x0800a97c   0x0800a97c   0x000000e2   Code   RO          377    .text.pid_incremental_regulation  foc_math.o
+    0x0800aa5e   0x0800aa5e   0x00000002   PAD
+    0x0800aa60   0x0800aa60   0x00000040   Code   RO          375    .text.pid_init      foc_math.o
+    0x0800aaa0   0x0800aaa0   0x000001aa   Code   RO          521    .text.pwm_2shunt_timer_config  pwm_current_2shunt.o
+    0x0800ac4a   0x0800ac4a   0x00000002   PAD
+    0x0800ac4c   0x0800ac4c   0x0000004a   Code   RO          525    .text.pwm_2shunt_update_duty  pwm_current_2shunt.o
+    0x0800ac96   0x0800ac96   0x00000002   PAD
+    0x0800ac98   0x0800ac98   0x000001a8   Code   RO          546    .text.pwm_3shunt_timer_config  pwm_current_3shunt.o
+    0x0800ae40   0x0800ae40   0x0000004a   Code   RO          550    .text.pwm_3shunt_update_duty  pwm_current_3shunt.o
+    0x0800ae8a   0x0800ae8a   0x00000002   PAD
+    0x0800ae8c   0x0800ae8c   0x000000b8   Code   RO          573    .text.pwm_current_1shunt_adc_config  pwm_current_1shunt.o
+    0x0800af44   0x0800af44   0x00000214   Code   RO          577    .text.pwm_current_1shunt_get_current  pwm_current_1shunt.o
+    0x0800b158   0x0800b158   0x0000012a   Code   RO          569    .text.pwm_current_1shunt_gpio_config  pwm_current_1shunt.o
+    0x0800b282   0x0800b282   0x00000002   PAD
+    0x0800b284   0x0800b284   0x00000020   Code   RO          565    .text.pwm_current_1shunt_peripheral_init  pwm_current_1shunt.o
+    0x0800b2a4   0x0800b2a4   0x0000005e   Code   RO          567    .text.pwm_current_1shunt_rcu_config  pwm_current_1shunt.o
+    0x0800b302   0x0800b302   0x00000002   PAD
+    0x0800b304   0x0800b304   0x0000021c   Code   RO          579    .text.pwm_current_1shunt_sampling_point_config  pwm_current_1shunt.o
+    0x0800b520   0x0800b520   0x000001a8   Code   RO          571    .text.pwm_current_1shunt_timer_config  pwm_current_1shunt.o
+    0x0800b6c8   0x0800b6c8   0x000000d8   Code   RO          527    .text.pwm_current_2shunt_get_current  pwm_current_2shunt.o
+    0x0800b7a0   0x0800b7a0   0x00000136   Code   RO          519    .text.pwm_current_2shunt_gpio_config  pwm_current_2shunt.o
+    0x0800b8d6   0x0800b8d6   0x00000002   PAD
+    0x0800b8d8   0x0800b8d8   0x0000001c   Code   RO          515    .text.pwm_current_2shunt_peripheral_init  pwm_current_2shunt.o
+    0x0800b8f4   0x0800b8f4   0x0000006c   Code   RO          517    .text.pwm_current_2shunt_rcu_config  pwm_current_2shunt.o
+    0x0800b960   0x0800b960   0x0000000a   Code   RO          529    .text.pwm_current_2shunt_sampling_point_config  pwm_current_2shunt.o
+    0x0800b96a   0x0800b96a   0x00000002   PAD
+    0x0800b96c   0x0800b96c   0x000001a8   Code   RO          552    .text.pwm_current_3shunt_get_current  pwm_current_3shunt.o
+    0x0800bb14   0x0800bb14   0x00000144   Code   RO          544    .text.pwm_current_3shunt_gpio_config  pwm_current_3shunt.o
+    0x0800bc58   0x0800bc58   0x0000001c   Code   RO          540    .text.pwm_current_3shunt_peripheral_init  pwm_current_3shunt.o
+    0x0800bc74   0x0800bc74   0x00000072   Code   RO          542    .text.pwm_current_3shunt_rcu_config  pwm_current_3shunt.o
+    0x0800bce6   0x0800bce6   0x00000002   PAD
+    0x0800bce8   0x0800bce8   0x000000b2   Code   RO          554    .text.pwm_current_3shunt_sampling_point_config  pwm_current_3shunt.o
+    0x0800bd9a   0x0800bd9a   0x00000002   PAD
+    0x0800bd9c   0x0800bd9c   0x0000004c   Code   RO          358    .text.pwm_current_peripheral_init  pwm_current.o
+    0x0800bde8   0x0800bde8   0x000000ce   Code   RO          360    .text.pwm_generation  pwm_current.o
+    0x0800beb6   0x0800beb6   0x00000002   PAD
+    0x0800beb8   0x0800beb8   0x00000050   Code   RO          648    .text.rb_push       uart4_drv.o
+    0x0800bf08   0x0800bf08   0x000000c8   Code   RO         1813    .text.rcu_adc_clock_config  gd32f50x_rcu.o
+    0x0800bfd0   0x0800bfd0   0x000002de   Code   RO         1871    .text.rcu_clock_freq_get  gd32f50x_rcu.o
+    0x0800c2ae   0x0800c2ae   0x00000002   PAD
+    0x0800c2b0   0x0800c2b0   0x00000028   Code   RO         1777    .text.rcu_periph_clock_enable  gd32f50x_rcu.o
+    0x0800c2d8   0x0800c2d8   0x00000028   Code   RO         1787    .text.rcu_periph_reset_disable  gd32f50x_rcu.o
+    0x0800c300   0x0800c300   0x00000028   Code   RO         1785    .text.rcu_periph_reset_enable  gd32f50x_rcu.o
+    0x0800c328   0x0800c328   0x0000005e   Code   RO          389    .text.rev_park      foc_math.o
+    0x0800c386   0x0800c386   0x00000002   PAD
+    0x0800c388   0x0800c388   0x00000340   Code   RO          417    .text.sin_cos_float  foc_math.o
+    0x0800c6c8   0x0800c6c8   0x000001b4   Code   RO         2471    .text.smo_atan_update  smo_observer.lib(smo_observer.o)
+    0x0800c87c   0x0800c87c   0x00000232   Code   RO         2467    .text.smo_observer_update  smo_observer.lib(smo_observer.o)
+    0x0800caae   0x0800caae   0x00000002   PAD
+    0x0800cab0   0x0800cab0   0x00000130   Code   RO         2469    .text.smo_pll_update  smo_observer.lib(smo_observer.o)
+    0x0800cbe0   0x0800cbe0   0x00000044   Code   RO          445    .text.soft_delay_1us  foc_soft_delay.o
+    0x0800cc24   0x0800cc24   0x00000038   Code   RO          447    .text.soft_delay_ms  foc_soft_delay.o
+    0x0800cc5c   0x0800cc5c   0x000000d4   Code   RO          326    .text.speed_get     angle.o
+    0x0800cd30   0x0800cd30   0x000000a0   Code   RO          411    .text.sqrt_float    foc_math.o
+    0x0800cdd0   0x0800cdd0   0x00000086   Code   RO          456    .text.start_ctrl    motor_ctrl_driver.o
+    0x0800ce56   0x0800ce56   0x00000002   PAD
+    0x0800ce58   0x0800ce58   0x000000c2   Code   RO          458    .text.stop_ctrl     motor_ctrl_driver.o
+    0x0800cf1a   0x0800cf1a   0x00000002   PAD
+    0x0800cf1c   0x0800cf1c   0x0000002e   Code   RO         2046    .text.syscfg_sram_ecc_flag_get  gd32f50x_syscfg.o
+    0x0800cf4a   0x0800cf4a   0x00000002   PAD
+    0x0800cf4c   0x0800cf4c   0x000001e6   Code   RO          675    .text.system_clock_252m_hxtal  system_gd32f50x.o
+    0x0800d132   0x0800d132   0x00000002   PAD
+    0x0800d134   0x0800d134   0x00000008   Code   RO          669    .text.system_clock_config  system_gd32f50x.o
+    0x0800d13c   0x0800d13c   0x00000032   Code   RO          302    .text.systick_config  systick.o
+    0x0800d16e   0x0800d16e   0x00000002   PAD
+    0x0800d170   0x0800d170   0x00000114   Code   RO          575    .text.timer0_dma_config  pwm_current_1shunt.o
+    0x0800d284   0x0800d284   0x00000012   Code   RO         2067    .text.timer_auto_reload_shadow_enable  gd32f50x_timer.o
+    0x0800d296   0x0800d296   0x00000002   PAD
+    0x0800d298   0x0800d298   0x000000a8   Code   RO         2113    .text.timer_break_config  gd32f50x_timer.o
+    0x0800d340   0x0800d340   0x00000042   Code   RO         2111    .text.timer_break_struct_para_init  gd32f50x_timer.o
+    0x0800d382   0x0800d382   0x00000002   PAD
+    0x0800d384   0x0800d384   0x00000060   Code   RO         2161    .text.timer_channel_capture_value_register_read  gd32f50x_timer.o
+    0x0800d3e4   0x0800d3e4   0x0000009e   Code   RO         2149    .text.timer_channel_complementary_output_state_config  gd32f50x_timer.o
+    0x0800d482   0x0800d482   0x00000002   PAD
+    0x0800d484   0x0800d484   0x000000c6   Code   RO         2159    .text.timer_channel_input_capture_prescaler_config  gd32f50x_timer.o
+    0x0800d54a   0x0800d54a   0x00000002   PAD
+    0x0800d54c   0x0800d54c   0x00000032   Code   RO         2155    .text.timer_channel_input_struct_para_init  gd32f50x_timer.o
+    0x0800d57e   0x0800d57e   0x00000002   PAD
+    0x0800d580   0x0800d580   0x0000072e   Code   RO         2131    .text.timer_channel_output_config  gd32f50x_timer.o
+    0x0800dcae   0x0800dcae   0x00000002   PAD
+    0x0800dcb0   0x0800dcb0   0x000000f8   Code   RO         2133    .text.timer_channel_output_mode_config  gd32f50x_timer.o
+    0x0800dda8   0x0800dda8   0x0000005c   Code   RO         2135    .text.timer_channel_output_pulse_value_config  gd32f50x_timer.o
+    0x0800de04   0x0800de04   0x000000c6   Code   RO         2137    .text.timer_channel_output_shadow_config  gd32f50x_timer.o
+    0x0800deca   0x0800deca   0x00000002   PAD
+    0x0800decc   0x0800decc   0x000000bc   Code   RO         2147    .text.timer_channel_output_state_config  gd32f50x_timer.o
+    0x0800df88   0x0800df88   0x00000038   Code   RO         2129    .text.timer_channel_output_struct_para_init  gd32f50x_timer.o
+    0x0800dfc0   0x0800dfc0   0x000000ac   Code   RO         2239    .text.timer_channel_primary_output_config  gd32f50x_timer.o
+    0x0800e06c   0x0800e06c   0x0000015c   Code   RO         2057    .text.timer_deinit  gd32f50x_timer.o
+    0x0800e1c8   0x0800e1c8   0x00000012   Code   RO         2065    .text.timer_disable  gd32f50x_timer.o
+    0x0800e1da   0x0800e1da   0x00000002   PAD
+    0x0800e1dc   0x0800e1dc   0x00000020   Code   RO         2101    .text.timer_dma_enable  gd32f50x_timer.o
+    0x0800e1fc   0x0800e1fc   0x00000036   Code   RO         2107    .text.timer_dma_transfer_config  gd32f50x_timer.o
+    0x0800e232   0x0800e232   0x00000002   PAD
+    0x0800e234   0x0800e234   0x00000012   Code   RO         2063    .text.timer_enable  gd32f50x_timer.o
+    0x0800e246   0x0800e246   0x00000002   PAD
+    0x0800e248   0x0800e248   0x00000014   Code   RO         2109    .text.timer_event_software_generate  gd32f50x_timer.o
+    0x0800e25c   0x0800e25c   0x00000034   Code   RO         2165    .text.timer_hall_mode_config  gd32f50x_timer.o
+    0x0800e290   0x0800e290   0x00000166   Code   RO         2061    .text.timer_init    gd32f50x_timer.o
+    0x0800e3f6   0x0800e3f6   0x00000002   PAD
+    0x0800e3f8   0x0800e3f8   0x000002b4   Code   RO         2157    .text.timer_input_capture_config  gd32f50x_timer.o
+    0x0800e6ac   0x0800e6ac   0x000001bc   Code   RO         2173    .text.timer_input_trigger_source_select  gd32f50x_timer.o
+    0x0800e868   0x0800e868   0x00000022   Code   RO         2263    .text.timer_interrupt_disable  gd32f50x_timer.o
+    0x0800e88a   0x0800e88a   0x00000002   PAD
+    0x0800e88c   0x0800e88c   0x00000022   Code   RO         2261    .text.timer_interrupt_enable  gd32f50x_timer.o
+    0x0800e8ae   0x0800e8ae   0x00000002   PAD
+    0x0800e8b0   0x0800e8b0   0x00000020   Code   RO         2267    .text.timer_interrupt_flag_clear  gd32f50x_timer.o
+    0x0800e8d0   0x0800e8d0   0x00000062   Code   RO         2265    .text.timer_interrupt_flag_get  gd32f50x_timer.o
+    0x0800e932   0x0800e932   0x00000002   PAD
+    0x0800e934   0x0800e934   0x00000034   Code   RO         2175    .text.timer_master_output_trigger_source_select  gd32f50x_timer.o
+    0x0800e968   0x0800e968   0x00000034   Code   RO         2179    .text.timer_master_slave_mode_config  gd32f50x_timer.o
+    0x0800e99c   0x0800e99c   0x0000002e   Code   RO         2123    .text.timer_primary_output_config  gd32f50x_timer.o
+    0x0800e9ca   0x0800e9ca   0x00000002   PAD
+    0x0800e9cc   0x0800e9cc   0x000000c6   Code   RO         2183    .text.timer_quadrature_decoder_mode_config  gd32f50x_timer.o
+    0x0800ea92   0x0800ea92   0x00000002   PAD
+    0x0800ea94   0x0800ea94   0x000001d0   Code   RO         2177    .text.timer_slave_mode_select  gd32f50x_timer.o
+    0x0800ec64   0x0800ec64   0x0000003c   Code   RO         2059    .text.timer_struct_para_init  gd32f50x_timer.o
+    0x0800eca0   0x0800eca0   0x00000012   Code   RO         2073    .text.timer_update_event_disable  gd32f50x_timer.o
+    0x0800ecb2   0x0800ecb2   0x00000002   PAD
+    0x0800ecb4   0x0800ecb4   0x00000012   Code   RO         2071    .text.timer_update_event_enable  gd32f50x_timer.o
+    0x0800ecc6   0x0800ecc6   0x00000002   PAD
+    0x0800ecc8   0x0800ecc8   0x0000005c   Code   RO         2278    .text.trigsel_init  gd32f50x_trigsel.o
+    0x0800ed24   0x0800ed24   0x00000036   Code   RO         2280    .text.trigsel_register_lock_get  gd32f50x_trigsel.o
+    0x0800ed5a   0x0800ed5a   0x00000002   PAD
+    0x0800ed5c   0x0800ed5c   0x00000270   Code   RO          636    .text.uart4_encoder_rx_process  uart4_drv.o
+    0x0800efcc   0x0800efcc   0x0000001e   Code   RO          642    .text.uart4_get_last_elec_angle_rad  uart4_drv.o
+    0x0800efea   0x0800efea   0x00000002   PAD
+    0x0800efec   0x0800efec   0x000000ce   Code   RO          630    .text.uart4_init    uart4_drv.o
+    0x0800f0ba   0x0800f0ba   0x00000002   PAD
+    0x0800f0bc   0x0800f0bc   0x00000018   Code   RO          634    .text.uart4_request_encoder_data  uart4_drv.o
+    0x0800f0d4   0x0800f0d4   0x00000072   Code   RO          632    .text.uart4_send    uart4_drv.o
+    0x0800f146   0x0800f146   0x00000002   PAD
+    0x0800f148   0x0800f148   0x00000126   Code   RO         2322    .text.usart_baudrate_set  gd32f50x_usart.o
+    0x0800f26e   0x0800f26e   0x00000002   PAD
+    0x0800f270   0x0800f270   0x00000080   Code   RO           60    .text.usart_config  communication.o
+    0x0800f2f0   0x0800f2f0   0x00000010   Code   RO         2354    .text.usart_data_receive  gd32f50x_usart.o
+    0x0800f300   0x0800f300   0x00000014   Code   RO         2352    .text.usart_data_transmit  gd32f50x_usart.o
+    0x0800f314   0x0800f314   0x000000b8   Code   RO         2320    .text.usart_deinit  gd32f50x_usart.o
+    0x0800f3cc   0x0800f3cc   0x00000022   Code   RO         2414    .text.usart_dma_receive_config  gd32f50x_usart.o
+    0x0800f3ee   0x0800f3ee   0x00000002   PAD
+    0x0800f3f0   0x0800f3f0   0x00000022   Code   RO         2416    .text.usart_dma_transmit_config  gd32f50x_usart.o
+    0x0800f412   0x0800f412   0x00000002   PAD
+    0x0800f414   0x0800f414   0x00000012   Code   RO         2330    .text.usart_enable  gd32f50x_usart.o
+    0x0800f426   0x0800f426   0x00000002   PAD
+    0x0800f428   0x0800f428   0x0000004a   Code   RO         2420    .text.usart_flag_clear  gd32f50x_usart.o
+    0x0800f472   0x0800f472   0x00000002   PAD
+    0x0800f474   0x0800f474   0x00000040   Code   RO         2418    .text.usart_flag_get  gd32f50x_usart.o
+    0x0800f4b4   0x0800f4b4   0x00000056   Code   RO           58    .text.usart_gpio_config  communication.o
+    0x0800f50a   0x0800f50a   0x00000002   PAD
+    0x0800f50c   0x0800f50c   0x00000022   Code   RO         2406    .text.usart_hardware_flow_cts_config  gd32f50x_usart.o
+    0x0800f52e   0x0800f52e   0x00000002   PAD
+    0x0800f530   0x0800f530   0x00000022   Code   RO         2404    .text.usart_hardware_flow_rts_config  gd32f50x_usart.o
+    0x0800f552   0x0800f552   0x00000002   PAD
+    0x0800f554   0x0800f554   0x00000024   Code   RO         2422    .text.usart_interrupt_enable  gd32f50x_usart.o
+    0x0800f578   0x0800f578   0x00000062   Code   RO         2426    .text.usart_interrupt_flag_get  gd32f50x_usart.o
+    0x0800f5da   0x0800f5da   0x00000002   PAD
+    0x0800f5dc   0x0800f5dc   0x00000022   Code   RO         2324    .text.usart_parity_config  gd32f50x_usart.o
+    0x0800f5fe   0x0800f5fe   0x00000002   PAD
+    0x0800f600   0x0800f600   0x00000038   Code   RO           56    .text.usart_rcu_config  communication.o
+    0x0800f638   0x0800f638   0x00000022   Code   RO         2336    .text.usart_receive_config  gd32f50x_usart.o
+    0x0800f65a   0x0800f65a   0x00000002   PAD
+    0x0800f65c   0x0800f65c   0x00000022   Code   RO         2328    .text.usart_stop_bit_set  gd32f50x_usart.o
+    0x0800f67e   0x0800f67e   0x00000002   PAD
+    0x0800f680   0x0800f680   0x00000022   Code   RO         2334    .text.usart_transmit_config  gd32f50x_usart.o
+    0x0800f6a2   0x0800f6a2   0x00000002   PAD
+    0x0800f6a4   0x0800f6a4   0x00000022   Code   RO         2326    .text.usart_word_length_set  gd32f50x_usart.o
+    0x0800f6c6   0x0800f6c6   0x00000002   PAD
+    0x0800f6c8   0x0800f6c8   0x000000ce   Code   RO         2483    .text.vf_start_up   vf_if_startup.lib(vf_if_startup.o)
+    0x0800f796   0x0800f796   0x00000002   PAD
+    0x0800f798   0x0800f798   0x000000e0   Code   RO         2481    .text.vf_start_up_init  vf_if_startup.lib(vf_if_startup.o)
+    0x0800f878   0x0800f878   0x00000020   Code   RO         2522    i.__0printf         mc_w.l(printfa.o)
+    0x0800f898   0x0800f898   0x0000000e   Code   RO         2602    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800f8a6   0x0800f8a6   0x00000002   Code   RO         2603    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0800f8a8   0x0800f8a8   0x0000000e   Code   RO         2604    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800f8b6   0x0800f8b6   0x00000002   PAD
+    0x0800f8b8   0x0800f8b8   0x00000184   Code   RO         2529    i._fp_digits        mc_w.l(printfa.o)
+    0x0800fa3c   0x0800fa3c   0x000006dc   Code   RO         2530    i._printf_core      mc_w.l(printfa.o)
+    0x08010118   0x08010118   0x00000024   Code   RO         2531    i._printf_post_padding  mc_w.l(printfa.o)
+    0x0801013c   0x0801013c   0x0000002e   Code   RO         2532    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x0801016a   0x0801016a   0x00000271   Data   RO          227    .rodata.GDQR_logo   gd32_bldc_foc_eval.o
+    0x080103db   0x080103db   0x00000228   Data   RO          205    .rodata.asc2_0806   gd32_bldc_foc_eval.o
+    0x08010603   0x08010603   0x000005f0   Data   RO          207    .rodata.asc2_1608   gd32_bldc_foc_eval.o
+    0x08010bf3   0x08010bf3   0x00000d5c   Data   RO          208    .rodata.asc2_2412   gd32_bldc_foc_eval.o
+    0x0801194f   0x0801194f   0x00000001   PAD
+    0x08011950   0x08011950   0x00000198   Data   RO          424    .rodata.atan_table  foc_math.o
+    0x08011ae8   0x08011ae8   0x000002b0   Data   RO          226    .rodata.gImage_logo  gd32_bldc_foc_eval.o
+    0x08011d98   0x08011d98   0x0000020c   Data   RO          423    .rodata.sin_table   foc_math.o
+    0x08011fa4   0x08011fa4   0x00000007   Data   RO           43    .rodata.str1.1      main.o
+    0x08011fab   0x08011fab   0x000000c3   Data   RO          240    .rodata.str1.1      gd32_bldc_foc_eval.o
+    0x0801206e   0x0801206e   0x00000002   PAD
+    0x08012070   0x08012070   0x00000020   Data   RO         2601    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08011fa0, Size: 0x000019f8, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x000005e0])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08012090, Size: 0x00001a08, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x000005e0])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   COMPRESSED   0x00000004   Data   RW         2559    .data               mc_w.l(stdout.o)
-    0x20000004   COMPRESSED   0x00000004   Data   RW          671    .data.SystemCoreClock  system_gd32f50x.o
+    0x20000000   COMPRESSED   0x00000004   Data   RW         2565    .data               mc_w.l(stdout.o)
+    0x20000004   COMPRESSED   0x00000004   Data   RW          677    .data.SystemCoreClock  system_gd32f50x.o
     0x20000008   COMPRESSED   0x00000070   Data   RW          260    .data.aflux         gdfoc_config.o
     0x20000078   COMPRESSED   0x00000044   Data   RW          253    .data.alpha_pll_pid  gdfoc_config.o
     0x200000bc   COMPRESSED   0x00000016   Data   RW          225    .data.arrow_11_11_left  gd32_bldc_foc_eval.o
@@ -5648,9 +5666,9 @@ Memory Map of the image
     0x2000126c        -       0x00000002   Zero   RW          231    .bss.delay_ec       gd32_bldc_foc_eval.o
     0x2000126e   COMPRESSED   0x00000002   PAD
     0x20001270        -       0x00000004   Zero   RW          235    .bss.display_menu   gd32_bldc_foc_eval.o
-    0x20001274        -       0x00000001   Zero   RW          684    .bss.err_report_buff_index  gd32f50x_err_report.o
+    0x20001274        -       0x00000001   Zero   RW          690    .bss.err_report_buff_index  gd32f50x_err_report.o
     0x20001275   COMPRESSED   0x00000001   PAD
-    0x20001276        -       0x0000000c   Zero   RW          685    .bss.err_report_buffer  gd32f50x_err_report.o
+    0x20001276        -       0x0000000c   Zero   RW          691    .bss.err_report_buffer  gd32f50x_err_report.o
     0x20001282        -       0x00000001   Zero   RW          233    .bss.func_index     gd32_bldc_foc_eval.o
     0x20001283        -       0x00000001   Zero   RW          234    .bss.func_index_pre  gd32_bldc_foc_eval.o
     0x20001284        -       0x00000044   Zero   RW          507    .bss.hall_detect    angle_hall.o
@@ -5662,17 +5680,22 @@ Memory Map of the image
     0x20001300        -       0x00000030   Zero   RW          292    .bss.motor_protect  motor_protect.o
     0x20001330        -       0x0000001e   Zero   RW          591    .bss.oneshunt_current  pwm_current_1shunt.o
     0x2000134e        -       0x00000080   Zero   RW           79    .bss.receive_data   communication.o
-    0x200013ce        -       0x00000100   Zero   RW          650    .bss.rx_buf         uart4_drv.o
-    0x200014ce        -       0x00000002   Zero   RW          649    .bss.rx_head        uart4_drv.o
-    0x200014d0        -       0x00000002   Zero   RW          648    .bss.rx_tail        uart4_drv.o
+    0x200013ce        -       0x00000100   Zero   RW          652    .bss.rx_buf         uart4_drv.o
+    0x200014ce        -       0x00000002   Zero   RW          651    .bss.rx_head        uart4_drv.o
+    0x200014d0        -       0x00000002   Zero   RW          650    .bss.rx_tail        uart4_drv.o
     0x200014d2        -       0x00000010   Zero   RW          592    .bss.timer_update_buffer  pwm_current_1shunt.o
     0x200014e2        -       0x00000080   Zero   RW           77    .bss.transmit_data  communication.o
     0x20001562        -       0x00000001   Zero   RW           76    .bss.transmit_dma_busy  communication.o
     0x20001563   COMPRESSED   0x00000001   PAD
-    0x20001564        -       0x00000004   Zero   RW          651    .bss.uart4_last_elec_angle_rad  uart4_drv.o
-    0x20001568        -       0x00000084   Zero   RW           78    .bss.usart_receive  communication.o
-    0x200015ec        -       0x0000000c   Zero   RW           75    .bss.usart_transmit  communication.o
-    0x200015f8        -       0x00000400   Zero   RW         2451    STACK               startup_gd32f50x.o
+    0x20001564        -       0x00000004   Zero   RW          653    .bss.uart4_last_elec_angle_rad  uart4_drv.o
+    0x20001568        -       0x00000004   Zero   RW          654    .bss.uart4_last_output_pos_rad  uart4_drv.o
+    0x2000156c        -       0x00000004   Zero   RW          657    .bss.uart4_last_output_speed_rad_s  uart4_drv.o
+    0x20001570        -       0x00000001   Zero   RW          655    .bss.uart4_output_state_inited  uart4_drv.o
+    0x20001571   COMPRESSED   0x00000003   PAD
+    0x20001574        -       0x00000004   Zero   RW          656    .bss.uart4_prev_output_pos_rad  uart4_drv.o
+    0x20001578        -       0x00000084   Zero   RW           78    .bss.usart_receive  communication.o
+    0x200015fc        -       0x0000000c   Zero   RW           75    .bss.usart_transmit  communication.o
+    0x20001608        -       0x00000400   Zero   RW         2457    STACK               startup_gd32f50x.o
 
 
 ==============================================================================
@@ -5705,7 +5728,7 @@ Image component sizes
        146          0          0          0          0       6416   gd32f50x_trigsel.o
       1110          0          0          0          0      11851   gd32f50x_usart.o
          0          0          0       1784          0      10047   gdfoc_config.o
-      1300          6          7          2          0       4009   main.o
+      1302          6          7          2          0       4009   main.o
       2274         60          0          0          0       7092   modulation.o
        300          0          0          0          0       4988   motor_ctrl.o
        570          0          0          0          0       1319   motor_ctrl_driver.o
@@ -5717,12 +5740,12 @@ Image component sizes
         76         12        384          0       1024       1112   startup_gd32f50x.o
        970          0          0          4          0       3854   system_gd32f50x.o
        268          0          0          0          4       4993   systick.o
-       904         12          0          0        264       7433   uart4_drv.o
+      1140         24          0          0        277       8007   uart4_drv.o
 
     ----------------------------------------------------------------------
-     57572        646       8358       4692       1952     306724   Object Totals
+     57812        658       8358       4692       1968     307298   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       326          0          3         10          9          0   (incl. Padding)
+       328          0          3         10         12          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -5783,15 +5806,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     65274        846       8358       4696       1952     327965   Grand Totals
-     65274        846       8358       1504       1952     327965   ELF Image Totals (compressed)
-     65274        846       8358       1504          0          0   ROM Totals
+     65514        858       8358       4696       1968     328539   Grand Totals
+     65514        858       8358       1504       1968     328539   ELF Image Totals (compressed)
+     65514        858       8358       1504          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                73632 (  71.91kB)
-    Total RW  Size (RW Data + ZI Data)              6648 (   6.49kB)
-    Total ROM Size (Code + RO Data + RW Data)      75136 (  73.38kB)
+    Total RO  Size (Code + RO Data)                73872 (  72.14kB)
+    Total RW  Size (RW Data + ZI Data)              6664 (   6.51kB)
+    Total ROM Size (Code + RO Data + RW Data)      75376 (  73.61kB)
 
 ==============================================================================
 

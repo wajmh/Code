@@ -25,7 +25,7 @@ OF SUCH DAMAGE.
 
 /* motor parameters */
 /* the pole-pair number of pmsm */
-#define NUMBER_OF_PAIRS                     (2U)                                /* PMSM number of pair poles */
+#define NUMBER_OF_PAIRS                     (15U)                                /* PMSM number of pair poles */
 /* resistance and inductance in alpha-beta axis */
 #define RS                                  (0.55f)                              /* equivalent stator resistance in alpha-beta axis, ohm*/
 #define LD                                  (0.00044f)                           /* equivalent stator inductance in d axis, H */

@@ -188,7 +188,7 @@ static void motor_running_mode_process(void)
             motor.udq_mode = UDQ_MTPA_IF;
             motor.idqref_mode = IDQ_CUSTOM;
             motor.id_ref = 0.0f;
-            motor.iq_ref = 2.0f;
+            motor.iq_ref = 3.0f;
         }else if(SMO_VF == motor.running_mode ){
             rotor_angle.pos_mode = SMO_MODE;
             motor.startup_mode = VF_STARTUP;
