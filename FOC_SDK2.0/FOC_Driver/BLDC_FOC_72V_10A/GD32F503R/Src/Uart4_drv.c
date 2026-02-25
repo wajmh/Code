@@ -59,7 +59,7 @@ void uart4_init(uint32_t baud)
 
     gpio_mode_set(UART4_DE_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, UART4_DE_PIN);
     gpio_output_options_set(UART4_DE_PORT, GPIO_OTYPE_PP, GPIO_OSPEED_LEVEL2, UART4_DE_PIN);
-    uart4_set_rx_mode();  
+//    uart4_set_rx_mode();  
 
     gpio_mode_set(UART4_RX_PORT, GPIO_MODE_AF, GPIO_PUPD_NONE, UART4_RX_PIN);
     gpio_af_set(UART4_RX_PORT, UART4_AF, UART4_RX_PIN);
@@ -84,7 +84,7 @@ void uart4_init(uint32_t baud)
 
 void uart4_send(const uint8_t *buf, uint16_t len)
 {
-    uart4_set_tx_mode();  
+//    uart4_set_tx_mode();  
 
     for (uint16_t i = 0; i < len; i++) {
         usart_data_transmit(UART4, buf[i]);
@@ -95,9 +95,9 @@ void uart4_send(const uint8_t *buf, uint16_t len)
     while (RESET == usart_flag_get(UART4, USART_FLAG_TC)) {
     }
 
-    uart4_set_rx_mode();
+//    uart4_set_rx_mode();
     /* RS485 半双工：最小延时，应答由 RX 中断解析，不在此等待 */
-    for (volatile uint32_t i = 0; i < 2; i++) { (void)i; }
+//    for (volatile uint32_t i = 0; i < 2; i++) { (void)i; }
 }
 
 static uint8_t crc8_calc(const uint8_t *data, uint8_t len)
@@ -189,42 +189,8 @@ int uart4_parse_encoder_data(encoder_data_t *data)
 }
 
 /* 等待编码器应答的延时（RS485 半双工切换 + 编码器处理时间）；减小可提高角度更新率、减轻大 q 时抖动 */
-#define UART4_ENC_RESP_DELAY_LOOPS  (10U)
 
-int uart4_get_elec_angle_rad(float *elec_angle_rad)
-{
-    encoder_data_t data;
 
-    if (elec_angle_rad == ((void*)0)) {
-        return -1;
-    }
-
-    uart4_request_encoder_data();
-    for (volatile uint32_t i = 0; i < UART4_ENC_RESP_DELAY_LOOPS; i++) {
-        (void)i;
-    }
-
-    if (uart4_parse_encoder_data(&data) != 0) {
-        return -1;
-    }
-
-    /* 输入端 17 位位置 → 机械角 → 电角度（零位与电角度对齐，极对数 15） */
-    {
-        float mech_rad = ((float)data.input_single_pos / ENCODER_COUNTS_PER_REV) * MOTOR_PI_2_F;
-        float elec = mech_rad * (float)ENCODER_POLE_PAIRS;
-
-        /* 归一化到 [0, 2π) */
-        while (elec >= MOTOR_PI_2_F) {
-            elec -= MOTOR_PI_2_F;
-        }
-        while (elec < 0.0f) {
-            elec += MOTOR_PI_2_F;
-        }
-        *elec_angle_rad = elec;
-        uart4_last_elec_angle_rad = elec;  /* 供中断里 uart4_get_last_elec_angle_rad 读取 */
-    }
-    return 0;
-}
 
 /**
  * 非阻塞：返回最近一次 uart4_get_elec_angle_rad 成功得到的电角度（FOC 中断中调用）
