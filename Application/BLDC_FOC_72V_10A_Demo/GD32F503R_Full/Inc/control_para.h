@@ -88,12 +88,16 @@ OF SUCH DAMAGE.
 #define SPEED_LOOP_UOTPUT_MAX               (2.5f)                              /* the integral paramter of speed regulator */
 #define SPEED_LOOP_UOTPUT_MIN               (-2.5f)                             /* the integral paramter of speed regulator */
 
-#define CURRENT_LOOP_KP                     (0.33f)                             /* the proportional paramter of speed regulator */
-//#define CURRENT_LOOP_KP                     (0.99f)
-#define CURRENT_LOOP_KI                     (0.0065f)                           /* the integral paramter of speed regulator */
-#define CURRENT_LOOP_SUM_MAX                (15.0f)                             /* the integral paramter of speed regulator */
-#define CURRENT_LOOP_SUM_MIN                (-15.0f)                            /* the integral paramter of speed regulator */
-#define CURRENT_LOOP_UOTPUT_MAX             (15.0f)                             /* the integral paramter of speed regulator */
-#define CURRENT_LOOP_UOTPUT_MIN             (-15.0f)                            /* the integral paramter of speed regulator */
-
+//#define CURRENT_LOOP_KP                     (0.33f)
+//#define CURRENT_LOOP_KI                     (0.0065f)                              /* the proportional paramter of speed regulator */
+#define CURRENT_LOOP_KP                     (0.45f)
+#define CURRENT_LOOP_KI                     (0.0065f)
+//#define CURRENT_LOOP_SUM_MAX                (15.0f)                             /* the integral paramter of speed regulator */
+//#define CURRENT_LOOP_SUM_MIN                (-15.0f)                            /* the integral paramter of speed regulator */
+//#define CURRENT_LOOP_UOTPUT_MAX             (15.0f)                             /* the integral paramter of speed regulator */
+//#define CURRENT_LOOP_UOTPUT_MIN             (-15.0f)                            /* the integral paramter of speed regulator */
+#define CURRENT_LOOP_SUM_MAX                (24.0f)                             /* the integral paramter of speed regulator */
+#define CURRENT_LOOP_SUM_MIN                (-24.0f)                            /* the integral paramter of speed regulator */
+#define CURRENT_LOOP_UOTPUT_MAX             (24.0f)                             /* the integral paramter of speed regulator */
+#define CURRENT_LOOP_UOTPUT_MIN             (-24.0f)                            /* the integral paramter of speed regulator */
 #endif /* CONTROL_PARA_H */
