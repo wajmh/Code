@@ -38,5 +38,14 @@ void motor_break(motor_struct* motor);
 void motor_udq_calc(motor_struct* motor);
 /* calculate the reference current of d-q */
 void motor_idqref_calc(motor_struct* motor);
+/* MIT mixed control: update iq_ref from output position/speed */
+void motor_mit_iq_ref_update(motor_struct* motor);
+
+/* MIT command parameters (output shaft) */
+extern volatile float mit_p_des;    /* rad */
+extern volatile float mit_v_des;    /* rad/s */
+extern volatile float mit_kp;       /* N*m/rad */
+extern volatile float mit_kd;       /* N*m/(rad/s) */
+extern volatile float mit_t_ff;     /* N*m */
 
 #endif /* MOTOR_CTRL_H */

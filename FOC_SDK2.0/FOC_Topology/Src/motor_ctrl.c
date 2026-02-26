@@ -21,6 +21,27 @@ OF SUCH DAMAGE.
 */
 
 #include "motor_ctrl.h"
+#include "Uart4_drv.h"
+
+#define MIT_KT_OUT             (2.863f)
+#define MIT_IQ_REF_MAX         (20.0f)
+
+volatile float mit_p_des = 0.0f;
+volatile float mit_v_des = 10.0f;
+volatile float mit_kp = 0.0f;
+volatile float mit_kd = 2.0f;
+volatile float mit_t_ff = 0.0f;
+
+static float mit_wrap_to_pi(float angle)
+{
+    while(angle > MOTOR_PI) {
+        angle -= MOTOR_PI_2;
+    }
+    while(angle < -MOTOR_PI) {
+        angle += MOTOR_PI_2;
+    }
+    return angle;
+}
 
 /*!
     \brief      initialize motor status
@@ -108,4 +129,37 @@ void motor_idqref_calc(motor_struct* motor)
         }else{
         }
     }
+}
+
+/*!
+    \brief      MIT mixed control: update iq_ref from output shaft state
+    \param[in]  motor: pointer to motor struct
+    \param[out] none
+    \retval     none
+*/
+void motor_mit_iq_ref_update(motor_struct* motor)
+{
+    float theta_m = 0.0f;
+    float dtheta_m = 0.0f;
+    float pos_err;
+    float speed_err;
+    float t_ref;
+    float iq_ref;
+
+    uart4_get_last_output_state(&theta_m, &dtheta_m);
+
+    pos_err = mit_wrap_to_pi(mit_p_des - theta_m);
+    speed_err = mit_v_des - dtheta_m;
+    t_ref = mit_kp * pos_err + mit_kd * speed_err + mit_t_ff;
+    iq_ref = t_ref / MIT_KT_OUT;
+
+    if(iq_ref > MIT_IQ_REF_MAX) {
+        iq_ref = MIT_IQ_REF_MAX;
+    } else if(iq_ref < -MIT_IQ_REF_MAX) {
+        iq_ref = -MIT_IQ_REF_MAX;
+    } else {
+    }
+
+    motor->id_ref = 0.0f;
+    motor->iq_ref = iq_ref;
 }

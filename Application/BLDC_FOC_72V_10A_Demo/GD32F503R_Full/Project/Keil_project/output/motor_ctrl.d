@@ -45,4 +45,5 @@
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_trigsel.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_trng.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_usart.h \
-  ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h
+  ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h \
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h

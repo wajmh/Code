@@ -209,6 +209,10 @@ void FOC_CONTORL_IRQHandler(void)
     clarke_amplitude(&motor.ialpha, &motor.ibeta, motor.ia, motor.ib);
     park(&motor.id, &motor.iq, motor.ialpha, motor.ibeta, phase_sincos);
 
+   if((motor.state == MC_STATE_RUNNING) && (motor.running_mode == OPENLOOP_IF)) {
+        motor_mit_iq_ref_update(&motor);
+   }
+
     motor_udq_calc(&motor);
     
     over_modulation(&motor);
