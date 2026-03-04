@@ -77,7 +77,7 @@ int main(void)
 //            motor.speed_ref = SPEED_REFERENCE_MIN;
 //        }else{
 //        }
-//			  printf("%f,%f\n",motor.iq,motor.iq_ref);
+			  printf("%f,%f,%f,%f,%f,%f\n",motor.iq,motor.iq_ref,motor.ia,motor.ib,motor.ic,motor_protect.v_bus);
         
     }
 }

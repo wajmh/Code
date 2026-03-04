@@ -24,12 +24,12 @@ OF SUCH DAMAGE.
 #include "Uart4_drv.h"
 
 #define MIT_KT_OUT             (2.863f)
-#define MIT_IQ_REF_MAX         (20.0f)
+#define MIT_IQ_REF_MAX         (10.0f)
 
-volatile float mit_p_des = 0.0f;
-volatile float mit_v_des = 10.0f;
-volatile float mit_kp = 0.0f;
-volatile float mit_kd = 2.0f;
+volatile float mit_p_des = 3.0f;
+volatile float mit_v_des = 0.0f;
+volatile float mit_kp = 5.0f;
+volatile float mit_kd = 0.2f;
 volatile float mit_t_ff = 0.0f;
 
 static float mit_wrap_to_pi(float angle)

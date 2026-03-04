@@ -68,7 +68,7 @@ typedef struct {
     uint16_t pwm_count;                              /* motor phase loss fault: the count value of pwm cycle */
     uint16_t low_current_count[3];                   /* motor phase loss fault: the count value of the phase current less than LOW_CURRENT_THRESHOLD */
 } motor_protect_struct;
-
+extern motor_protect_struct motor_protect;
 /* function declaration */
 /* initialize the motor protect peripherals */
 void motor_protect_peripheral_init(void);

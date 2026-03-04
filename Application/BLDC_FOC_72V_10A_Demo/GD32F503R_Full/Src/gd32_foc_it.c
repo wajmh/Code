@@ -162,7 +162,7 @@ void SysTick_Handler(void)//每一毫秒调用一次
     /* motor protect process */
     motor_protect_check();
     /* transmit the motor state data using the usart */
-    comm_usart_motor_state_data_transmit();
+//    comm_usart_motor_state_data_transmit();
 }
 
 /*!
@@ -191,11 +191,10 @@ void FOC_CONTORL_IRQHandler(void)
     
     get_iab(&pwm_current, &motor);
 	  
-    /* check whether the motor phase loss */
-    motor_protect_phase_loss_check();
+    /* phase-loss detection disabled by project setting */
+    // motor_protect_phase_loss_check();
 
-    /* ANGLE_CUSTOM_MODE：FOC 里只发一次 0x6A；编码器应答在 UART RX 里解析并更新电角度，此处直接用上次结果，无延时 */
-    if (rotor_angle.pos_mode == ANGLE_CUSTOM_MODE) {
+    if (rotor_angle.pos_mode == ANGLE_CUSTOM_MODE) {///* ANGLE_CUSTOM_MODE：FOC 里只发一次 0x6A；编码器应答在 UART RX 里解析并更新电角度，此处直接用上次结果，无延时 */
         uart4_request_encoder_data();
         float elec_rad;
         uart4_get_last_elec_angle_rad(&elec_rad);
@@ -317,3 +316,4 @@ void COMM_RECEIVE_IRQHandler(void)
 {
     comm_usart_interrupt_handler();
 }
+
