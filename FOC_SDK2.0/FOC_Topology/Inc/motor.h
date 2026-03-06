@@ -153,7 +153,8 @@ typedef struct{
     float flux;                                                                 /* permanent flux, uint:Wb */
     float pwm_frequency;                                                        /* pwm frequency */
     float ts;                                                                   /* sampling time in seconds */
-    uint8_t number_of_pairs;                                                    /* PMSM number of pair poles */
+    uint8_t number_of_pairs;
+    uint8_t motor_id;                                                    /* PMSM number of pair poles */
     
     /* physical quantities on A-B-C coordinate system */
     float ia;                                                                   /* phase current of A winding, uint:A(Ampere) */

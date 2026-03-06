@@ -544,6 +544,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h</FilePath>
             </File>
+            <File>
+              <FileName>Can_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Src\Can_drv.c</FilePath>
+            </File>
+            <File>
+              <FileName>Can_drv.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Src\Can_drv.h</FilePath>
+            </File>
+            <File>
+              <FileName>Flash_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Src\Flash_drv.c</FilePath>
+            </File>
+            <File>
+              <FileName>Flash_drv.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Src\Flash_drv.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -738,5 +758,14 @@
     </components>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>Project</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

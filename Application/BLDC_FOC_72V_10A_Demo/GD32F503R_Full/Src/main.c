@@ -31,11 +31,12 @@ OF SUCH DAMAGE.
 #include "motor_protect.h"
 #include "Uart4_drv.h"
 #include "angle.h"
+#include "Can_drv.h"
+#include "Flash_drv.h"
 /* motor state scan */
 static void motor_state_machine(void);
 /* motor running mode process */
 static void motor_running_mode_process(void);
-
 /*!
     \brief      main function
     \param[in]  none
@@ -55,7 +56,11 @@ int main(void)
     /* initialize board */
     eval_board_init();
     uart4_init(2500000);
-    
+    uint8_t id_tmp;
+    motor_id_flash_load(&id_tmp);
+    motor.motor_id = id_tmp;
+    can_drv_init();
+    uint8_t tx_data2[4] = {0x01, 0x02, 0x03, 0x04};
     while(1){
         /* motor running mode process */
         motor_running_mode_process();
@@ -70,6 +75,8 @@ int main(void)
 //        comm_usart_receive_data_parse();
         /* the LED indicates the current state */
         led_sacn_state();
+//        can_drv_send_std(0x123, tx_data2, 4);   // 发送标准帧 ID=0x123，数据 11 22 33
+
         /* speed limit */
 //        if(motor.speed_ref > SPEED_REFERENCE_MAX){
 //            motor.speed_ref = SPEED_REFERENCE_MAX;

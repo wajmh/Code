@@ -244,7 +244,7 @@ void eval_board_init(void)
     /* initialize the EC11 port */
     ec_init();
     /* initialize the GPIO port of LED */
-    led_init();
+//    led_init();
     /* initialize the SH1106 */
     oled_init();
 }

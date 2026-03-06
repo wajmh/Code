@@ -107,7 +107,13 @@ OF SUCH DAMAGE.
 
 #define FMC_ENCODER_WRITE_START_ADDR       ((uint32_t)0x0803F000U)          /* flash encoder write start address */
 #define FMC_ENCODER_SHIFT_ADDR             ((uint32_t)0x0803F000U)          /* flash encoder data write start address */
-
+///
+/* topology_para.h: 新增独立页(别和hall/encoder共页) */
+#define FMC_MOTOR_ID_PAGE_ADDR   ((uint32_t)0x0803D000U)
+#define FMC_MOTOR_ID_ADDR        ((uint32_t)0x0803D000U)
+#define FMC_MOTOR_ID_MAGIC_ADDR  ((uint32_t)0x0803D004U)
+#define MOTOR_ID_FLASH_MAGIC     ((uint32_t)0x5AA50F0FU)
+#define MOTOR_ID_DEFAULT         ((uint8_t)1U)
 /* usart communication */
 /* usart peripheral */
 #define COMM_USART_CLK                      RCU_USART2                      /* USART clock */

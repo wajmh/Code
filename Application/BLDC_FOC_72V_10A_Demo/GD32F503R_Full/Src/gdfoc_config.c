@@ -149,7 +149,8 @@ motor_struct motor = {
     .speed_pid = &speed_pid,                                                                /* pointer to a pid struct for speed control */
     .motor_start = start_ctrl,                                                              /* function pointer */
     .motor_stop = stop_ctrl,                                                                /* function pointer */
-    .motor_break = break_ctrl,                                                              /* function pointer */
+    .motor_break = break_ctrl,
+    .motor_id = 1U,                                                             /* function pointer */
 };
 
 /* smo observer parameter configuration */
