@@ -1,11 +1,11 @@
 Dependencies for Project 'Project', Target 'GD32F50X': (DO NOT MODIFY !)
 CompilerVersion: 6210000::V6.21::ARMCLANG
-F (..\..\Src\gd32_foc_it.c)(0x69A80479)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/gd32_foc_it.o -MD)
+F (..\..\Src\gd32_foc_it.c)(0x69AFDF3C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/gd32_foc_it.o -MD)
 I (..\..\Inc\systick.hi:\Keil5\ARM\ARMCLANG\include\stdint.h)(0x00000000)
 I (..\..\Inc\main.hk.\..\Inc\gdfoc_config.h)(0x00000000)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h)(0x698B01C6)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -59,7 +59,8 @@ I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor_ctrl.h)(0x699FEE2A)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\modulation.h)(0x68FF4164)
 I (..\..\Inc\motor_protect.h)(0x69A80D9B)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h)(0x699EB6AA)
-F (..\..\Src\main.c)(0x69AA7FAE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/main.o -MD)
+I (..\..\Src\Can_protocol.h0.\..\Src\Can_drv.h)(0x00000000)
+F (..\..\Src\main.c)(0x69AFCE6A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/main.o -MD)
 I (D:\Keil5\ARM\ARMCLANG\include\Inc\systick.h)(0x00000000)
 I (D:\Keil5\ARM\ARMCLANG\include\Inc\gd32_bldc_foc_eval.h)(0x00000000)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
@@ -108,7 +109,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\Inc\gdfoc_config.h)(0x69293701)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h)(0x698B01C6)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\vf_if_startup.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\smo_observer.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h)(0x698AFB33)
@@ -121,7 +122,7 @@ I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv
 I (..\..\Src\Can_drv.hS.\..\Src\Flash_drv.h)(0x00000000)
 F (..\..\Src\communication.c)(0x699E6640)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/communication.o -MD)
 I (..\..\Inc\communication.h)(0x6985B0A1)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -226,18 +227,18 @@ I (..\..\Inc\gd32_bldc_foc_oledfont.he.\..\Inc\gd32_bldc_foc_oledbmp.h)(0x000000
 I (..\..\Inc\gdfoc_config.h)(0x69293701)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h)(0x698B01C6)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\vf_if_startup.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\smo_observer.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h)(0x698AFB33)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\aflux_observer.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\pwm_current.h)(0x68FF4164)
 I (..\..\Inc\systick.h)(0x69293702)
-F (..\..\Src\gdfoc_config.c)(0x69A9317D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/gdfoc_config.o -MD)
+F (..\..\Src\gdfoc_config.c)(0x69AF7F4C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/gdfoc_config.o -MD)
 I (..\..\Inc\gdfoc_config.h)(0x69293701)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h)(0x698B01C6)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -293,7 +294,7 @@ I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\pwm_curre
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\pwm_current_3shunt.h)(0x69293701)
 F (..\..\Src\motor_protect.c)(0x69A80D95)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/motor_protect.o -MD)
 I (..\..\Inc\motor_protect.h)(0x69A80D9B)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -396,7 +397,7 @@ F (..\..\Inc\control_para.h)(0x699FACE2)()
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Src\angle.c)(0x698B01CE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/angle.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h)(0x698B01C6)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -445,9 +446,9 @@ I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\vf_if_startup.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\smo_observer.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h)(0x698AFB33)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\aflux_observer.h)(0x68FF4164)
-F (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Src\motor_ctrl.c)(0x69A7EADD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/motor_ctrl.o -MD)
+F (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Src\motor_ctrl.c)(0x69AFF5ED)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/motor_ctrl.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor_ctrl.h)(0x699FEE2A)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -495,7 +496,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h)(0x699EB6AA)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Src\pwm_current.c)(0x68FF4164)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/pwm_current.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\pwm_current.h)(0x68FF4164)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -546,7 +547,7 @@ I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\foc_math.h)(0x68FF4164)
 I (D:\Keil5\ARM\ARMCLANG\include\stdint.h)(0x6569B012)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Src\modulation.c)(0x68FF4164)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/modulation.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\modulation.h)(0x68FF4164)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -689,7 +690,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\foc_soft_delay.h)(0x69293701)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\angle_hall.c)(0x69A00538)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/angle_hall.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -736,7 +737,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h)(0x69293704)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\pwm_current_2shunt.c)(0x69293701)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/pwm_current_2shunt.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\pwm_current_2shunt.h)(0x69293701)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -783,7 +784,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h)(0x69293704)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\pwm_current_3shunt.c)(0x69293702)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/pwm_current_3shunt.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\pwm_current_3shunt.h)(0x69293701)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -830,7 +831,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h)(0x69293704)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\pwm_current_1shunt.c)(0x69293702)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/pwm_current_1shunt.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\pwm_current_1shunt.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -877,7 +878,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h)(0x69293704)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\angle_encoder.c)(0x69293702)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/angle_encoder.o -MD)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h)(0x698AFB33)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -971,7 +972,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h)(0x69293704)
 I (..\..\Inc\control_para.h)(0x699FACE2)
 F (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h)(0x699EB6AA)()
-F (..\..\Src\Can_drv.c)(0x69AA7F9A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/can_drv.o -MD)
+F (..\..\Src\Can_drv.c)(0x69B1031F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/can_drv.o -MD)
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Include\gd32f50x.h)(0x69293AEF)
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\core_cm33.h)(0x69293701)
 I (D:\Keil5\ARM\ARMCLANG\include\stdint.h)(0x6569B012)
@@ -1015,7 +1016,7 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\Inc\gdfoc_config.h)(0x69293701)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h)(0x698B01C6)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
-I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69A932F6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
 I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
 I (..\..\Inc\topology_para.h)(0x69A93325)
@@ -1025,7 +1026,7 @@ I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\smo_observer.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h)(0x698AFB33)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\aflux_observer.h)(0x68FF4164)
 I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\pwm_current.h)(0x68FF4164)
-F (..\..\Src\Can_drv.h)(0x69AA6FF8)()
+F (..\..\Src\Can_drv.h)(0x69AE5FDF)()
 F (..\..\Src\Flash_drv.c)(0x69A93334)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/flash_drv.o -MD)
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_fmc.h)(0x69293704)
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Include\gd32f50x.h)(0x69293AEF)
@@ -1069,6 +1070,63 @@ I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h)(0x69293704)
 I (..\..\Inc\topology_para.h)(0x69A93325)
 F (..\..\Src\Flash_drv.h)(0x69A935D3)()
+F (..\..\Src\Can_protocol.c)(0x69B10330)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/can_protocol.o -MD)
+I (..\..\Src\Can_protocol.h)(0x69AE5CDF)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Include\gd32f50x.h)(0x69293AEF)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\core_cm33.h)(0x69293701)
+I (D:\Keil5\ARM\ARMCLANG\include\stdint.h)(0x6569B012)
+I (D:\FOC\AAAA\FOC_V2.0_F503 (kai+vofa+485+dl+djd+mit)\FOC_V2.0_F503\Code\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\cmsis_version.h)(0x69293701)
+I (D:\FOC\AAAA\FOC_V2.0_F503 (kai+vofa+485+dl+djd+mit)\FOC_V2.0_F503\Code\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\cmsis_compiler.h)(0x69293701)
+I (D:\FOC\AAAA\FOC_V2.0_F503 (kai+vofa+485+dl+djd+mit)\FOC_V2.0_F503\Code\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\cmsis_armclang.h)(0x69293703)
+I (D:\Keil5\ARM\ARMCLANG\include\arm_compat.h)(0x64F9642C)
+I (D:\Keil5\ARM\ARMCLANG\include\arm_acle.h)(0x6569B010)
+I (D:\FOC\AAAA\FOC_V2.0_F503 (kai+vofa+485+dl+djd+mit)\FOC_V2.0_F503\Code\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\mpu_armv8.h)(0x69293702)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Include\system_gd32f50x.h)(0x69293701)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Include\gd32f50x_err_report.h)(0x69293702)
+I (..\..\Inc\gd32f50x_libopt.h)(0x69293702)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_adc.h)(0x69293703)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_bkp.h)(0x69293703)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_can.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_cau.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_cmp.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_crc.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_ctc.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_dac.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_dbg.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_dma.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_exmc.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_exti.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_fmc.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_fwdgt.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_gpio.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_hau.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_i2c.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_misc.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_pmu.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_rcu.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_rtc.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_spi.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_syscfg.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_timer.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_trigsel.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_trng.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_usart.h)(0x69293704)
+I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h)(0x69293704)
+I (..\..\Inc\gdfoc_config.h)(0x69293701)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h)(0x698B01C6)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h)(0x69293702)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h)(0x69AFBD82)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h)(0x69293702)
+I (..\..\Inc\motor_para.h2.\..\Inc\control_para.h)(0x00000000)
+I (..\..\Inc\topology_para.h)(0x69A93325)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\foc_math.h)(0x68FF4164)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\vf_if_startup.h)(0x68FF4164)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\smo_observer.h)(0x68FF4164)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h)(0x698AFB33)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\aflux_observer.h)(0x68FF4164)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\pwm_current.h)(0x68FF4164)
+I (..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h)(0x699EB6AA)
+F (..\..\Src\Can_protocol.h)(0x69AE5CDF)()
 F (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Source\system_gd32f50x.c)(0x69293703)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m33+nodsp -mfpu=fpv5-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Inc -I ../../../../../FOC_SDK2.0/FOC_Topology/Inc -I ../../../../../FOC_SDK2.0/FOC_Algorithm/Inc -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Inc -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS/GD/GD32F50x/Include -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/CMSIS -I ../../../../../Firmware/GD32F50x_Firmware_Library/Firmware/GD32F50x_standard_peripheral/Include -I ../../../../../FOC_SDK2.0/FOC_Driver/BLDC_FOC_72V_10A/GD32F503R/Src-I./RTE/_GD32F50X-ID:/Keil5/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-D__UVISION_VERSION="539" -D_RTE_ -D_RTE_ -DUSE_STDPERIPH_DRIVER -DGD32F50X -DGD32F503 -DFW_DEBUG_ERR_REPORT-o ./output/system_gd32f50x.o -MD)
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Include\gd32f50x.h)(0x69293AEF)
 I (..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\core_cm33.h)(0x69293701)

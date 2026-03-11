@@ -151,6 +151,14 @@ motor_struct motor = {
     .motor_stop = stop_ctrl,                                                                /* function pointer */
     .motor_break = break_ctrl,
     .motor_id = 1U,                                                             /* function pointer */
+    .force_position_target_pos = 0,                                                        // 力位混合模式目标位置
+    .force_position_target_vel = 0,                                                        // 力位混合模式目标速度
+    .force_position_target_torque = 0,                                                     // 力位混合模式目标力矩
+    .force_position_high_temp_torque_limit = 0,                                            // 力位混合模式力矩限制
+    .force_position_high_temp_torque_limit_flag = 0,                                       // 力位混合模式力矩限制标志
+    .error_flag = 0,                                                                        // 驱动器报警标志位
+    .force_position_kp = 1.0f,
+    .force_position_kd = 0.1f,
 };
 
 /* smo observer parameter configuration */

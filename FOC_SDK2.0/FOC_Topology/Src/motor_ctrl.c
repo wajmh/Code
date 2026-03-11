@@ -148,18 +148,47 @@ void motor_mit_iq_ref_update(motor_struct* motor)
 
     uart4_get_last_output_state(&theta_m, &dtheta_m);
 
-    pos_err = mit_wrap_to_pi(mit_p_des - theta_m);
-    speed_err = mit_v_des - dtheta_m;
-    t_ref = mit_kp * pos_err + mit_kd * speed_err + mit_t_ff;
-    iq_ref = t_ref / MIT_KT_OUT;
+    pos_err = mit_wrap_to_pi(motor->force_position_target_pos - theta_m);
+    speed_err = motor->force_position_target_vel - dtheta_m;
+    t_ref = motor->force_position_kp * pos_err
+          + motor->force_position_kd * speed_err
+          + motor->force_position_target_torque;
+
+     iq_ref = t_ref / MIT_KT_OUT;
+//    iq_ref = 0.0f;
 
     if(iq_ref > MIT_IQ_REF_MAX) {
         iq_ref = MIT_IQ_REF_MAX;
     } else if(iq_ref < -MIT_IQ_REF_MAX) {
         iq_ref = -MIT_IQ_REF_MAX;
-    } else {
     }
 
     motor->id_ref = 0.0f;
     motor->iq_ref = iq_ref;
 }
+// void motor_mit_iq_ref_update(motor_struct* motor)//力位混合模式
+// {
+//     float theta_m = 0.0f;
+//     float dtheta_m = 0.0f;
+//     float pos_err;
+//     float speed_err;
+//     float t_ref;
+//     float iq_ref;
+
+//     uart4_get_last_output_state(&theta_m, &dtheta_m);
+
+//     pos_err = mit_wrap_to_pi(mit_p_des - theta_m);
+//     speed_err = mit_v_des - dtheta_m;
+//     t_ref = mit_kp * pos_err + mit_kd * speed_err + mit_t_ff;
+//     iq_ref = t_ref / MIT_KT_OUT;
+
+//     if(iq_ref > MIT_IQ_REF_MAX) {
+//         iq_ref = MIT_IQ_REF_MAX;
+//     } else if(iq_ref < -MIT_IQ_REF_MAX) {
+//         iq_ref = -MIT_IQ_REF_MAX;
+//     } else {
+//     }
+
+//     motor->id_ref = 0.0f;
+//     motor->iq_ref = iq_ref;
+// }

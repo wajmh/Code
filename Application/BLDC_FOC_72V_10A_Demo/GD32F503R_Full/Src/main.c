@@ -60,7 +60,7 @@ int main(void)
     motor_id_flash_load(&id_tmp);
     motor.motor_id = id_tmp;
     can_drv_init();
-    uint8_t tx_data2[4] = {0x01, 0x02, 0x03, 0x04};
+//    uint8_t tx_data2[4] = {0x01, 0x02, 0x03, 0x04};
     while(1){
         /* motor running mode process */
         motor_running_mode_process();

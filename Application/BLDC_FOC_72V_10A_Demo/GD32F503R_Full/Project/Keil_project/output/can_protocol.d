@@ -1,15 +1,8 @@
-./output/gd32_foc_it.o: ..\..\Src\gd32_foc_it.c ..\..\Inc\gd32_foc_it.h \
-  ..\..\Inc\systick.h D:\Keil5\ARM\ARMCLANG\include\stdint.h \
-  ..\..\Inc\main.h ..\..\Inc\gdfoc_config.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h \
-  ..\..\Inc\motor_para.h ..\..\Inc\control_para.h \
-  ..\..\Inc\topology_para.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\foc_math.h \
+./output/can_protocol.o: ..\..\Src\Can_protocol.c \
+  ..\..\Src\Can_protocol.h ..\..\Src\Can_drv.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\GD\GD32F50x\Include\gd32f50x.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\core_cm33.h \
+  D:\Keil5\ARM\ARMCLANG\include\stdint.h \
   D:\FOC\AAAA\FOC_V2.0_F503\ (kai+vofa+485+dl+djd+mit)\FOC_V2.0_F503\Code\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\cmsis_version.h \
   D:\FOC\AAAA\FOC_V2.0_F503\ (kai+vofa+485+dl+djd+mit)\FOC_V2.0_F503\Code\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\cmsis_compiler.h \
   D:\FOC\AAAA\FOC_V2.0_F503\ (kai+vofa+485+dl+djd+mit)\FOC_V2.0_F503\Code\Firmware\GD32F50x_Firmware_Library\Firmware\CMSIS\cmsis_armclang.h \
@@ -47,14 +40,17 @@
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_trng.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_usart.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h \
+  ..\..\Inc\gdfoc_config.h \
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h \
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h \
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h \
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\basic_head.h \
+  ..\..\Inc\motor_para.h ..\..\Inc\control_para.h \
+  ..\..\Inc\topology_para.h \
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\foc_math.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\vf_if_startup.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\smo_observer.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\aflux_observer.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\pwm_current.h \
-  ..\..\Inc\gd32_bldc_foc_eval.h ..\..\Inc\communication.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor_ctrl.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\modulation.h \
-  ..\..\Inc\motor_protect.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h \
-  ..\..\Src\Can_protocol.h ..\..\Src\Can_drv.h
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h

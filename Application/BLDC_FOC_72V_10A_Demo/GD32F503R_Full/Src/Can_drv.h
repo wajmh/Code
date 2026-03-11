@@ -11,6 +11,9 @@ typedef struct {
     uint8_t data[8];
 } can_frame_t;
 
+extern volatile can_frame_t g_can_rx_message;
+extern volatile uint8_t g_can_rx_new_flag;
+
 /* init CAN1 on PB6(TX)/PB5(RX), fixed 1Mbps */
 uint8_t can_drv_init(void);
 

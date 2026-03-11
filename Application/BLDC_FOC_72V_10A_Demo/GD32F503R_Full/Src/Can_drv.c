@@ -22,9 +22,46 @@
 #define CAN_BS1_1M          CAN_BT_BS1_13TQ
 #define CAN_BS2_1M          CAN_BT_BS2_4TQ
 #define CAN_SJW_1M          CAN_BT_SJW_1TQ
+#define CAN_TX_QUEUE_SIZE   8U
+
+typedef struct {
+    uint16_t id;
+    uint8_t len;
+    uint8_t data[8];
+} can_tx_frame_t;
 
 static volatile uint8_t s_rx_ready = 0U;
 static can_frame_t s_rx_frame;
+static can_tx_frame_t s_tx_queue[CAN_TX_QUEUE_SIZE];
+static volatile uint8_t s_tx_head = 0U;
+static volatile uint8_t s_tx_tail = 0U;
+volatile can_frame_t g_can_rx_message = {0};
+volatile uint8_t g_can_rx_new_flag = 0U;
+void od_0x07FF_callback(can_frame_t *can_rx_message);
+
+static void can_tx_kick(void)
+{
+    can_transmit_message_struct tx;
+    uint8_t i;
+
+    while (s_tx_tail != s_tx_head) {
+        can_struct_para_init(CAN_TX_MESSAGE_STRUCT, &tx);
+        tx.tx_sfid = (uint32_t)(s_tx_queue[s_tx_tail].id & 0x7FFU);
+        tx.tx_ff = (uint8_t)CAN_FF_STANDARD;
+        tx.tx_ft = (uint8_t)CAN_FT_DATA;
+        tx.tx_dlen = s_tx_queue[s_tx_tail].len;
+
+        for (i = 0U; i < tx.tx_dlen; i++) {
+            tx.tx_data[i] = s_tx_queue[s_tx_tail].data[i];
+        }
+
+        if (can_message_transmit(CAN1, &tx) == CAN_NOMAILBOX) {
+            break;
+        }
+
+        s_tx_tail = (uint8_t)((s_tx_tail + 1U) % CAN_TX_QUEUE_SIZE);
+    }
+}
 
 static void can_gpio_init(void)
 {
@@ -42,7 +79,7 @@ static void can_gpio_init(void)
 uint8_t can_drv_init(void)
 {
     can_parameter_struct can_para;
-	can_filter_parameter_struct can_filter;
+	  can_filter_parameter_struct can_filter;
 
     can_gpio_init();
     rcu_periph_clock_enable(RCU_CAN0);
@@ -75,74 +112,95 @@ uint8_t can_drv_init(void)
     can_filter_mask_mode_init((uint32_t)(motor.motor_id & 0x7FFU), 0x7FFU, CAN_STANDARD_FIFO0, 15U);
 
     can_interrupt_enable(CAN1, CAN_INT_RFNE0);
+    can_interrupt_enable(CAN1, CAN_INT_TME);
     nvic_irq_enable(CAN1_RX0_IRQn, 2U, 0U);
+    nvic_irq_enable(CAN1_TX_IRQn, 3U, 0U);
 
     return 1U;
 }
 
 uint8_t can_drv_send_std(uint16_t std_id, const uint8_t *data, uint8_t len)
 {
-    can_transmit_message_struct tx;
-    uint8_t mb;
+    uint32_t primask;
     uint8_t i;
+    uint8_t next;
 
     if (len > 8U) {
         len = 8U;
     }
 
-    can_struct_para_init(CAN_TX_MESSAGE_STRUCT, &tx);
-    tx.tx_sfid = (uint32_t)(std_id & 0x7FFU);
-    tx.tx_ff = (uint8_t)CAN_FF_STANDARD;
-    tx.tx_ft = (uint8_t)CAN_FT_DATA;
-    tx.tx_dlen = len;
+    primask = __get_PRIMASK();
+    __disable_irq();
 
-    for (i = 0U; i < len; i++) {
-        tx.tx_data[i] = data[i];
+    next = (uint8_t)((s_tx_head + 1U) % CAN_TX_QUEUE_SIZE);
+    if (next == s_tx_tail) {
+        s_tx_tail = (uint8_t)((s_tx_tail + 1U) % CAN_TX_QUEUE_SIZE);
     }
 
-    mb = can_message_transmit(CAN1, &tx);
-    return (mb == CAN_NOMAILBOX) ? 0U : 1U;
+    s_tx_queue[s_tx_head].id = std_id;
+    s_tx_queue[s_tx_head].len = len;
+
+    for (i = 0U; i < len; i++) {
+        s_tx_queue[s_tx_head].data[i] = data[i];
+    }
+
+    s_tx_head = next;
+
+    __set_PRIMASK(primask);
+    NVIC_SetPendingIRQ(CAN1_TX_IRQn);
+
+    return 1U;
 }
 
-// uint8_t can_drv_pop(can_frame_t *frame)
-// {
-//     if ((frame == 0) || (s_rx_ready == 0U)) {
-//         return 0U;
-//     }
+uint8_t can_drv_pop(can_frame_t *frame)
+{
+    uint32_t primask;
 
-//     __disable_irq();
-//     *frame = s_rx_frame;
-//     s_rx_ready = 0U;
-//     __enable_irq();
+    if ((frame == 0) || (s_rx_ready == 0U)) {
+        return 0U;
+    }
 
-//     return 1U;
-// }
+    primask = __get_PRIMASK();
+    __disable_irq();
+    *frame = s_rx_frame;
+    s_rx_ready = 0U;
+    __set_PRIMASK(primask);
+
+    return 1U;
+}
 
 /* startup_gd32f50x.s 里是 weak，直接在这里实现即可 */
 void CAN1_RX0_IRQHandler(void)
 {
     can_receive_message_struct rx;
-    uint8_t i;
-    uint8_t dl;
+    uint8_t i, dl;
 
     while (can_receive_message_length_get(CAN1, CAN_FIFO0) > 0U) {
         can_struct_para_init(CAN_RX_MESSAGE_STRUCT, &rx);
         can_message_receive(CAN1, CAN_FIFO0, &rx);
 
-        s_rx_frame.ide = (rx.rx_ff == CAN_FF_EXTENDED) ? 1U : 0U;
-        s_rx_frame.id = s_rx_frame.ide ? rx.rx_efid : rx.rx_sfid;
-        s_rx_frame.rtr = (rx.rx_ft == CAN_FT_REMOTE) ? 1U : 0U;
+        g_can_rx_message.ide = (rx.rx_ff == CAN_FF_EXTENDED) ? 1U : 0U;
+        g_can_rx_message.id = g_can_rx_message.ide ? rx.rx_efid : rx.rx_sfid;
+        g_can_rx_message.rtr = (rx.rx_ft == CAN_FT_REMOTE) ? 1U : 0U;
 
         dl = rx.rx_dlen;
-        if (dl > 8U) {
-            dl = 8U;
-        }
-        s_rx_frame.len = dl;
+        if (dl > 8U) dl = 8U;
+        g_can_rx_message.len = dl;
 
-        for (i = 0U; i < dl; i++) {
-            s_rx_frame.data[i] = rx.rx_data[i];
+        for (i = 0; i < dl; i++) {
+            g_can_rx_message.data[i] = rx.rx_data[i];
         }
 
+        s_rx_frame = g_can_rx_message;
         s_rx_ready = 1U;
+        g_can_rx_new_flag = 1U;
     }
+}
+
+void CAN1_TX_IRQHandler(void)
+{
+    can_interrupt_flag_clear(CAN1, CAN_INT_FLAG_MTF0);
+    can_interrupt_flag_clear(CAN1, CAN_INT_FLAG_MTF1);
+    can_interrupt_flag_clear(CAN1, CAN_INT_FLAG_MTF2);
+    can_tx_kick();
 }

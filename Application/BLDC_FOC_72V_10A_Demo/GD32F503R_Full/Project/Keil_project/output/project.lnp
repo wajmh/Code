@@ -24,6 +24,7 @@
 ".\output\uart4_drv.o"
 ".\output\can_drv.o"
 ".\output\flash_drv.o"
+".\output\can_protocol.o"
 ".\output\system_gd32f50x.o"
 ".\output\gd32f50x_err_report.o"
 ".\output\gd32f50x_adc.o"

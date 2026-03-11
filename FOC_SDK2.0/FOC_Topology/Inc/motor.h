@@ -167,7 +167,43 @@ typedef struct{
     uint16_t i_b_offset;                                                        /* the offset of current b */
     uint16_t i_c_offset;                                                        /* the offset of current c */  
     uint16_t i_bus_offset;                                                      /* the offset of current bus */
-    
+        // =========================驱动器报警标志位=========================
+    // 驱动器报警标志位的各个位功能如下：
+    /*
+        bit 0：母线电压过低
+        bit 1：母线电压过高
+        bit 2：电机温度过低
+        bit 3：电机温度过高
+        bit 4: 电机温度特高需要拉停电机
+        bit 5：PCB温度过低
+        bit 6：PCB温度过高
+        bit 7：MCU温度过低
+        bit 8：MCU温度过高
+        bit 9: 编码器通信错误
+        bit 10: 过流
+        bit 11: 位置跟随误差报警
+        bit 12: 速度跟随误差报警
+     */
+    uint16_t    error_flag;                                                     //电机错误信息‘
+    // =========================保护参数=========================
+    float       DC_voltage_uplimit;                          // 母线电压上限
+    float       DC_voltage_downlimit;                        // 母线电压下限
+    float       motor_temperature_stoplimit;                 // 电机温度停止上限
+    float       motor_temperature_uplimit;                   // 电机温度上限
+    float       motor_temperature_downlimit;                 // 电机温度下限
+    float       PCB_temperature_uplimit;                     // PCB温度上限
+    float       PCB_temperature_downlimit;                   // PCB温度下限
+    float       MCU_temperature_uplimit;                     // MCU温度上限
+    float       MCU_temperature_downlimit;                   // MCU温度下限
+        //  力位混合模式的控制参数
+    float     force_position_target_pos;                    // 力位混合模式目标位置
+    float       force_position_target_vel;                    // 力位混合模式目标速度
+    float       force_position_target_torque;                 // 力位混合模式目标力矩
+    float       force_position_high_temp_torque_limit;        // 力位混合模式力矩限制
+    uint8_t     force_position_high_temp_torque_limit_flag;   // 力位混合模式力矩限制标志
+        //  MIT控制算法
+    float       force_position_kp;                           // 力位环比例系数
+    float       force_position_kd;                           // 力位环微分系数
     /* physical quantities on alpha-beta coordinate system */
     float ialpha;                                                               /* phase current of alpha winding, uint:A(Ampere) */
     float ibeta;                                                                /* phase current of beta winding, uint:A(Ampere) */

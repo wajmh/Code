@@ -31,7 +31,7 @@ OF SUCH DAMAGE.
 #include "motor_protect.h"
 #include "angle.h"
 #include "Uart4_drv.h"
-
+#include "Can_protocol.h"
 #define SRAM_ECC_ERROR_HANDLE(s)    do{}while(1)
 
 /*!
@@ -202,6 +202,11 @@ void FOC_CONTORL_IRQHandler(void)
     }
 
     angle_get(&rotor_angle,&motor);
+
+    if (g_can_rx_new_flag) {
+    g_can_rx_new_flag = 0;
+    od_0x07FF_callback((can_frame_t *)&g_can_rx_message);
+   }
 
     sin_cos_float(rotor_angle.elec_angle,&phase_sincos.sin,&phase_sincos.cos);
     
