@@ -24,6 +24,7 @@ OF SUCH DAMAGE.
 #include "systick.h"
 
 volatile static uint32_t delay;
+volatile static uint32_t systick_ms;
 
 /*!
     \brief      configure systick
@@ -65,7 +66,20 @@ void delay_1ms(uint32_t count)
 */
 void delay_decrement(void)
 {
+    systick_ms++;
+
     if (0U != delay){
         delay--;
     }
+}
+
+/*!
+    \brief      get system tick count in milliseconds
+    \param[in]  none
+    \param[out] none
+    \retval     system tick count
+*/
+uint32_t systick_get_ms(void)
+{
+    return systick_ms;
 }

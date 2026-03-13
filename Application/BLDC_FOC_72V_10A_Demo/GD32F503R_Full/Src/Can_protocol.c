@@ -2,10 +2,50 @@
 #include "Can_drv.h"
 #include "gdfoc_config.h"
 #include "Uart4_drv.h"
+#include "Flash_drv.h"
+#include "systick.h"
+
+#define CAN_HEARTBEAT_TIMEOUT_MS    (500U)
+
 uint8_t return_4data[4] = {0x00,0x00,0x00,0x00};
 uint8_t return_5data[5] = {0x00,0x00,0x00,0x00,0x00};
 uint8_t return_8data[8] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+static volatile uint32_t can_last_rx_ms = 0U;
+static volatile uint8_t can_heartbeat_armed = 0U;
+
 static void type1_response(uint16_t motor_id);
+
+void can_heartbeat_feed(void)
+{
+    can_last_rx_ms = systick_get_ms();
+    can_heartbeat_armed = 1U;
+}
+
+void can_heartbeat_timeout_check(void)
+{
+    uint32_t elapsed_ms = 0U;
+
+    if (0U == can_heartbeat_armed) {
+        return;
+    }
+
+    if ((motor.state != MC_STATE_RUNNING) && (motor.state != MC_STATE_BRAKE)) {
+        return;
+    }
+
+    elapsed_ms = systick_get_ms() - can_last_rx_ms;
+    if (elapsed_ms < CAN_HEARTBEAT_TIMEOUT_MS) {
+        return;
+    }
+
+    can_heartbeat_armed = 0U;
+    if (motor.state == MC_STATE_RUNNING) {
+        motor.command = MC_STOP;
+    } else {
+        motor.command = MC_BREAK;
+    }
+}
+
 void od_0x07FF_callback(can_frame_t *can_rx_message)
 {
     uint8_t length = can_rx_message->len;
@@ -54,9 +94,18 @@ void od_0x07FF_callback(can_frame_t *can_rx_message)
             if ((can_rx_message->data[3]== 0x04))
             {
                 uint16_t motor_id = can_rx_message->data[0] << 8 | can_rx_message->data[1];
-                if (motor.motor_id != motor_id) return;
-                uint16_t motor_new_id = can_rx_message->data[4] << 8 | can_rx_message->data[5];
+                if (motor.motor_id != motor_id){
+                        return_4data[0] = can_rx_message->data[0];
+                        return_4data[1] = can_rx_message->data[1];
+                        return_4data[2] = 0x01;
+                        return_4data[3] = 0x00;
+                        can_drv_send_std(0x7FF,return_4data,4);
+                    return;
+                }
+                uint8_t motor_new_id = can_rx_message->data[4] << 8 | can_rx_message->data[5];
+                motor.motor_id = motor_new_id;
                 //axis.set_motor_num(motor_new_id);
+                motor_id_flash_save((uint8_t)motor_new_id);//读写flash后续需要分开，需要在运行和不运行的时候做好分离  不然会使能电机
                 //需要添加修改id的操作
                 return_4data[0] = can_rx_message->data[4];
                 return_4data[1] = can_rx_message->data[5];
@@ -78,12 +127,15 @@ void od_0x07FF_callback(can_frame_t *can_rx_message)
                 //         break;
                 //     }
                 // }
+                motor.motor_id = 0x01;
+                motor_id_flash_save(0x01);
                 return_4data[0] = 0x7F;
                 return_4data[1] = 0x7F;
                 return_4data[2] = 0x01;
                 return_4data[3] = 0x05;
                 can_drv_send_std(0x7FF,return_4data,4);
             }
+            break;
         case 8: {
             uint16_t motor_id = can_rx_message->id;
             uint16_t temp_cnt = 0;

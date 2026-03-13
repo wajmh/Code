@@ -161,6 +161,8 @@ void SysTick_Handler(void)//每一毫秒调用一次
     motor_idqref_calc(&motor);
     /* motor protect process */
     motor_protect_check();
+    /* stop motor if CAN heartbeat is lost */
+    can_heartbeat_timeout_check();//can的心跳检测，丢失则停止电机，500ms丢失则报警
     /* transmit the motor state data using the usart */
 //    comm_usart_motor_state_data_transmit();
 }

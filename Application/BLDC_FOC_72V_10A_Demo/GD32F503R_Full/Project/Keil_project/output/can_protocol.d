@@ -53,4 +53,5 @@
   ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_encoder.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Algorithm\Inc\aflux_observer.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\pwm_current.h \
-  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h
+  ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Src\Uart4_drv.h \
+  ..\..\Src\Flash_drv.h ..\..\Inc\systick.h

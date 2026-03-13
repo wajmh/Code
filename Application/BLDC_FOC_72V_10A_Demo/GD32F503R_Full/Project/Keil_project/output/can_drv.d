@@ -39,7 +39,7 @@
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_trng.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_usart.h \
   ..\..\..\..\..\Firmware\GD32F50x_Firmware_Library\Firmware\GD32F50x_standard_peripheral\Include\gd32f50x_wwdgt.h \
-  ..\..\Inc\gdfoc_config.h \
+  ..\..\Src\Can_protocol.h ..\..\Inc\gdfoc_config.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\angle.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Driver\BLDC_FOC_72V_10A\GD32F503R\Inc\angle_hall.h \
   ..\..\..\..\..\FOC_SDK2.0\FOC_Topology\Inc\motor.h \

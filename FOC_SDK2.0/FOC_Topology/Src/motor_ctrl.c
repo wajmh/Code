@@ -41,7 +41,7 @@ static float mit_wrap_to_pi(float angle)
         angle += MOTOR_PI_2;
     }
     return angle;
-}
+}//最短路径计算
 
 /*!
     \brief      initialize motor status

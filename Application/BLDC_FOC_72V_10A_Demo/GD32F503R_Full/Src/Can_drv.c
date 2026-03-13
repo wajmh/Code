@@ -1,4 +1,5 @@
 #include "Can_drv.h"
+#include "Can_protocol.h"
 #include "gdfoc_config.h"
 #include "gd32f50x_can.h"
 #include "gd32f50x_gpio.h"
@@ -193,6 +194,7 @@ void CAN1_RX0_IRQHandler(void)
 
         s_rx_frame = g_can_rx_message;
         s_rx_ready = 1U;
+        can_heartbeat_feed();
         g_can_rx_new_flag = 1U;
     }
 }
