@@ -38,6 +38,10 @@ static void motor_protect_voltage_check(void);
 static void motor_protect_over_current_check(void);
 /* check whether the motor is locked */
 static void motor_protect_motor_locked_check(void);
+/* check whether the bus voltage exceeds threshold in FOC interrupt */
+static void motor_protect_fast_voltage_check(void);
+/* check whether the phase current exceeds threshold in FOC interrupt */
+static void motor_protect_fast_over_current_check(void);
 /* static variables definition */
 /* ADC sampled bus voltage data */
 static uint16_t adc_regular_buffer = 0;
@@ -119,6 +123,23 @@ void motor_protect_check(void)
             }
         }
     }
+}
+
+/*!
+    \brief      fast motor protect process in FOC interrupt
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+void motor_protect_fast_check(void)
+{
+
+    if(motor.fault != FAULT_NONE) {
+        return;
+    }
+
+    motor_protect_fast_voltage_check();
+    motor_protect_fast_over_current_check();
 }
 
 /*!
@@ -300,6 +321,40 @@ static void motor_protect_over_current_check(void)
             motor_protect.fault_iteration[FAULT_OVER_CURRENT] = 0;
         }
     }
+}
+
+/*!
+    \brief      check whether the motor is undervoltage or overvoltage in FOC interrupt
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+static void motor_protect_fast_voltage_check(void)
+{
+    motor_protect.v_bus = adc_regular_buffer * BUS_VOLTAGE_CALC_FACTOR;
+
+    if((motor_protect.v_bus < BUS_VOLTAGE_THRESHOLD_LOW) ||
+            (motor_protect.v_bus > BUS_VOLTAGE_THRESHOLD_HIGH)) {
+            motor.fault = FAULT_VOLTAGE_ERROR;
+    }
+
+    adc_software_trigger_enable(ADC0, ADC_ROUTINE_CHANNEL);
+}
+
+/*!
+    \brief      check whether the motor overcurrent in FOC interrupt
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+static void motor_protect_fast_over_current_check(void)
+{
+    const float iq_abs = (motor.iq >= 0.0f) ? motor.iq : -motor.iq;
+
+    if(iq_abs > PHASE_CURRENT_THRESHOLD_HIGH) {
+            motor_protect.i_phase_amplit = iq_abs;//记录过流值
+            motor.fault = FAULT_OVER_CURRENT;
+        }
 }
 
 /*!

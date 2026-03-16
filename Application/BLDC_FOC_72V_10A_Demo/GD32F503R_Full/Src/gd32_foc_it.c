@@ -160,7 +160,7 @@ void SysTick_Handler(void)//每一毫秒调用一次
     /* calculate the reference current of d-q */
     motor_idqref_calc(&motor);
     /* motor protect process */
-    motor_protect_check();
+//    motor_protect_check();
     /* stop motor if CAN heartbeat is lost */
     can_heartbeat_timeout_check();//can的心跳检测，丢失则停止电机，500ms丢失则报警
     /* transmit the motor state data using the usart */
@@ -211,13 +211,19 @@ void FOC_CONTORL_IRQHandler(void)
    }
 
     sin_cos_float(rotor_angle.elec_angle,&phase_sincos.sin,&phase_sincos.cos);
-    
     clarke_amplitude(&motor.ialpha, &motor.ibeta, motor.ia, motor.ib);
     park(&motor.id, &motor.iq, motor.ialpha, motor.ibeta, phase_sincos);
+    motor_protect_fast_check();//过流过压检测
+    if(motor.fault != FAULT_NONE) {
+        motor.state = MC_STATE_FAULT;
+        motor.command = MC_NONE;
+        motor_stop(&motor);
+        return;
+    }
 
-   if((motor.state == MC_STATE_RUNNING) && (motor.running_mode == OPENLOOP_IF)) {
+    if((motor.state == MC_STATE_RUNNING) && (motor.running_mode == OPENLOOP_IF)) {
         motor_mit_iq_ref_update(&motor);
-   }
+    }
 
     motor_udq_calc(&motor);
     

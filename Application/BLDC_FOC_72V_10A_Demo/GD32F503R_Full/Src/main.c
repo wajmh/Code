@@ -45,6 +45,7 @@ static void motor_running_mode_process(void);
 */
 int main(void)
 
+
 {
     /* enable TIMER behavior when the mcu is in debug mode */
     dbg_periph_enable(DBG_TIMER0_HOLD);
@@ -202,7 +203,7 @@ static void motor_running_mode_process(void)
             motor.udq_mode = UDQ_OBSERVER;
             motor.idqref_mode = IDQ_SPEED_OBSERVER;
         }else if(SMO_IF == motor.running_mode ){
-            rotor_angle.pos_mode = SMO_MODE ;
+            rotor_angle.pos_mode = SMO_MODE;
             motor.startup_mode = IF_STARTUP;
             motor.udq_mode = UDQ_OBSERVER;
             motor.idqref_mode = IDQ_SPEED_OBSERVER;

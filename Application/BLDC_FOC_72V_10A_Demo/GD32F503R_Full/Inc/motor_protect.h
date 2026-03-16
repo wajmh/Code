@@ -29,7 +29,7 @@ OF SUCH DAMAGE.
 /* bus voltage protect parameters */
 #define BUS_VOLTAGE_CALC_FACTOR               (3.3f / (4096 * BUS_VOLTAGE_AMP_GAIN))                                /* the scale factor of calculate the real value of the motor bus voltage */
 #define BUS_VOLTAGE_THRESHOLD_LOW             (16.0f)                                                               /* the low threshold value of bus voltage, uint: volt */
-#define BUS_VOLTAGE_THRESHOLD_HIGH            (50.0f)                                                               /* the high threshold value of bus voltage, uint: volt */
+#define BUS_VOLTAGE_THRESHOLD_HIGH            (70.0f)                                                               /* the high threshold value of bus voltage, uint: volt */
 #define VOLTAGE_ERROR_COUNT_MAX               (250U)                                                                /* the maximum value of voltage error count, uint: ms */
 #define VOLTAGE_ERROR_RECOV_COUNT_MAX         (1000U)                                                               /* the maximum value of voltage error recovery count, uint: ms */
 
@@ -76,6 +76,8 @@ void motor_protect_peripheral_init(void);
 void motor_protect_var_init(void);
 /* motor protect process */
 void motor_protect_check(void);
+/* fast motor protect process in FOC interrupt */
+void motor_protect_fast_check(void);
 /* check whether the motor phase loss */
 void motor_protect_phase_loss_check(void);
 
