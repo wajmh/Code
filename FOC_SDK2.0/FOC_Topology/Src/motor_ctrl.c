@@ -29,7 +29,7 @@ OF SUCH DAMAGE.
 volatile float mit_p_des = 3.0f;
 volatile float mit_v_des = 0.0f;
 volatile float mit_kp = 5.0f;
-volatile float mit_kd = 0.2f;
+volatile float mit_kd = 0.0f;
 volatile float mit_t_ff = 0.0f;
 
 static float mit_wrap_to_pi(float angle)
